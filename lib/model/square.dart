@@ -7,8 +7,7 @@ part 'square.freezed.dart';
 @freezed
 class Square with _$Square {
   const factory Square({
-    required int row,
-    required int column,
+    required ({int row, int column}) position,
     @Default(false) bool isPlaceable,
     Piece? piece,
   }) = _Square;

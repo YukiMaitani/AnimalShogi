@@ -17,11 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Piece {
   PieceType get pieceType => throw _privateConstructorUsedError;
-  int get row => throw _privateConstructorUsedError;
-  int get column => throw _privateConstructorUsedError;
+  ({int column, int row}) get position => throw _privateConstructorUsedError;
   Player get player => throw _privateConstructorUsedError;
   List<Movement> get movements => throw _privateConstructorUsedError;
   bool get isRoyal => throw _privateConstructorUsedError;
+  bool get isCaptured => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PieceCopyWith<Piece> get copyWith => throw _privateConstructorUsedError;
@@ -34,11 +34,11 @@ abstract class $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {PieceType pieceType,
-      int row,
-      int column,
+      ({int column, int row}) position,
       Player player,
       List<Movement> movements,
-      bool isRoyal});
+      bool isRoyal,
+      bool isCaptured});
 }
 
 /// @nodoc
@@ -55,25 +55,21 @@ class _$PieceCopyWithImpl<$Res, $Val extends Piece>
   @override
   $Res call({
     Object? pieceType = null,
-    Object? row = null,
-    Object? column = null,
+    Object? position = null,
     Object? player = null,
     Object? movements = null,
     Object? isRoyal = null,
+    Object? isCaptured = null,
   }) {
     return _then(_value.copyWith(
       pieceType: null == pieceType
           ? _value.pieceType
           : pieceType // ignore: cast_nullable_to_non_nullable
               as PieceType,
-      row: null == row
-          ? _value.row
-          : row // ignore: cast_nullable_to_non_nullable
-              as int,
-      column: null == column
-          ? _value.column
-          : column // ignore: cast_nullable_to_non_nullable
-              as int,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as ({int column, int row}),
       player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
@@ -85,6 +81,10 @@ class _$PieceCopyWithImpl<$Res, $Val extends Piece>
       isRoyal: null == isRoyal
           ? _value.isRoyal
           : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -98,11 +98,11 @@ abstract class _$$_PieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {PieceType pieceType,
-      int row,
-      int column,
+      ({int column, int row}) position,
       Player player,
       List<Movement> movements,
-      bool isRoyal});
+      bool isRoyal,
+      bool isCaptured});
 }
 
 /// @nodoc
@@ -115,25 +115,21 @@ class __$$_PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res, _$_Piece>
   @override
   $Res call({
     Object? pieceType = null,
-    Object? row = null,
-    Object? column = null,
+    Object? position = null,
     Object? player = null,
     Object? movements = null,
     Object? isRoyal = null,
+    Object? isCaptured = null,
   }) {
     return _then(_$_Piece(
       pieceType: null == pieceType
           ? _value.pieceType
           : pieceType // ignore: cast_nullable_to_non_nullable
               as PieceType,
-      row: null == row
-          ? _value.row
-          : row // ignore: cast_nullable_to_non_nullable
-              as int,
-      column: null == column
-          ? _value.column
-          : column // ignore: cast_nullable_to_non_nullable
-              as int,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as ({int column, int row}),
       player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
@@ -146,6 +142,10 @@ class __$$_PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res, _$_Piece>
           ? _value.isRoyal
           : isRoyal // ignore: cast_nullable_to_non_nullable
               as bool,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -155,20 +155,18 @@ class __$$_PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res, _$_Piece>
 class _$_Piece extends _Piece with DiagnosticableTreeMixin {
   _$_Piece(
       {required this.pieceType,
-      required this.row,
-      required this.column,
+      required this.position,
       required this.player,
       required final List<Movement> movements,
-      required this.isRoyal})
+      required this.isRoyal,
+      required this.isCaptured})
       : _movements = movements,
         super._();
 
   @override
   final PieceType pieceType;
   @override
-  final int row;
-  @override
-  final int column;
+  final ({int column, int row}) position;
   @override
   final Player player;
   final List<Movement> _movements;
@@ -181,10 +179,12 @@ class _$_Piece extends _Piece with DiagnosticableTreeMixin {
 
   @override
   final bool isRoyal;
+  @override
+  final bool isCaptured;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Piece(pieceType: $pieceType, row: $row, column: $column, player: $player, movements: $movements, isRoyal: $isRoyal)';
+    return 'Piece(pieceType: $pieceType, position: $position, player: $player, movements: $movements, isRoyal: $isRoyal, isCaptured: $isCaptured)';
   }
 
   @override
@@ -193,11 +193,11 @@ class _$_Piece extends _Piece with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'Piece'))
       ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('row', row))
-      ..add(DiagnosticsProperty('column', column))
+      ..add(DiagnosticsProperty('position', position))
       ..add(DiagnosticsProperty('player', player))
       ..add(DiagnosticsProperty('movements', movements))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
+      ..add(DiagnosticsProperty('isRoyal', isRoyal))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured));
   }
 
   @override
@@ -207,17 +207,19 @@ class _$_Piece extends _Piece with DiagnosticableTreeMixin {
             other is _$_Piece &&
             (identical(other.pieceType, pieceType) ||
                 other.pieceType == pieceType) &&
-            (identical(other.row, row) || other.row == row) &&
-            (identical(other.column, column) || other.column == column) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
             (identical(other.player, player) || other.player == player) &&
             const DeepCollectionEquality()
                 .equals(other._movements, _movements) &&
-            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pieceType, row, column, player,
-      const DeepCollectionEquality().hash(_movements), isRoyal);
+  int get hashCode => Object.hash(runtimeType, pieceType, position, player,
+      const DeepCollectionEquality().hash(_movements), isRoyal, isCaptured);
 
   @JsonKey(ignore: true)
   @override
@@ -229,25 +231,25 @@ class _$_Piece extends _Piece with DiagnosticableTreeMixin {
 abstract class _Piece extends Piece {
   factory _Piece(
       {required final PieceType pieceType,
-      required final int row,
-      required final int column,
+      required final ({int column, int row}) position,
       required final Player player,
       required final List<Movement> movements,
-      required final bool isRoyal}) = _$_Piece;
+      required final bool isRoyal,
+      required final bool isCaptured}) = _$_Piece;
   _Piece._() : super._();
 
   @override
   PieceType get pieceType;
   @override
-  int get row;
-  @override
-  int get column;
+  ({int column, int row}) get position;
   @override
   Player get player;
   @override
   List<Movement> get movements;
   @override
   bool get isRoyal;
+  @override
+  bool get isCaptured;
   @override
   @JsonKey(ignore: true)
   _$$_PieceCopyWith<_$_Piece> get copyWith =>

@@ -34,8 +34,7 @@ class GamePage extends HookConsumerWidget {
       final squareLength = MediaQuery.of(context).size.width * 0.8 / 3;
       final boardWidth = squareLength * AnimalShogi.maxRow;
       final boardHeight = squareLength * AnimalShogi.maxColumn;
-      final expandSquares =
-          ref.watch(gameProvider.select((value) => value.expandSquares));
+      final squares = ref.watch(gameProvider.select((value) => value.squares));
       return Center(
         child: SizedBox(
           width: boardWidth,
@@ -46,7 +45,7 @@ class GamePage extends HookConsumerWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             crossAxisCount: 3,
-            children: expandSquares
+            children: squares
                 .map(
                   (square) => _buildSquare(
                     square: square,

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Board {
-  List<List<Square>> get squares => throw _privateConstructorUsedError;
+  List<Square> get squares => throw _privateConstructorUsedError;
   List<Piece> get capturedPieces => throw _privateConstructorUsedError;
   Turn get turn => throw _privateConstructorUsedError;
 
@@ -29,8 +29,7 @@ abstract class $BoardCopyWith<$Res> {
   factory $BoardCopyWith(Board value, $Res Function(Board) then) =
       _$BoardCopyWithImpl<$Res, Board>;
   @useResult
-  $Res call(
-      {List<List<Square>> squares, List<Piece> capturedPieces, Turn turn});
+  $Res call({List<Square> squares, List<Piece> capturedPieces, Turn turn});
 }
 
 /// @nodoc
@@ -54,7 +53,7 @@ class _$BoardCopyWithImpl<$Res, $Val extends Board>
       squares: null == squares
           ? _value.squares
           : squares // ignore: cast_nullable_to_non_nullable
-              as List<List<Square>>,
+              as List<Square>,
       capturedPieces: null == capturedPieces
           ? _value.capturedPieces
           : capturedPieces // ignore: cast_nullable_to_non_nullable
@@ -73,8 +72,7 @@ abstract class _$$_BoardCopyWith<$Res> implements $BoardCopyWith<$Res> {
       __$$_BoardCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<List<Square>> squares, List<Piece> capturedPieces, Turn turn});
+  $Res call({List<Square> squares, List<Piece> capturedPieces, Turn turn});
 }
 
 /// @nodoc
@@ -94,7 +92,7 @@ class __$$_BoardCopyWithImpl<$Res> extends _$BoardCopyWithImpl<$Res, _$_Board>
       squares: null == squares
           ? _value._squares
           : squares // ignore: cast_nullable_to_non_nullable
-              as List<List<Square>>,
+              as List<Square>,
       capturedPieces: null == capturedPieces
           ? _value._capturedPieces
           : capturedPieces // ignore: cast_nullable_to_non_nullable
@@ -111,15 +109,15 @@ class __$$_BoardCopyWithImpl<$Res> extends _$BoardCopyWithImpl<$Res, _$_Board>
 
 class _$_Board implements _Board {
   const _$_Board(
-      {required final List<List<Square>> squares,
+      {required final List<Square> squares,
       required final List<Piece> capturedPieces,
       required this.turn})
       : _squares = squares,
         _capturedPieces = capturedPieces;
 
-  final List<List<Square>> _squares;
+  final List<Square> _squares;
   @override
-  List<List<Square>> get squares {
+  List<Square> get squares {
     if (_squares is EqualUnmodifiableListView) return _squares;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_squares);
@@ -168,12 +166,12 @@ class _$_Board implements _Board {
 
 abstract class _Board implements Board {
   const factory _Board(
-      {required final List<List<Square>> squares,
+      {required final List<Square> squares,
       required final List<Piece> capturedPieces,
       required final Turn turn}) = _$_Board;
 
   @override
-  List<List<Square>> get squares;
+  List<Square> get squares;
   @override
   List<Piece> get capturedPieces;
   @override

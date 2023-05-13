@@ -18,15 +18,12 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<List<Square>> get squares => board.squares;
+  List<Square> get squares => board.squares;
 
-  set squares(List<List<Square>> value) {
+  set squares(List<Square> value) {
     _board = _board.copyWith(squares: value);
     notifyListeners();
   }
-
-  List<Square> get expandSquares =>
-      board.squares.expand((element) => element).toList();
 
   List<Piece> get capturedPieces => _board.capturedPieces;
 

@@ -1,6 +1,6 @@
-import 'dart:io';
 import 'dart:ui';
 
+import 'package:animal_shogi_flutter/foundation/animal_shogi.dart';
 import 'package:animal_shogi_flutter/foundation/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,37 +11,34 @@ part 'piece.freezed.dart';
 class Piece with _$Piece {
   factory Piece({
     required PieceType pieceType,
-    required int row,
-    required int column,
+    required ({int row, int column}) position,
     required Player player,
     required List<Movement> movements,
     required bool isRoyal,
+    required bool isCaptured,
   }) = _Piece;
 
   Piece._();
 
   factory Piece.lion(
-          {required int row,
-          required int column,
+          {required ({int row, int column}) position,
           required Player player,
-          File? imageFile}) =>
+          bool isCaptured = false}) =>
       Piece(
           pieceType: PieceType.lion,
-          row: row,
-          column: column,
+          position: position,
           player: player,
           movements: Movement.values,
-          isRoyal: true);
+          isRoyal: true,
+          isCaptured: isCaptured);
 
   factory Piece.giraffe(
-          {required int row,
-          required int column,
+          {required ({int row, int column}) position,
           required Player player,
-          File? imageFile}) =>
+          bool isCaptured = false}) =>
       Piece(
           pieceType: PieceType.giraffe,
-          row: row,
-          column: column,
+          position: position,
           player: player,
           movements: [
             Movement.up,
@@ -49,17 +46,16 @@ class Piece with _$Piece {
             Movement.right,
             Movement.left
           ],
-          isRoyal: false);
+          isRoyal: false,
+          isCaptured: isCaptured);
 
   factory Piece.elephant(
-          {required int row,
-          required int column,
+          {required ({int row, int column}) position,
           required Player player,
-          File? imageFile}) =>
+          bool isCaptured = false}) =>
       Piece(
           pieceType: PieceType.elephant,
-          row: row,
-          column: column,
+          position: position,
           player: player,
           movements: [
             Movement.upRight,
@@ -67,33 +63,30 @@ class Piece with _$Piece {
             Movement.downRight,
             Movement.downLeft
           ],
-          isRoyal: false);
+          isRoyal: false,
+          isCaptured: isCaptured);
 
   factory Piece.chick(
-          {required int row,
-          required int column,
+          {required ({int row, int column}) position,
           required Player player,
-          File? imageFile,
-          File? promotionImageFile}) =>
+          bool isCaptured = false}) =>
       Piece(
           pieceType: PieceType.chick,
-          row: row,
-          column: column,
+          position: position,
           player: player,
           movements: [
             Movement.up,
           ],
-          isRoyal: false);
+          isRoyal: false,
+          isCaptured: isCaptured);
 
   factory Piece.chicken(
-          {required int row,
-          required int column,
+          {required ({int row, int column}) position,
           required Player player,
-          File? imageFile}) =>
+          bool isCaptured = false}) =>
       Piece(
           pieceType: PieceType.chicken,
-          row: row,
-          column: column,
+          position: position,
           player: player,
           movements: [
             Movement.up,
@@ -103,7 +96,10 @@ class Piece with _$Piece {
             Movement.upRight,
             Movement.upLeft,
           ],
-          isRoyal: false);
+          isRoyal: false,
+          isCaptured: isCaptured);
+
+  int get squareIndex => position.row + position.column * AnimalShogi.maxRow;
 }
 
 enum PieceType {
@@ -142,21 +138,17 @@ enum Player {
 }
 
 enum Movement {
-  up(moveRow: 0, moveColumn: 1, markPaintSize: Size(1, 0)),
-  down(moveRow: 0, moveColumn: -1, markPaintSize: Size(1, 2)),
-  right(moveRow: 1, moveColumn: 0, markPaintSize: Size(2, 1)),
-  left(moveRow: -1, moveColumn: 0, markPaintSize: Size(0, 1)),
-  upRight(moveRow: 1, moveColumn: 1, markPaintSize: Size(2, 0)),
-  upLeft(moveRow: 1, moveColumn: -1, markPaintSize: Size(0, 0)),
-  downRight(moveRow: -1, moveColumn: 1, markPaintSize: Size(2, 2)),
-  downLeft(moveRow: -1, moveColumn: -1, markPaintSize: Size(0, 2));
+  up(direction: (row: 0, column: 1), markPaintPosition: (x: 1, y: 0)),
+  down(direction: (row: 0, column: -1), markPaintPosition: (x: 1, y: 2)),
+  right(direction: (row: 1, column: 0), markPaintPosition: (x: 2, y: 1)),
+  left(direction: (row: -1, column: 0), markPaintPosition: (x: 0, y: 1)),
+  upRight(direction: (row: 1, column: 1), markPaintPosition: (x: 2, y: 0)),
+  upLeft(direction: (row: 1, column: -1), markPaintPosition: (x: 0, y: 0)),
+  downRight(direction: (row: -1, column: 1), markPaintPosition: (x: 2, y: 2)),
+  downLeft(direction: (row: -1, column: -1), markPaintPosition: (x: 0, y: 2));
 
-  const Movement(
-      {required this.moveRow,
-      required this.moveColumn,
-      required this.markPaintSize});
+  const Movement({required this.direction, required this.markPaintPosition});
 
-  final int moveRow;
-  final int moveColumn;
-  final Size markPaintSize;
+  final ({int row, int column}) direction;
+  final ({int x, int y}) markPaintPosition;
 }
