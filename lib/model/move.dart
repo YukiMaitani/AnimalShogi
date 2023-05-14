@@ -5,12 +5,13 @@ part 'move.freezed.dart';
 
 @freezed
 sealed class Move with _$Move {
+  // squareIndex基準
   const factory Move.up({
-    @Default((row: 0, column: 1)) ({int row, int column}) direction,
+    @Default((row: 0, column: -1)) ({int row, int column}) direction,
   }) = UpMove;
 
   const factory Move.down({
-    @Default((row: 0, column: -1)) ({int row, int column}) direction,
+    @Default((row: 0, column: 1)) ({int row, int column}) direction,
   }) = DownMove;
 
   const factory Move.right({
@@ -22,19 +23,19 @@ sealed class Move with _$Move {
   }) = LeftMove;
 
   const factory Move.upRight({
-    @Default((row: 1, column: 1)) ({int row, int column}) direction,
+    @Default((row: 1, column: -1)) ({int row, int column}) direction,
   }) = UpRightMove;
 
   const factory Move.upLeft({
-    @Default((row: 1, column: -1)) ({int row, int column}) direction,
+    @Default((row: -1, column: -1)) ({int row, int column}) direction,
   }) = UpLeftMove;
 
   const factory Move.downRight({
-    @Default((row: -1, column: 1)) ({int row, int column}) direction,
+    @Default((row: 1, column: 1)) ({int row, int column}) direction,
   }) = DownRightMove;
 
   const factory Move.downLeft({
-    @Default((row: -1, column: -1)) ({int row, int column}) direction,
+    @Default((row: -1, column: 1)) ({int row, int column}) direction,
   }) = DownLeftMove;
 }
 

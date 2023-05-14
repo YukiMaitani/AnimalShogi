@@ -1,41 +1,20 @@
-import 'package:animal_shogi_flutter/model/position.dart';
-
-import '../model/board.dart';
-import '../model/piece.dart';
-import '../model/player.dart';
-import '../model/square.dart';
+import '../model/model.dart';
 
 class AnimalShogi {
   static const int maxRow = 3;
   static const int maxColumn = 4;
 
   static int get maxSquare => maxRow * maxColumn;
-  static List<Piece> initialPieces = [
-    ChickPiece(
-        position: Position(row: 1, column: 2),
-        ownerPlayer: const FirstPlayer()),
-    ElephantPiece(
-        position: Position(row: 0, column: 3),
-        ownerPlayer: const FirstPlayer()),
-    GiraffePiece(
-        position: Position(row: 2, column: 3),
-        ownerPlayer: const FirstPlayer()),
-    LionPiece(
-        position: Position(row: 1, column: 3),
-        ownerPlayer: const FirstPlayer()),
-    ChickPiece(
-        position: Position(row: 1, column: 1),
-        ownerPlayer: const SecondPlayer()),
-    ElephantPiece(
-        position: Position(row: 2, column: 0),
-        ownerPlayer: const SecondPlayer()),
-    GiraffePiece(
-        position: Position(row: 0, column: 0),
-        ownerPlayer: const SecondPlayer()),
-    LionPiece(
-        position: Position(row: 1, column: 0),
-        ownerPlayer: const SecondPlayer())
-  ];
+  static Map<Position, Piece> initialPieces = {
+    Position(row: 1, column: 2): const ChickPiece(ownerPlayer: FirstPlayer()),
+    Position(row: 0, column: 3): const ElephantPiece(ownerPlayer: FirstPlayer()),
+    Position(row: 2, column: 3): const GiraffePiece(ownerPlayer: FirstPlayer()),
+    Position(row: 1, column: 3): const LionPiece(ownerPlayer: FirstPlayer()),
+    Position(row: 1, column: 1): const ChickPiece(ownerPlayer: SecondPlayer()),
+    Position(row: 2, column: 0): const ElephantPiece(ownerPlayer: SecondPlayer()),
+    Position(row: 0, column: 0): const GiraffePiece(ownerPlayer: SecondPlayer()),
+    Position(row: 1, column: 0): const LionPiece(ownerPlayer: SecondPlayer()),
+  };
 
   static List<Square> get initialSquares {
     List<Square> squares = [];
@@ -44,12 +23,11 @@ class AnimalShogi {
         squares.add(Square(position: Position(row: row, column: column)));
       }
     }
-    for (final piece in initialPieces) {
-      squares[piece.position.squareIndex] =
-          squares[piece.position.squareIndex].copyWith(
+    initialPieces.forEach((position, piece) {
+      squares[position.squareIndex] = squares[position.squareIndex].copyWith(
         piece: piece,
       );
-    }
+    });
     return squares;
   }
 

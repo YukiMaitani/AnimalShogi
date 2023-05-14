@@ -33,22 +33,36 @@ class GameViewModel extends ChangeNotifier {
 
   Player get turnPlayer => _board.turnPlayer;
 
-  set turn(Player value) {
+  set turnPlayer(Player value) {
     _board = _board.copyWith(turnPlayer: value);
     notifyListeners();
   }
 
-  Piece? _selectedPiece;
+  Square? _selectedSquare;
 
-  Piece? get selectedPiece => _selectedPiece;
+  Square? get selectedSquare => _selectedSquare;
 
-  set selectedPiece(Piece? value) {
-    _selectedPiece = value;
-    if (value != null) {
-      setSquaresPlaceable(value);
+  set selectedSquare(Square? value) {
+    _selectedSquare = value;
+    if (value?.piece != null) {
+      setSquaresPlaceableWithSquare(value!);
     }
     notifyListeners();
   }
+
+  Piece? _selectedCapturedPiece;
+
+  Piece? get selectedCapturedPiece => _selectedCapturedPiece;
+
+  set selectedCapturedPiece(Piece? value) {
+    _selectedCapturedPiece = value;
+    if (value != null) {
+      setSquaresPlaceableWithCapturedPiece(value);
+    }
+    notifyListeners();
+  }
+
+  Piece? get selectedPiece => selectedSquare?.piece ?? selectedCapturedPiece;
 
   List<Piece> get firstPlayerCapturedPieces => capturedPieces
       .where((piece) => piece.ownerPlayer == const FirstPlayer())
@@ -59,18 +73,26 @@ class GameViewModel extends ChangeNotifier {
       .toList();
 
   void tapCapturedPiece(Piece piece) {
+    // 駒が選択されていないかつタップした持ち駒のownerがturnPlayerならセットする
     if (selectedPiece == null && piece.ownerPlayer == turnPlayer) {
-      setSelectedPiece(piece);
+      selectedCapturedPiece = piece;
     } else {
       clearSelectedPiece();
     }
   }
 
   void tapSquare(Square square) {
+    // 駒が選択されていないかつマスに自分の駒がない時はreturnする
+    if (selectedPiece == null && square.piece?.ownerPlayer != turnPlayer) {
+      clearSelectedPiece();
+      return;
+    }
+
+    // 駒が選択されていないかつマスに自分の駒がある時は駒を選択状態にする
     if (selectedPiece == null &&
         square.piece != null &&
         square.piece!.ownerPlayer == turnPlayer) {
-      setSelectedPiece(square.piece!);
+      selectedSquare = square;
       return;
     }
 
@@ -101,19 +123,16 @@ class GameViewModel extends ChangeNotifier {
 
     // 駒がある場合、それは相手の駒なので駒を取り持ち駒にする
     if (square.piece != null) {
-      catchEnemyPiece(selectedPiece!, square);
+      catchEnemyPiece(square);
       return;
     }
 
     Logger().e('考慮されていないケースがある');
   }
 
-  void setSelectedPiece(Piece piece) {
-    selectedPiece = piece;
-  }
-
   void clearSelectedPiece() {
-    selectedPiece = null;
+    selectedSquare = null;
+    selectedCapturedPiece = null;
     squares = List.of(squares)
         .map((square) => square.copyWith(isPlaceable: false))
         .toList();
@@ -124,16 +143,18 @@ class GameViewModel extends ChangeNotifier {
     capturedPieces = [...capturedPieces]..remove(piece);
     squares = [...squares]..[square.position.squareIndex] =
         square.copyWith(piece: selectedPiece!.copyWith(isCaptured: false));
+    switchTurn();
   }
 
   void movePiece(Square square) {
     // 駒を移動し、移動元の駒を削除する
     squares = [...squares]
       ..[square.position.squareIndex] = square.copyWith(piece: selectedPiece)
-      ..[selectedPiece!.position.squareIndex] = square.copyWith(piece: null);
+      ..[selectedSquare!.position.squareIndex] = square.copyWith(piece: null);
+    switchTurn();
   }
 
-  void catchEnemyPiece(Piece piece, Square square) {
+  void catchEnemyPiece(Square square) {
     // 取った駒を持ち駒に追加する
     capturedPieces = [
       ...capturedPieces,
@@ -145,38 +166,44 @@ class GameViewModel extends ChangeNotifier {
       ..[square.position.squareIndex] = square.copyWith(
           piece: selectedPiece!
               .copyWith(isCaptured: true, ownerPlayer: turnPlayer))
-      ..[selectedPiece!.position.squareIndex] = square.copyWith(piece: null);
+      ..[selectedSquare!.position.squareIndex] =
+          squares[selectedSquare!.position.squareIndex].copyWith(piece: null);
+    switchTurn();
   }
 
-  void setSquaresPlaceable(Piece piece) {
-    // 選択した駒が持ち駒の場合
-    if (piece.isCaptured) {
-      // どうぶつしょうぎは盤上の駒のない所ならどこでも置ける
-      squares = squares
-          .map((square) => square.copyWith(isPlaceable: square.piece == null))
-          .toList();
-      return;
-    }
+  void setSquaresPlaceableWithCapturedPiece(Piece piece) {
+    // どうぶつしょうぎは盤上の駒のない所ならどこでも置けるので駒がない所がplaceable
+    squares = squares
+        .map((square) => square.copyWith(isPlaceable: square.piece == null))
+        .toList();
+  }
 
+  void setSquaresPlaceableWithSquare(Square square) {
     // 選択した駒が盤上の駒の場合
-    final movedPositions = piece.pieceType.moves
+    final movedPositions = square.piece!.pieceType.moves
         .map((move) =>
-            piece.position + move.movePosition * turnPlayer.moveDirectionValue)
+            square.position + move.movePosition * turnPlayer.moveDirectionValue)
         .toList();
 
     // 何度も再描画しないように一時変数を定義
     List<Square> movedSquares = squares;
     for (final movedPosition in movedPositions) {
       // 移動先が盤外もしくは自分の駒があるならcontinue
-      if (!movedPosition.isOutsideOfBoard ||
+      if (movedPosition.isOutsideOfBoard ||
           squares[movedPosition.squareIndex].piece?.ownerPlayer == turnPlayer) {
+        Logger().i(movedPosition.squareIndex);
         continue;
       }
 
       // 移動先が盤内で自分の駒がないならisPlaceableをtrueにする
-      movedSquares = [...squares]..[movedPosition.squareIndex] =
+      movedSquares = [...movedSquares]..[movedPosition.squareIndex] =
           squares[movedPosition.squareIndex].copyWith(isPlaceable: true);
     }
     squares = movedSquares;
+  }
+
+  void switchTurn() {
+    clearSelectedPiece();
+    turnPlayer = turnPlayer.otherPlayer;
   }
 }

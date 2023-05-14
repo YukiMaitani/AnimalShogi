@@ -160,7 +160,7 @@ class __$$UpMoveCopyWithImpl<$Res> extends _$MoveCopyWithImpl<$Res, _$UpMove>
 /// @nodoc
 
 class _$UpMove implements UpMove {
-  const _$UpMove({this.direction = const (row: 0, column: 1)});
+  const _$UpMove({this.direction = const (row: 0, column: -1)});
 
   @override
   @JsonKey()
@@ -333,7 +333,7 @@ class __$$DownMoveCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DownMove implements DownMove {
-  const _$DownMove({this.direction = const (row: 0, column: -1)});
+  const _$DownMove({this.direction = const (row: 0, column: 1)});
 
   @override
   @JsonKey()
@@ -857,7 +857,7 @@ class __$$UpRightMoveCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpRightMove implements UpRightMove {
-  const _$UpRightMove({this.direction = const (row: 1, column: 1)});
+  const _$UpRightMove({this.direction = const (row: 1, column: -1)});
 
   @override
   @JsonKey()
@@ -1032,7 +1032,7 @@ class __$$UpLeftMoveCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpLeftMove implements UpLeftMove {
-  const _$UpLeftMove({this.direction = const (row: 1, column: -1)});
+  const _$UpLeftMove({this.direction = const (row: -1, column: -1)});
 
   @override
   @JsonKey()
@@ -1207,7 +1207,7 @@ class __$$DownRightMoveCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DownRightMove implements DownRightMove {
-  const _$DownRightMove({this.direction = const (row: -1, column: 1)});
+  const _$DownRightMove({this.direction = const (row: 1, column: 1)});
 
   @override
   @JsonKey()
@@ -1382,7 +1382,7 @@ class __$$DownLeftMoveCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DownLeftMove implements DownLeftMove {
-  const _$DownLeftMove({this.direction = const (row: -1, column: -1)});
+  const _$DownLeftMove({this.direction = const (row: -1, column: 1)});
 
   @override
   @JsonKey()

@@ -23,7 +23,9 @@ class GamePage extends HookConsumerWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        _buildCapturedPieces(const SecondPlayer()),
         _buildBoard(),
+        _buildCapturedPieces(const FirstPlayer())
       ],
     );
   }
@@ -40,7 +42,6 @@ class GamePage extends HookConsumerWidget {
           height: boardHeight,
           child: GridView.count(
             padding: EdgeInsets.zero,
-            // Add this line
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             crossAxisCount: 3,
@@ -59,22 +60,34 @@ class GamePage extends HookConsumerWidget {
   }
 
   Widget _buildSquare({required Square square, required double squareLength}) {
-    return GestureDetector(
-        onTap: () {},
-        child: SizedBox(
-            width: squareLength,
-            height: squareLength,
-            child: Stack(
-              children: [
-                Center(
-                  child: Assets.images.squareGridLine.image(
-                    width: squareLength,
-                    height: squareLength,
+    return HookConsumer(builder: (context, ref, child) {
+      return GestureDetector(
+          onTap: () {
+            ref.read(gameProvider).tapSquare(square);
+          },
+          child: SizedBox(
+              width: squareLength,
+              height: squareLength,
+              child: Stack(
+                children: [
+                  Center(
+                    child: Assets.images.squareGridLine.image(
+                      width: squareLength,
+                      height: squareLength,
+                    ),
                   ),
-                ),
-                if (square.piece != null) _buildPiece(square.piece!),
-              ],
-            )));
+                  if (square.piece != null) _buildPiece(square.piece!),
+                  if (square.isPlaceable)
+                    Center(
+                      child: Container(
+                        color: Colors.orangeAccent.withOpacity(0.5),
+                        width: squareLength / 2,
+                        height: squareLength / 2,
+                      ),
+                    ),
+                ],
+              )));
+    });
   }
 
   Widget _buildPiece(Piece piece) {
@@ -128,5 +141,27 @@ class GamePage extends HookConsumerWidget {
       case ChickenPieceType():
         return Assets.images.piece.directions.chickenDirections.image();
     }
+  }
+
+  Widget _buildCapturedPieces(Player player) {
+    return HookConsumer(builder: (context, ref, child) {
+      final pieceLength = MediaQuery.of(context).size.width * 0.8 / 6;
+      final capturedPieces = ref.watch(gameProvider.select((value) =>
+          player.when(
+              first: (_) => value.firstPlayerCapturedPieces,
+              second: (_) => value.secondPlayerCapturedPieces)));
+      return Row(
+        children: capturedPieces
+            .map((piece) => GestureDetector(
+                onTap: () {
+                  ref.read(gameProvider).tapCapturedPiece(piece);
+                },
+                child: SizedBox(
+                    width: pieceLength,
+                    height: pieceLength,
+                    child: _buildPiece(piece))))
+            .toList(),
+      );
+    });
   }
 }
