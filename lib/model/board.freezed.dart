@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Board {
   List<Square> get squares => throw _privateConstructorUsedError;
   List<Piece> get capturedPieces => throw _privateConstructorUsedError;
-  Turn get turn => throw _privateConstructorUsedError;
+  Player get turnPlayer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BoardCopyWith<Board> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +29,10 @@ abstract class $BoardCopyWith<$Res> {
   factory $BoardCopyWith(Board value, $Res Function(Board) then) =
       _$BoardCopyWithImpl<$Res, Board>;
   @useResult
-  $Res call({List<Square> squares, List<Piece> capturedPieces, Turn turn});
+  $Res call(
+      {List<Square> squares, List<Piece> capturedPieces, Player turnPlayer});
+
+  $PlayerCopyWith<$Res> get turnPlayer;
 }
 
 /// @nodoc
@@ -47,7 +50,7 @@ class _$BoardCopyWithImpl<$Res, $Val extends Board>
   $Res call({
     Object? squares = null,
     Object? capturedPieces = null,
-    Object? turn = null,
+    Object? turnPlayer = null,
   }) {
     return _then(_value.copyWith(
       squares: null == squares
@@ -58,11 +61,19 @@ class _$BoardCopyWithImpl<$Res, $Val extends Board>
           ? _value.capturedPieces
           : capturedPieces // ignore: cast_nullable_to_non_nullable
               as List<Piece>,
-      turn: null == turn
-          ? _value.turn
-          : turn // ignore: cast_nullable_to_non_nullable
-              as Turn,
+      turnPlayer: null == turnPlayer
+          ? _value.turnPlayer
+          : turnPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res> get turnPlayer {
+    return $PlayerCopyWith<$Res>(_value.turnPlayer, (value) {
+      return _then(_value.copyWith(turnPlayer: value) as $Val);
+    });
   }
 }
 
@@ -72,7 +83,11 @@ abstract class _$$_BoardCopyWith<$Res> implements $BoardCopyWith<$Res> {
       __$$_BoardCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Square> squares, List<Piece> capturedPieces, Turn turn});
+  $Res call(
+      {List<Square> squares, List<Piece> capturedPieces, Player turnPlayer});
+
+  @override
+  $PlayerCopyWith<$Res> get turnPlayer;
 }
 
 /// @nodoc
@@ -86,7 +101,7 @@ class __$$_BoardCopyWithImpl<$Res> extends _$BoardCopyWithImpl<$Res, _$_Board>
   $Res call({
     Object? squares = null,
     Object? capturedPieces = null,
-    Object? turn = null,
+    Object? turnPlayer = null,
   }) {
     return _then(_$_Board(
       squares: null == squares
@@ -97,10 +112,10 @@ class __$$_BoardCopyWithImpl<$Res> extends _$BoardCopyWithImpl<$Res, _$_Board>
           ? _value._capturedPieces
           : capturedPieces // ignore: cast_nullable_to_non_nullable
               as List<Piece>,
-      turn: null == turn
-          ? _value.turn
-          : turn // ignore: cast_nullable_to_non_nullable
-              as Turn,
+      turnPlayer: null == turnPlayer
+          ? _value.turnPlayer
+          : turnPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
     ));
   }
 }
@@ -111,7 +126,7 @@ class _$_Board implements _Board {
   const _$_Board(
       {required final List<Square> squares,
       required final List<Piece> capturedPieces,
-      required this.turn})
+      required this.turnPlayer})
       : _squares = squares,
         _capturedPieces = capturedPieces;
 
@@ -132,11 +147,11 @@ class _$_Board implements _Board {
   }
 
   @override
-  final Turn turn;
+  final Player turnPlayer;
 
   @override
   String toString() {
-    return 'Board(squares: $squares, capturedPieces: $capturedPieces, turn: $turn)';
+    return 'Board(squares: $squares, capturedPieces: $capturedPieces, turnPlayer: $turnPlayer)';
   }
 
   @override
@@ -147,7 +162,8 @@ class _$_Board implements _Board {
             const DeepCollectionEquality().equals(other._squares, _squares) &&
             const DeepCollectionEquality()
                 .equals(other._capturedPieces, _capturedPieces) &&
-            (identical(other.turn, turn) || other.turn == turn));
+            (identical(other.turnPlayer, turnPlayer) ||
+                other.turnPlayer == turnPlayer));
   }
 
   @override
@@ -155,7 +171,7 @@ class _$_Board implements _Board {
       runtimeType,
       const DeepCollectionEquality().hash(_squares),
       const DeepCollectionEquality().hash(_capturedPieces),
-      turn);
+      turnPlayer);
 
   @JsonKey(ignore: true)
   @override
@@ -168,14 +184,14 @@ abstract class _Board implements Board {
   const factory _Board(
       {required final List<Square> squares,
       required final List<Piece> capturedPieces,
-      required final Turn turn}) = _$_Board;
+      required final Player turnPlayer}) = _$_Board;
 
   @override
   List<Square> get squares;
   @override
   List<Piece> get capturedPieces;
   @override
-  Turn get turn;
+  Player get turnPlayer;
   @override
   @JsonKey(ignore: true)
   _$$_BoardCopyWith<_$_Board> get copyWith =>

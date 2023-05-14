@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Square {
-  ({int column, int row}) get position => throw _privateConstructorUsedError;
+  Position get position => throw _privateConstructorUsedError;
   bool get isPlaceable => throw _privateConstructorUsedError;
   Piece? get piece => throw _privateConstructorUsedError;
 
@@ -29,8 +29,9 @@ abstract class $SquareCopyWith<$Res> {
   factory $SquareCopyWith(Square value, $Res Function(Square) then) =
       _$SquareCopyWithImpl<$Res, Square>;
   @useResult
-  $Res call({({int column, int row}) position, bool isPlaceable, Piece? piece});
+  $Res call({Position position, bool isPlaceable, Piece? piece});
 
+  $PositionCopyWith<$Res> get position;
   $PieceCopyWith<$Res>? get piece;
 }
 
@@ -55,7 +56,7 @@ class _$SquareCopyWithImpl<$Res, $Val extends Square>
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as ({int column, int row}),
+              as Position,
       isPlaceable: null == isPlaceable
           ? _value.isPlaceable
           : isPlaceable // ignore: cast_nullable_to_non_nullable
@@ -65,6 +66,14 @@ class _$SquareCopyWithImpl<$Res, $Val extends Square>
           : piece // ignore: cast_nullable_to_non_nullable
               as Piece?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PositionCopyWith<$Res> get position {
+    return $PositionCopyWith<$Res>(_value.position, (value) {
+      return _then(_value.copyWith(position: value) as $Val);
+    });
   }
 
   @override
@@ -86,8 +95,10 @@ abstract class _$$_SquareCopyWith<$Res> implements $SquareCopyWith<$Res> {
       __$$_SquareCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({({int column, int row}) position, bool isPlaceable, Piece? piece});
+  $Res call({Position position, bool isPlaceable, Piece? piece});
 
+  @override
+  $PositionCopyWith<$Res> get position;
   @override
   $PieceCopyWith<$Res>? get piece;
 }
@@ -110,7 +121,7 @@ class __$$_SquareCopyWithImpl<$Res>
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as ({int column, int row}),
+              as Position,
       isPlaceable: null == isPlaceable
           ? _value.isPlaceable
           : isPlaceable // ignore: cast_nullable_to_non_nullable
@@ -130,7 +141,7 @@ class _$_Square implements _Square {
       {required this.position, this.isPlaceable = false, this.piece});
 
   @override
-  final ({int column, int row}) position;
+  final Position position;
   @override
   @JsonKey()
   final bool isPlaceable;
@@ -166,12 +177,12 @@ class _$_Square implements _Square {
 
 abstract class _Square implements Square {
   const factory _Square(
-      {required final ({int column, int row}) position,
+      {required final Position position,
       final bool isPlaceable,
       final Piece? piece}) = _$_Square;
 
   @override
-  ({int column, int row}) get position;
+  Position get position;
   @override
   bool get isPlaceable;
   @override

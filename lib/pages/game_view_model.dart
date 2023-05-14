@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../foundation/animal_shogi.dart';
-import '../model/board.dart';
-import '../model/piece.dart';
-import '../model/square.dart';
+import '../model/model.dart';
 
 final gameProvider = ChangeNotifierProvider((ref) => GameViewModel());
 
@@ -32,10 +30,10 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Turn get turn => _board.turn;
+  Player get turnPlayer => _board.turnPlayer;
 
-  set turn(Turn value) {
-    _board = _board.copyWith(turn: value);
+  set turn(Player value) {
+    _board = _board.copyWith(turnPlayer: value);
     notifyListeners();
   }
 }

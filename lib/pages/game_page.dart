@@ -5,8 +5,7 @@ import 'dart:math' as math;
 import '../foundation/animal_shogi.dart';
 import '../foundation/colors.dart';
 import '../gen/assets.gen.dart';
-import '../model/piece.dart';
-import '../model/square.dart';
+import '../model/model.dart';
 import 'game_view_model.dart';
 
 class GamePage extends HookConsumerWidget {
@@ -90,7 +89,8 @@ class GamePage extends HookConsumerWidget {
           color: piece.pieceType.backgroundColor,
         ),
         child: Transform.rotate(
-          angle: piece.player == Player.first ? 0 : math.pi,
+          angle:
+              piece.ownerPlayer.when(first: (_) => 0, second: (_) => math.pi),
           child: Stack(
             children: [
               Center(child: _buildPieceDefaultImage(piece.pieceType)),
@@ -102,30 +102,30 @@ class GamePage extends HookConsumerWidget {
 
   Widget _buildPieceDefaultImage(PieceType pieceType) {
     switch (pieceType) {
-      case PieceType.lion:
+      case LionPieceType():
         return Assets.images.piece.animal.lionKing.image();
-      case PieceType.giraffe:
+      case GiraffePieceType():
         return Assets.images.piece.animal.giraffe.image();
-      case PieceType.elephant:
+      case ElephantPieceType():
         return Assets.images.piece.animal.elephant.image();
-      case PieceType.chick:
+      case ChickPieceType():
         return Assets.images.piece.animal.chick.image();
-      case PieceType.chicken:
+      case ChickenPieceType():
         return Assets.images.piece.animal.chicken.image();
     }
   }
 
   Widget _buildPieceDirectionsImage(PieceType pieceType) {
     switch (pieceType) {
-      case PieceType.lion:
+      case LionPieceType():
         return Assets.images.piece.directions.lionDirections.image();
-      case PieceType.giraffe:
+      case GiraffePieceType():
         return Assets.images.piece.directions.giraffeDirections.image();
-      case PieceType.elephant:
+      case ElephantPieceType():
         return Assets.images.piece.directions.elephantDirections.image();
-      case PieceType.chick:
+      case ChickPieceType():
         return Assets.images.piece.directions.chickDirections.image();
-      case PieceType.chicken:
+      case ChickenPieceType():
         return Assets.images.piece.directions.chickenDirections.image();
     }
   }

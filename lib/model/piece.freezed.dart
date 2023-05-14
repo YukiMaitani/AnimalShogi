@@ -16,12 +16,97 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Piece {
+  Position get position => throw _privateConstructorUsedError;
+  Player get ownerPlayer => throw _privateConstructorUsedError;
   PieceType get pieceType => throw _privateConstructorUsedError;
-  ({int column, int row}) get position => throw _privateConstructorUsedError;
-  Player get player => throw _privateConstructorUsedError;
-  List<Movement> get movements => throw _privateConstructorUsedError;
-  bool get isRoyal => throw _privateConstructorUsedError;
   bool get isCaptured => throw _privateConstructorUsedError;
+  bool get isRoyal => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PieceCopyWith<Piece> get copyWith => throw _privateConstructorUsedError;
@@ -33,12 +118,15 @@ abstract class $PieceCopyWith<$Res> {
       _$PieceCopyWithImpl<$Res, Piece>;
   @useResult
   $Res call(
-      {PieceType pieceType,
-      ({int column, int row}) position,
-      Player player,
-      List<Movement> movements,
-      bool isRoyal,
-      bool isCaptured});
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  $PositionCopyWith<$Res> get position;
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -54,97 +142,120 @@ class _$PieceCopyWithImpl<$Res, $Val extends Piece>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pieceType = null,
     Object? position = null,
-    Object? player = null,
-    Object? movements = null,
-    Object? isRoyal = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
     Object? isCaptured = null,
+    Object? isRoyal = null,
   }) {
     return _then(_value.copyWith(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
       pieceType: null == pieceType
           ? _value.pieceType
           : pieceType // ignore: cast_nullable_to_non_nullable
               as PieceType,
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as ({int column, int row}),
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as Player,
-      movements: null == movements
-          ? _value.movements
-          : movements // ignore: cast_nullable_to_non_nullable
-              as List<Movement>,
-      isRoyal: null == isRoyal
-          ? _value.isRoyal
-          : isRoyal // ignore: cast_nullable_to_non_nullable
-              as bool,
       isCaptured: null == isCaptured
           ? _value.isCaptured
           : isCaptured // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PositionCopyWith<$Res> get position {
+    return $PositionCopyWith<$Res>(_value.position, (value) {
+      return _then(_value.copyWith(position: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res> get ownerPlayer {
+    return $PlayerCopyWith<$Res>(_value.ownerPlayer, (value) {
+      return _then(_value.copyWith(ownerPlayer: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PieceTypeCopyWith<$Res> get pieceType {
+    return $PieceTypeCopyWith<$Res>(_value.pieceType, (value) {
+      return _then(_value.copyWith(pieceType: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_PieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
-  factory _$$_PieceCopyWith(_$_Piece value, $Res Function(_$_Piece) then) =
-      __$$_PieceCopyWithImpl<$Res>;
+abstract class _$$LionPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
+  factory _$$LionPieceCopyWith(
+          _$LionPiece value, $Res Function(_$LionPiece) then) =
+      __$$LionPieceCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {PieceType pieceType,
-      ({int column, int row}) position,
-      Player player,
-      List<Movement> movements,
-      bool isRoyal,
-      bool isCaptured});
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  @override
+  $PositionCopyWith<$Res> get position;
+  @override
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  @override
+  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
-class __$$_PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res, _$_Piece>
-    implements _$$_PieceCopyWith<$Res> {
-  __$$_PieceCopyWithImpl(_$_Piece _value, $Res Function(_$_Piece) _then)
+class __$$LionPieceCopyWithImpl<$Res>
+    extends _$PieceCopyWithImpl<$Res, _$LionPiece>
+    implements _$$LionPieceCopyWith<$Res> {
+  __$$LionPieceCopyWithImpl(
+      _$LionPiece _value, $Res Function(_$LionPiece) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pieceType = null,
     Object? position = null,
-    Object? player = null,
-    Object? movements = null,
-    Object? isRoyal = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
     Object? isCaptured = null,
+    Object? isRoyal = null,
   }) {
-    return _then(_$_Piece(
+    return _then(_$LionPiece(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
       pieceType: null == pieceType
           ? _value.pieceType
           : pieceType // ignore: cast_nullable_to_non_nullable
               as PieceType,
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as ({int column, int row}),
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as Player,
-      movements: null == movements
-          ? _value._movements
-          : movements // ignore: cast_nullable_to_non_nullable
-              as List<Movement>,
-      isRoyal: null == isRoyal
-          ? _value.isRoyal
-          : isRoyal // ignore: cast_nullable_to_non_nullable
-              as bool,
       isCaptured: null == isCaptured
           ? _value.isCaptured
           : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -152,106 +263,1267 @@ class __$$_PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res, _$_Piece>
 
 /// @nodoc
 
-class _$_Piece extends _Piece with DiagnosticableTreeMixin {
-  _$_Piece(
-      {required this.pieceType,
-      required this.position,
-      required this.player,
-      required final List<Movement> movements,
-      required this.isRoyal,
-      required this.isCaptured})
-      : _movements = movements,
-        super._();
+class _$LionPiece with DiagnosticableTreeMixin implements LionPiece {
+  const _$LionPiece(
+      {required this.position,
+      required this.ownerPlayer,
+      this.pieceType = const LionPieceType(),
+      this.isCaptured = false,
+      this.isRoyal = true});
 
   @override
+  final Position position;
+  @override
+  final Player ownerPlayer;
+  @override
+  @JsonKey()
   final PieceType pieceType;
   @override
-  final ({int column, int row}) position;
-  @override
-  final Player player;
-  final List<Movement> _movements;
-  @override
-  List<Movement> get movements {
-    if (_movements is EqualUnmodifiableListView) return _movements;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_movements);
-  }
-
-  @override
-  final bool isRoyal;
-  @override
+  @JsonKey()
   final bool isCaptured;
+  @override
+  @JsonKey()
+  final bool isRoyal;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Piece(pieceType: $pieceType, position: $position, player: $player, movements: $movements, isRoyal: $isRoyal, isCaptured: $isCaptured)';
+    return 'Piece.lion(position: $position, ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Piece'))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('type', 'Piece.lion'))
       ..add(DiagnosticsProperty('position', position))
-      ..add(DiagnosticsProperty('player', player))
-      ..add(DiagnosticsProperty('movements', movements))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured));
+      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
+      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured))
+      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Piece &&
-            (identical(other.pieceType, pieceType) ||
-                other.pieceType == pieceType) &&
+            other is _$LionPiece &&
             (identical(other.position, position) ||
                 other.position == position) &&
-            (identical(other.player, player) || other.player == player) &&
-            const DeepCollectionEquality()
-                .equals(other._movements, _movements) &&
-            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal) &&
+            (identical(other.ownerPlayer, ownerPlayer) ||
+                other.ownerPlayer == ownerPlayer) &&
+            (identical(other.pieceType, pieceType) ||
+                other.pieceType == pieceType) &&
             (identical(other.isCaptured, isCaptured) ||
-                other.isCaptured == isCaptured));
+                other.isCaptured == isCaptured) &&
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pieceType, position, player,
-      const DeepCollectionEquality().hash(_movements), isRoyal, isCaptured);
+  int get hashCode => Object.hash(
+      runtimeType, position, ownerPlayer, pieceType, isCaptured, isRoyal);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PieceCopyWith<_$_Piece> get copyWith =>
-      __$$_PieceCopyWithImpl<_$_Piece>(this, _$identity);
+  _$$LionPieceCopyWith<_$LionPiece> get copyWith =>
+      __$$LionPieceCopyWithImpl<_$LionPiece>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) {
+    return lion(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) {
+    return lion?.call(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) {
+    if (lion != null) {
+      return lion(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) {
+    return lion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) {
+    return lion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) {
+    if (lion != null) {
+      return lion(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _Piece extends Piece {
-  factory _Piece(
-      {required final PieceType pieceType,
-      required final ({int column, int row}) position,
-      required final Player player,
-      required final List<Movement> movements,
-      required final bool isRoyal,
-      required final bool isCaptured}) = _$_Piece;
-  _Piece._() : super._();
+abstract class LionPiece implements Piece {
+  const factory LionPiece(
+      {required final Position position,
+      required final Player ownerPlayer,
+      final PieceType pieceType,
+      final bool isCaptured,
+      final bool isRoyal}) = _$LionPiece;
 
+  @override
+  Position get position;
+  @override
+  Player get ownerPlayer;
   @override
   PieceType get pieceType;
   @override
-  ({int column, int row}) get position;
-  @override
-  Player get player;
-  @override
-  List<Movement> get movements;
+  bool get isCaptured;
   @override
   bool get isRoyal;
   @override
+  @JsonKey(ignore: true)
+  _$$LionPieceCopyWith<_$LionPiece> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GiraffePieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
+  factory _$$GiraffePieceCopyWith(
+          _$GiraffePiece value, $Res Function(_$GiraffePiece) then) =
+      __$$GiraffePieceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  @override
+  $PositionCopyWith<$Res> get position;
+  @override
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  @override
+  $PieceTypeCopyWith<$Res> get pieceType;
+}
+
+/// @nodoc
+class __$$GiraffePieceCopyWithImpl<$Res>
+    extends _$PieceCopyWithImpl<$Res, _$GiraffePiece>
+    implements _$$GiraffePieceCopyWith<$Res> {
+  __$$GiraffePieceCopyWithImpl(
+      _$GiraffePiece _value, $Res Function(_$GiraffePiece) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
+    Object? isCaptured = null,
+    Object? isRoyal = null,
+  }) {
+    return _then(_$GiraffePiece(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      pieceType: null == pieceType
+          ? _value.pieceType
+          : pieceType // ignore: cast_nullable_to_non_nullable
+              as PieceType,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GiraffePiece with DiagnosticableTreeMixin implements GiraffePiece {
+  const _$GiraffePiece(
+      {required this.position,
+      required this.ownerPlayer,
+      this.pieceType = const GiraffePieceType(),
+      this.isCaptured = false,
+      this.isRoyal = false});
+
+  @override
+  final Position position;
+  @override
+  final Player ownerPlayer;
+  @override
+  @JsonKey()
+  final PieceType pieceType;
+  @override
+  @JsonKey()
+  final bool isCaptured;
+  @override
+  @JsonKey()
+  final bool isRoyal;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Piece.giraffe(position: $position, ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Piece.giraffe'))
+      ..add(DiagnosticsProperty('position', position))
+      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
+      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured))
+      ..add(DiagnosticsProperty('isRoyal', isRoyal));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GiraffePiece &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.ownerPlayer, ownerPlayer) ||
+                other.ownerPlayer == ownerPlayer) &&
+            (identical(other.pieceType, pieceType) ||
+                other.pieceType == pieceType) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured) &&
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, position, ownerPlayer, pieceType, isCaptured, isRoyal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GiraffePieceCopyWith<_$GiraffePiece> get copyWith =>
+      __$$GiraffePieceCopyWithImpl<_$GiraffePiece>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) {
+    return giraffe(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) {
+    return giraffe?.call(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) {
+    if (giraffe != null) {
+      return giraffe(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) {
+    return giraffe(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) {
+    return giraffe?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) {
+    if (giraffe != null) {
+      return giraffe(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GiraffePiece implements Piece {
+  const factory GiraffePiece(
+      {required final Position position,
+      required final Player ownerPlayer,
+      final PieceType pieceType,
+      final bool isCaptured,
+      final bool isRoyal}) = _$GiraffePiece;
+
+  @override
+  Position get position;
+  @override
+  Player get ownerPlayer;
+  @override
+  PieceType get pieceType;
+  @override
   bool get isCaptured;
   @override
+  bool get isRoyal;
+  @override
   @JsonKey(ignore: true)
-  _$$_PieceCopyWith<_$_Piece> get copyWith =>
+  _$$GiraffePieceCopyWith<_$GiraffePiece> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ElephantPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
+  factory _$$ElephantPieceCopyWith(
+          _$ElephantPiece value, $Res Function(_$ElephantPiece) then) =
+      __$$ElephantPieceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  @override
+  $PositionCopyWith<$Res> get position;
+  @override
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  @override
+  $PieceTypeCopyWith<$Res> get pieceType;
+}
+
+/// @nodoc
+class __$$ElephantPieceCopyWithImpl<$Res>
+    extends _$PieceCopyWithImpl<$Res, _$ElephantPiece>
+    implements _$$ElephantPieceCopyWith<$Res> {
+  __$$ElephantPieceCopyWithImpl(
+      _$ElephantPiece _value, $Res Function(_$ElephantPiece) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
+    Object? isCaptured = null,
+    Object? isRoyal = null,
+  }) {
+    return _then(_$ElephantPiece(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      pieceType: null == pieceType
+          ? _value.pieceType
+          : pieceType // ignore: cast_nullable_to_non_nullable
+              as PieceType,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ElephantPiece with DiagnosticableTreeMixin implements ElephantPiece {
+  const _$ElephantPiece(
+      {required this.position,
+      required this.ownerPlayer,
+      this.pieceType = const ElephantPieceType(),
+      this.isCaptured = false,
+      this.isRoyal = false});
+
+  @override
+  final Position position;
+  @override
+  final Player ownerPlayer;
+  @override
+  @JsonKey()
+  final PieceType pieceType;
+  @override
+  @JsonKey()
+  final bool isCaptured;
+  @override
+  @JsonKey()
+  final bool isRoyal;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Piece.elephant(position: $position, ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Piece.elephant'))
+      ..add(DiagnosticsProperty('position', position))
+      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
+      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured))
+      ..add(DiagnosticsProperty('isRoyal', isRoyal));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ElephantPiece &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.ownerPlayer, ownerPlayer) ||
+                other.ownerPlayer == ownerPlayer) &&
+            (identical(other.pieceType, pieceType) ||
+                other.pieceType == pieceType) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured) &&
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, position, ownerPlayer, pieceType, isCaptured, isRoyal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ElephantPieceCopyWith<_$ElephantPiece> get copyWith =>
+      __$$ElephantPieceCopyWithImpl<_$ElephantPiece>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) {
+    return elephant(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) {
+    return elephant?.call(
+        position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) {
+    if (elephant != null) {
+      return elephant(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) {
+    return elephant(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) {
+    return elephant?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) {
+    if (elephant != null) {
+      return elephant(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ElephantPiece implements Piece {
+  const factory ElephantPiece(
+      {required final Position position,
+      required final Player ownerPlayer,
+      final PieceType pieceType,
+      final bool isCaptured,
+      final bool isRoyal}) = _$ElephantPiece;
+
+  @override
+  Position get position;
+  @override
+  Player get ownerPlayer;
+  @override
+  PieceType get pieceType;
+  @override
+  bool get isCaptured;
+  @override
+  bool get isRoyal;
+  @override
+  @JsonKey(ignore: true)
+  _$$ElephantPieceCopyWith<_$ElephantPiece> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChickPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
+  factory _$$ChickPieceCopyWith(
+          _$ChickPiece value, $Res Function(_$ChickPiece) then) =
+      __$$ChickPieceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  @override
+  $PositionCopyWith<$Res> get position;
+  @override
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  @override
+  $PieceTypeCopyWith<$Res> get pieceType;
+}
+
+/// @nodoc
+class __$$ChickPieceCopyWithImpl<$Res>
+    extends _$PieceCopyWithImpl<$Res, _$ChickPiece>
+    implements _$$ChickPieceCopyWith<$Res> {
+  __$$ChickPieceCopyWithImpl(
+      _$ChickPiece _value, $Res Function(_$ChickPiece) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
+    Object? isCaptured = null,
+    Object? isRoyal = null,
+  }) {
+    return _then(_$ChickPiece(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      pieceType: null == pieceType
+          ? _value.pieceType
+          : pieceType // ignore: cast_nullable_to_non_nullable
+              as PieceType,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChickPiece with DiagnosticableTreeMixin implements ChickPiece {
+  const _$ChickPiece(
+      {required this.position,
+      required this.ownerPlayer,
+      this.pieceType = const ChickPieceType(),
+      this.isCaptured = false,
+      this.isRoyal = false});
+
+  @override
+  final Position position;
+  @override
+  final Player ownerPlayer;
+  @override
+  @JsonKey()
+  final PieceType pieceType;
+  @override
+  @JsonKey()
+  final bool isCaptured;
+  @override
+  @JsonKey()
+  final bool isRoyal;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Piece.chick(position: $position, ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Piece.chick'))
+      ..add(DiagnosticsProperty('position', position))
+      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
+      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured))
+      ..add(DiagnosticsProperty('isRoyal', isRoyal));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChickPiece &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.ownerPlayer, ownerPlayer) ||
+                other.ownerPlayer == ownerPlayer) &&
+            (identical(other.pieceType, pieceType) ||
+                other.pieceType == pieceType) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured) &&
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, position, ownerPlayer, pieceType, isCaptured, isRoyal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChickPieceCopyWith<_$ChickPiece> get copyWith =>
+      __$$ChickPieceCopyWithImpl<_$ChickPiece>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) {
+    return chick(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) {
+    return chick?.call(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) {
+    if (chick != null) {
+      return chick(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) {
+    return chick(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) {
+    return chick?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) {
+    if (chick != null) {
+      return chick(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChickPiece implements Piece {
+  const factory ChickPiece(
+      {required final Position position,
+      required final Player ownerPlayer,
+      final PieceType pieceType,
+      final bool isCaptured,
+      final bool isRoyal}) = _$ChickPiece;
+
+  @override
+  Position get position;
+  @override
+  Player get ownerPlayer;
+  @override
+  PieceType get pieceType;
+  @override
+  bool get isCaptured;
+  @override
+  bool get isRoyal;
+  @override
+  @JsonKey(ignore: true)
+  _$$ChickPieceCopyWith<_$ChickPiece> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChickenPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
+  factory _$$ChickenPieceCopyWith(
+          _$ChickenPiece value, $Res Function(_$ChickenPiece) then) =
+      __$$ChickenPieceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Position position,
+      Player ownerPlayer,
+      PieceType pieceType,
+      bool isCaptured,
+      bool isRoyal});
+
+  @override
+  $PositionCopyWith<$Res> get position;
+  @override
+  $PlayerCopyWith<$Res> get ownerPlayer;
+  @override
+  $PieceTypeCopyWith<$Res> get pieceType;
+}
+
+/// @nodoc
+class __$$ChickenPieceCopyWithImpl<$Res>
+    extends _$PieceCopyWithImpl<$Res, _$ChickenPiece>
+    implements _$$ChickenPieceCopyWith<$Res> {
+  __$$ChickenPieceCopyWithImpl(
+      _$ChickenPiece _value, $Res Function(_$ChickenPiece) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? position = null,
+    Object? ownerPlayer = null,
+    Object? pieceType = null,
+    Object? isCaptured = null,
+    Object? isRoyal = null,
+  }) {
+    return _then(_$ChickenPiece(
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as Position,
+      ownerPlayer: null == ownerPlayer
+          ? _value.ownerPlayer
+          : ownerPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      pieceType: null == pieceType
+          ? _value.pieceType
+          : pieceType // ignore: cast_nullable_to_non_nullable
+              as PieceType,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRoyal: null == isRoyal
+          ? _value.isRoyal
+          : isRoyal // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChickenPiece with DiagnosticableTreeMixin implements ChickenPiece {
+  const _$ChickenPiece(
+      {required this.position,
+      required this.ownerPlayer,
+      this.pieceType = const ChickenPieceType(),
+      this.isCaptured = false,
+      this.isRoyal = false});
+
+  @override
+  final Position position;
+  @override
+  final Player ownerPlayer;
+  @override
+  @JsonKey()
+  final PieceType pieceType;
+  @override
+  @JsonKey()
+  final bool isCaptured;
+  @override
+  @JsonKey()
+  final bool isRoyal;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Piece.chicken(position: $position, ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Piece.chicken'))
+      ..add(DiagnosticsProperty('position', position))
+      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
+      ..add(DiagnosticsProperty('pieceType', pieceType))
+      ..add(DiagnosticsProperty('isCaptured', isCaptured))
+      ..add(DiagnosticsProperty('isRoyal', isRoyal));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChickenPiece &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.ownerPlayer, ownerPlayer) ||
+                other.ownerPlayer == ownerPlayer) &&
+            (identical(other.pieceType, pieceType) ||
+                other.pieceType == pieceType) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured) &&
+            (identical(other.isRoyal, isRoyal) || other.isRoyal == isRoyal));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, position, ownerPlayer, pieceType, isCaptured, isRoyal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChickenPieceCopyWith<_$ChickenPiece> get copyWith =>
+      __$$ChickenPieceCopyWithImpl<_$ChickenPiece>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        lion,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        giraffe,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        elephant,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chick,
+    required TResult Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)
+        chicken,
+  }) {
+    return chicken(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        lion,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chick,
+    TResult? Function(Position position, Player ownerPlayer,
+            PieceType pieceType, bool isCaptured, bool isRoyal)?
+        chicken,
+  }) {
+    return chicken?.call(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        lion,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        giraffe,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        elephant,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chick,
+    TResult Function(Position position, Player ownerPlayer, PieceType pieceType,
+            bool isCaptured, bool isRoyal)?
+        chicken,
+    required TResult orElse(),
+  }) {
+    if (chicken != null) {
+      return chicken(position, ownerPlayer, pieceType, isCaptured, isRoyal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LionPiece value) lion,
+    required TResult Function(GiraffePiece value) giraffe,
+    required TResult Function(ElephantPiece value) elephant,
+    required TResult Function(ChickPiece value) chick,
+    required TResult Function(ChickenPiece value) chicken,
+  }) {
+    return chicken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LionPiece value)? lion,
+    TResult? Function(GiraffePiece value)? giraffe,
+    TResult? Function(ElephantPiece value)? elephant,
+    TResult? Function(ChickPiece value)? chick,
+    TResult? Function(ChickenPiece value)? chicken,
+  }) {
+    return chicken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LionPiece value)? lion,
+    TResult Function(GiraffePiece value)? giraffe,
+    TResult Function(ElephantPiece value)? elephant,
+    TResult Function(ChickPiece value)? chick,
+    TResult Function(ChickenPiece value)? chicken,
+    required TResult orElse(),
+  }) {
+    if (chicken != null) {
+      return chicken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChickenPiece implements Piece {
+  const factory ChickenPiece(
+      {required final Position position,
+      required final Player ownerPlayer,
+      final PieceType pieceType,
+      final bool isCaptured,
+      final bool isRoyal}) = _$ChickenPiece;
+
+  @override
+  Position get position;
+  @override
+  Player get ownerPlayer;
+  @override
+  PieceType get pieceType;
+  @override
+  bool get isCaptured;
+  @override
+  bool get isRoyal;
+  @override
+  @JsonKey(ignore: true)
+  _$$ChickenPieceCopyWith<_$ChickenPiece> get copyWith =>
       throw _privateConstructorUsedError;
 }
