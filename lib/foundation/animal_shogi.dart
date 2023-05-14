@@ -11,22 +11,30 @@ class AnimalShogi {
 
   static int get maxSquare => maxRow * maxColumn;
   static List<Piece> initialPieces = [
-    const ChickPiece(
-        position: Position(row: 1, column: 2), ownerPlayer: FirstPlayer()),
-    const ElephantPiece(
-        position: Position(row: 0, column: 3), ownerPlayer: FirstPlayer()),
-    const GiraffePiece(
-        position: Position(row: 2, column: 3), ownerPlayer: FirstPlayer()),
-    const LionPiece(
-        position: Position(row: 1, column: 3), ownerPlayer: FirstPlayer()),
-    const ChickPiece(
-        position: Position(row: 1, column: 1), ownerPlayer: SecondPlayer()),
-    const ElephantPiece(
-        position: Position(row: 2, column: 0), ownerPlayer: SecondPlayer()),
-    const GiraffePiece(
-        position: Position(row: 0, column: 0), ownerPlayer: SecondPlayer()),
-    const LionPiece(
-        position: Position(row: 1, column: 0), ownerPlayer: SecondPlayer())
+    ChickPiece(
+        position: Position(row: 1, column: 2),
+        ownerPlayer: const FirstPlayer()),
+    ElephantPiece(
+        position: Position(row: 0, column: 3),
+        ownerPlayer: const FirstPlayer()),
+    GiraffePiece(
+        position: Position(row: 2, column: 3),
+        ownerPlayer: const FirstPlayer()),
+    LionPiece(
+        position: Position(row: 1, column: 3),
+        ownerPlayer: const FirstPlayer()),
+    ChickPiece(
+        position: Position(row: 1, column: 1),
+        ownerPlayer: const SecondPlayer()),
+    ElephantPiece(
+        position: Position(row: 2, column: 0),
+        ownerPlayer: const SecondPlayer()),
+    GiraffePiece(
+        position: Position(row: 0, column: 0),
+        ownerPlayer: const SecondPlayer()),
+    LionPiece(
+        position: Position(row: 1, column: 0),
+        ownerPlayer: const SecondPlayer())
   ];
 
   static List<Square> get initialSquares {
@@ -37,7 +45,8 @@ class AnimalShogi {
       }
     }
     for (final piece in initialPieces) {
-      squares[piece.squareIndex] = squares[piece.squareIndex].copyWith(
+      squares[piece.position.squareIndex] =
+          squares[piece.position.squareIndex].copyWith(
         piece: piece,
       );
     }

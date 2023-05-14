@@ -100,8 +100,8 @@ class __$$_PositionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Position implements _Position {
-  const _$_Position({required this.row, required this.column});
+class _$_Position extends _Position {
+  _$_Position({required this.row, required this.column}) : super._();
 
   @override
   final int row;
@@ -132,9 +132,10 @@ class _$_Position implements _Position {
       __$$_PositionCopyWithImpl<_$_Position>(this, _$identity);
 }
 
-abstract class _Position implements Position {
-  const factory _Position({required final int row, required final int column}) =
+abstract class _Position extends Position {
+  factory _Position({required final int row, required final int column}) =
       _$_Position;
+  _Position._() : super._();
 
   @override
   int get row;

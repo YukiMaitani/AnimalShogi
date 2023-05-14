@@ -1,4 +1,3 @@
-import 'package:animal_shogi_flutter/foundation/animal_shogi.dart';
 import 'package:animal_shogi_flutter/model/piece_type.dart';
 import 'package:animal_shogi_flutter/model/player.dart';
 import 'package:animal_shogi_flutter/model/position.dart';
@@ -43,8 +42,4 @@ sealed class Piece with _$Piece {
       @Default(ChickenPieceType()) PieceType pieceType,
       @Default(false) bool isCaptured,
       @Default(false) bool isRoyal}) = ChickenPiece;
-}
-
-extension PieceExtension on Piece {
-  int get squareIndex => position.row + position.column * AnimalShogi.maxRow;
 }
