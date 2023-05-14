@@ -44,8 +44,8 @@ class GameViewModel extends ChangeNotifier {
 
   set selectedPiece(Piece? value) {
     _selectedPiece = value;
-    if(value != null) {
-      setSquaresPlaceable();
+    if (value != null) {
+      setSquaresPlaceable(value);
     }
     notifyListeners();
   }
@@ -110,7 +110,6 @@ class GameViewModel extends ChangeNotifier {
 
   void setSelectedPiece(Piece piece) {
     selectedPiece = piece;
-    notifyListeners();
   }
 
   void clearSelectedPiece() {
@@ -118,7 +117,6 @@ class GameViewModel extends ChangeNotifier {
     squares = List.of(squares)
         .map((square) => square.copyWith(isPlaceable: false))
         .toList();
-    notifyListeners();
   }
 
   void placeCapturedPiece(Piece piece, Square square) {
@@ -126,7 +124,6 @@ class GameViewModel extends ChangeNotifier {
     capturedPieces = [...capturedPieces]..remove(piece);
     squares = [...squares]..[square.position.squareIndex] =
         square.copyWith(piece: selectedPiece!.copyWith(isCaptured: false));
-    notifyListeners();
   }
 
   void movePiece(Square square) {
@@ -134,7 +131,6 @@ class GameViewModel extends ChangeNotifier {
     squares = [...squares]
       ..[square.position.squareIndex] = square.copyWith(piece: selectedPiece)
       ..[selectedPiece!.position.squareIndex] = square.copyWith(piece: null);
-    notifyListeners();
   }
 
   void catchEnemyPiece(Piece piece, Square square) {
@@ -150,9 +146,37 @@ class GameViewModel extends ChangeNotifier {
           piece: selectedPiece!
               .copyWith(isCaptured: true, ownerPlayer: turnPlayer))
       ..[selectedPiece!.position.squareIndex] = square.copyWith(piece: null);
-    notifyListeners();
   }
 
-  void setSquaresPlaceable() {
+  void setSquaresPlaceable(Piece piece) {
+    // 選択した駒が持ち駒の場合
+    if (piece.isCaptured) {
+      // どうぶつしょうぎは盤上の駒のない所ならどこでも置ける
+      squares = squares
+          .map((square) => square.copyWith(isPlaceable: square.piece == null))
+          .toList();
+      return;
+    }
+
+    // 選択した駒が盤上の駒の場合
+    final movedPositions = piece.pieceType.moves
+        .map((move) =>
+            piece.position + move.movePosition * turnPlayer.moveDirectionValue)
+        .toList();
+
+    // 何度も再描画しないように一時変数を定義
+    List<Square> movedSquares = squares;
+    for (final movedPosition in movedPositions) {
+      // 移動先が盤外もしくは自分の駒があるならcontinue
+      if (!movedPosition.isOutsideOfBoard ||
+          squares[movedPosition.squareIndex].piece?.ownerPlayer == turnPlayer) {
+        continue;
+      }
+
+      // 移動先が盤内で自分の駒がないならisPlaceableをtrueにする
+      movedSquares = [...squares]..[movedPosition.squareIndex] =
+          squares[movedPosition.squareIndex].copyWith(isPlaceable: true);
+    }
+    squares = movedSquares;
   }
 }
