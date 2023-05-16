@@ -17,6 +17,16 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  // 棋譜
+  List<Move> _moves = [];
+
+  List<Move> get moves => _moves;
+
+  set moves(List<Move> value) {
+    _moves = value;
+    notifyListeners();
+  }
+
   List<Square> get squares => board.squares;
 
   set squares(List<Square> value) {
@@ -148,24 +158,32 @@ class GameViewModel extends ChangeNotifier {
 
   void movePiece(Square square) {
     // 駒を移動し、移動元の駒を削除する
+    final move = createMove(square) as BoardPieceMove;
     squares = [...squares]
-      ..[square.position.squareIndex] = square.copyWith(piece: selectedPiece)
+      ..[square.position.squareIndex] = square.copyWith(
+          piece: selectedPiece!.copyWith(pieceType: move.movedPieceType))
       ..[selectedSquare!.position.squareIndex] = square.copyWith(piece: null);
     switchTurn();
   }
 
   void catchEnemyPiece(Square square) {
     // 取った駒を持ち駒に追加する
+    // 取った駒がにわとりならひよこに戻して追加する
+    final move = createMove(square) as BoardPieceMove;
     capturedPieces = [
       ...capturedPieces,
-      square.piece!.copyWith(isCaptured: true, ownerPlayer: turnPlayer)
+      square.piece!.copyWith(
+          isCaptured: true,
+          ownerPlayer: turnPlayer,
+          pieceType: square.piece!.pieceType.relegationPieceType ??
+              square.piece!.pieceType)
     ];
 
     // 選択中の駒に置き換えて、移動元の駒を削除する
     squares = [...squares]
       ..[square.position.squareIndex] = square.copyWith(
-          piece: selectedPiece!
-              .copyWith(ownerPlayer: turnPlayer))
+          piece: selectedPiece!.copyWith(
+              ownerPlayer: turnPlayer, pieceType: move.movedPieceType))
       ..[selectedSquare!.position.squareIndex] =
           squares[selectedSquare!.position.squareIndex].copyWith(piece: null);
     switchTurn();
@@ -182,7 +200,8 @@ class GameViewModel extends ChangeNotifier {
     // 選択した駒が盤上の駒の場合
     final movedPositions = square.piece!.pieceType.directions
         .map((direction) =>
-            square.position + direction.movePosition * turnPlayer.moveDirectionValue)
+            square.position +
+            direction.directionPosition * turnPlayer.moveDirectionValue)
         .toList();
 
     // 何度も再描画しないように一時変数を定義
@@ -205,5 +224,15 @@ class GameViewModel extends ChangeNotifier {
     clearSelectedPiece();
     turnPlayer = turnPlayer.otherPlayer;
     Logger().i(board.toKyokumenString);
+  }
+
+  Move createMove(Square toSquare) {
+    return selectedPiece!.isCaptured
+        ? CapturedPieceMove(piece: selectedPiece!, to: toSquare)
+        : BoardPieceMove(
+            piece: selectedPiece!,
+            from: selectedSquare!,
+            to: toSquare,
+          );
   }
 }

@@ -40,7 +40,7 @@ const factory Direction.downLeft({
 }
 
 extension DirectionExtension on Direction {
-  Position get movePosition =>
+  Position get directionPosition =>
       Position(row: direction.row, column: direction.column);
 
   Position get markPaintPosition =>

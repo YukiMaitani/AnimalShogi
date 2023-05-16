@@ -5,6 +5,11 @@ class AnimalShogi {
   static const int maxColumn = 4;
 
   static int get maxSquare => maxRow * maxColumn;
+
+  // position基準
+  static int get firstPlayerEnemyEndLine => maxColumn - 1;
+  static int get secondPlayerEnemyEndLine => 0;
+
   static Map<Position, Piece> initialPieces = {
     Position(row: 1, column: 2): const ChickPiece(ownerPlayer: FirstPlayer()),
     Position(row: 0, column: 3): const ElephantPiece(ownerPlayer: FirstPlayer()),

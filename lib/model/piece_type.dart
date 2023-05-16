@@ -13,7 +13,9 @@ sealed class PieceType with _$PieceType {
       {@Default(pieceLionColor)
           Color backgroundColor,
       @Default(null)
-          PieceType? promotionPieceType,
+          PieceTypeEnum? promotionPieceTypeEnum,
+      @Default(null)
+          PieceTypeEnum? relegationPieceTypeEnum,
       @Default([
         UpDirection(),
         DownDirection(),
@@ -30,33 +32,45 @@ sealed class PieceType with _$PieceType {
       {@Default(pieceGiraffeElephantColor)
           Color backgroundColor,
       @Default(null)
-          PieceType? promotionPieceType,
+          PieceTypeEnum? promotionPieceTypeEnum,
+      @Default(null)
+          PieceTypeEnum? relegationPieceTypeEnum,
       @Default([
         UpDirection(),
         DownDirection(),
         RightDirection(),
         LeftDirection(),
       ])
-      List<Direction> directions}) = GiraffePieceType;
+          List<Direction> directions}) = GiraffePieceType;
 
   const factory PieceType.elephant(
       {@Default(pieceGiraffeElephantColor)
           Color backgroundColor,
       @Default(null)
-          PieceType? promotionPieceType,
-      @Default([UpRightDirection(), UpLeftDirection(), DownRightDirection(), DownLeftDirection()])
-      List<Direction> directions}) = ElephantPieceType;
+          PieceTypeEnum? promotionPieceTypeEnum,
+      @Default(null)
+          PieceTypeEnum? relegationPieceTypeEnum,
+      @Default([
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
+      ])
+          List<Direction> directions}) = ElephantPieceType;
 
   const factory PieceType.chick(
       {@Default(pieceChickChickenColor) Color backgroundColor,
-      @Default(ChickenPieceType()) PieceType? promotionPieceType,
+      @Default(PieceTypeEnum.chicken) PieceTypeEnum? promotionPieceTypeEnum,
+      @Default(null) PieceTypeEnum? relegationPieceTypeEnum,
       @Default([UpDirection()]) List<Direction> directions}) = ChickPieceType;
 
   const factory PieceType.chicken(
       {@Default(pieceChickChickenColor)
           Color backgroundColor,
       @Default(null)
-          PieceType? promotionPieceType,
+          PieceTypeEnum? promotionPieceTypeEnum,
+      @Default(PieceTypeEnum.chick)
+          PieceTypeEnum? relegationPieceTypeEnum,
       @Default([
         UpDirection(),
         DownDirection(),
@@ -67,7 +81,7 @@ sealed class PieceType with _$PieceType {
         DownRightDirection(),
         DownLeftDirection()
       ])
-      List<Direction> directions}) = ChickenPieceType;
+          List<Direction> directions}) = ChickenPieceType;
 }
 
 extension PieceTypeExtension on PieceType {
@@ -85,4 +99,38 @@ extension PieceTypeExtension on PieceType {
         return '鶏';
     }
   }
+
+  PieceType? get promotionPieceType {
+    switch (promotionPieceTypeEnum) {
+      case PieceTypeEnum.chicken:
+        return const ChickenPieceType();
+      case PieceTypeEnum.lion:
+      case PieceTypeEnum.giraffe:
+      case PieceTypeEnum.elephant:
+      case PieceTypeEnum.chick:
+      case null:
+        return null;
+    }
+  }
+
+  PieceType? get relegationPieceType {
+    switch (relegationPieceTypeEnum) {
+      case PieceTypeEnum.chick:
+        return const ChickPieceType();
+      case PieceTypeEnum.lion:
+      case PieceTypeEnum.giraffe:
+      case PieceTypeEnum.elephant:
+      case PieceTypeEnum.chicken:
+      case null:
+        return null;
+    }
+  }
+}
+
+enum PieceTypeEnum {
+  lion,
+  giraffe,
+  elephant,
+  chick,
+  chicken,
 }

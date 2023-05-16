@@ -17,61 +17,109 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PieceType {
   Color get backgroundColor => throw _privateConstructorUsedError;
-  PieceType? get promotionPieceType => throw _privateConstructorUsedError;
+  PieceTypeEnum? get promotionPieceTypeEnum =>
+      throw _privateConstructorUsedError;
+  PieceTypeEnum? get relegationPieceTypeEnum =>
+      throw _privateConstructorUsedError;
   List<Direction> get directions => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
@@ -118,10 +166,9 @@ abstract class $PieceTypeCopyWith<$Res> {
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -138,7 +185,8 @@ class _$PieceTypeCopyWithImpl<$Res, $Val extends PieceType>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_value.copyWith(
@@ -146,27 +194,19 @@ class _$PieceTypeCopyWithImpl<$Res, $Val extends PieceType>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value.directions
           : directions // ignore: cast_nullable_to_non_nullable
               as List<Direction>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PieceTypeCopyWith<$Res>? get promotionPieceType {
-    if (_value.promotionPieceType == null) {
-      return null;
-    }
-
-    return $PieceTypeCopyWith<$Res>(_value.promotionPieceType!, (value) {
-      return _then(_value.copyWith(promotionPieceType: value) as $Val);
-    });
   }
 }
 
@@ -180,11 +220,9 @@ abstract class _$$LionPieceTypeCopyWith<$Res>
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  @override
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -199,7 +237,8 @@ class __$$LionPieceTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_$LionPieceType(
@@ -207,10 +246,14 @@ class __$$LionPieceTypeCopyWithImpl<$Res>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value._directions
           : directions // ignore: cast_nullable_to_non_nullable
@@ -224,7 +267,8 @@ class __$$LionPieceTypeCopyWithImpl<$Res>
 class _$LionPieceType implements LionPieceType {
   const _$LionPieceType(
       {this.backgroundColor = pieceLionColor,
-      this.promotionPieceType = null,
+      this.promotionPieceTypeEnum = null,
+      this.relegationPieceTypeEnum = null,
       final List<Direction> directions = const [
         UpDirection(),
         DownDirection(),
@@ -242,7 +286,10 @@ class _$LionPieceType implements LionPieceType {
   final Color backgroundColor;
   @override
   @JsonKey()
-  final PieceType? promotionPieceType;
+  final PieceTypeEnum? promotionPieceTypeEnum;
+  @override
+  @JsonKey()
+  final PieceTypeEnum? relegationPieceTypeEnum;
   final List<Direction> _directions;
   @override
   @JsonKey()
@@ -254,7 +301,7 @@ class _$LionPieceType implements LionPieceType {
 
   @override
   String toString() {
-    return 'PieceType.lion(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
+    return 'PieceType.lion(backgroundColor: $backgroundColor, promotionPieceTypeEnum: $promotionPieceTypeEnum, relegationPieceTypeEnum: $relegationPieceTypeEnum, directions: $directions)';
   }
 
   @override
@@ -264,15 +311,22 @@ class _$LionPieceType implements LionPieceType {
             other is _$LionPieceType &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
-            (identical(other.promotionPieceType, promotionPieceType) ||
-                other.promotionPieceType == promotionPieceType) &&
+            (identical(other.promotionPieceTypeEnum, promotionPieceTypeEnum) ||
+                other.promotionPieceTypeEnum == promotionPieceTypeEnum) &&
+            (identical(
+                    other.relegationPieceTypeEnum, relegationPieceTypeEnum) ||
+                other.relegationPieceTypeEnum == relegationPieceTypeEnum) &&
             const DeepCollectionEquality()
                 .equals(other._directions, _directions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_directions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      promotionPieceTypeEnum,
+      relegationPieceTypeEnum,
+      const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -283,69 +337,117 @@ class _$LionPieceType implements LionPieceType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) {
-    return lion(backgroundColor, promotionPieceType, directions);
+    return lion(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) {
-    return lion?.call(backgroundColor, promotionPieceType, directions);
+    return lion?.call(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (lion != null) {
-      return lion(backgroundColor, promotionPieceType, directions);
+      return lion(backgroundColor, promotionPieceTypeEnum,
+          relegationPieceTypeEnum, directions);
     }
     return orElse();
   }
@@ -394,13 +496,16 @@ class _$LionPieceType implements LionPieceType {
 abstract class LionPieceType implements PieceType {
   const factory LionPieceType(
       {final Color backgroundColor,
-      final PieceType? promotionPieceType,
+      final PieceTypeEnum? promotionPieceTypeEnum,
+      final PieceTypeEnum? relegationPieceTypeEnum,
       final List<Direction> directions}) = _$LionPieceType;
 
   @override
   Color get backgroundColor;
   @override
-  PieceType? get promotionPieceType;
+  PieceTypeEnum? get promotionPieceTypeEnum;
+  @override
+  PieceTypeEnum? get relegationPieceTypeEnum;
   @override
   List<Direction> get directions;
   @override
@@ -419,11 +524,9 @@ abstract class _$$GiraffePieceTypeCopyWith<$Res>
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  @override
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -438,7 +541,8 @@ class __$$GiraffePieceTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_$GiraffePieceType(
@@ -446,10 +550,14 @@ class __$$GiraffePieceTypeCopyWithImpl<$Res>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value._directions
           : directions // ignore: cast_nullable_to_non_nullable
@@ -463,7 +571,8 @@ class __$$GiraffePieceTypeCopyWithImpl<$Res>
 class _$GiraffePieceType implements GiraffePieceType {
   const _$GiraffePieceType(
       {this.backgroundColor = pieceGiraffeElephantColor,
-      this.promotionPieceType = null,
+      this.promotionPieceTypeEnum = null,
+      this.relegationPieceTypeEnum = null,
       final List<Direction> directions = const [
         UpDirection(),
         DownDirection(),
@@ -477,7 +586,10 @@ class _$GiraffePieceType implements GiraffePieceType {
   final Color backgroundColor;
   @override
   @JsonKey()
-  final PieceType? promotionPieceType;
+  final PieceTypeEnum? promotionPieceTypeEnum;
+  @override
+  @JsonKey()
+  final PieceTypeEnum? relegationPieceTypeEnum;
   final List<Direction> _directions;
   @override
   @JsonKey()
@@ -489,7 +601,7 @@ class _$GiraffePieceType implements GiraffePieceType {
 
   @override
   String toString() {
-    return 'PieceType.giraffe(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
+    return 'PieceType.giraffe(backgroundColor: $backgroundColor, promotionPieceTypeEnum: $promotionPieceTypeEnum, relegationPieceTypeEnum: $relegationPieceTypeEnum, directions: $directions)';
   }
 
   @override
@@ -499,15 +611,22 @@ class _$GiraffePieceType implements GiraffePieceType {
             other is _$GiraffePieceType &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
-            (identical(other.promotionPieceType, promotionPieceType) ||
-                other.promotionPieceType == promotionPieceType) &&
+            (identical(other.promotionPieceTypeEnum, promotionPieceTypeEnum) ||
+                other.promotionPieceTypeEnum == promotionPieceTypeEnum) &&
+            (identical(
+                    other.relegationPieceTypeEnum, relegationPieceTypeEnum) ||
+                other.relegationPieceTypeEnum == relegationPieceTypeEnum) &&
             const DeepCollectionEquality()
                 .equals(other._directions, _directions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_directions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      promotionPieceTypeEnum,
+      relegationPieceTypeEnum,
+      const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -518,69 +637,117 @@ class _$GiraffePieceType implements GiraffePieceType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) {
-    return giraffe(backgroundColor, promotionPieceType, directions);
+    return giraffe(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) {
-    return giraffe?.call(backgroundColor, promotionPieceType, directions);
+    return giraffe?.call(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (giraffe != null) {
-      return giraffe(backgroundColor, promotionPieceType, directions);
+      return giraffe(backgroundColor, promotionPieceTypeEnum,
+          relegationPieceTypeEnum, directions);
     }
     return orElse();
   }
@@ -629,13 +796,16 @@ class _$GiraffePieceType implements GiraffePieceType {
 abstract class GiraffePieceType implements PieceType {
   const factory GiraffePieceType(
       {final Color backgroundColor,
-      final PieceType? promotionPieceType,
+      final PieceTypeEnum? promotionPieceTypeEnum,
+      final PieceTypeEnum? relegationPieceTypeEnum,
       final List<Direction> directions}) = _$GiraffePieceType;
 
   @override
   Color get backgroundColor;
   @override
-  PieceType? get promotionPieceType;
+  PieceTypeEnum? get promotionPieceTypeEnum;
+  @override
+  PieceTypeEnum? get relegationPieceTypeEnum;
   @override
   List<Direction> get directions;
   @override
@@ -654,11 +824,9 @@ abstract class _$$ElephantPieceTypeCopyWith<$Res>
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  @override
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -673,7 +841,8 @@ class __$$ElephantPieceTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_$ElephantPieceType(
@@ -681,10 +850,14 @@ class __$$ElephantPieceTypeCopyWithImpl<$Res>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value._directions
           : directions // ignore: cast_nullable_to_non_nullable
@@ -698,7 +871,8 @@ class __$$ElephantPieceTypeCopyWithImpl<$Res>
 class _$ElephantPieceType implements ElephantPieceType {
   const _$ElephantPieceType(
       {this.backgroundColor = pieceGiraffeElephantColor,
-      this.promotionPieceType = null,
+      this.promotionPieceTypeEnum = null,
+      this.relegationPieceTypeEnum = null,
       final List<Direction> directions = const [
         UpRightDirection(),
         UpLeftDirection(),
@@ -712,7 +886,10 @@ class _$ElephantPieceType implements ElephantPieceType {
   final Color backgroundColor;
   @override
   @JsonKey()
-  final PieceType? promotionPieceType;
+  final PieceTypeEnum? promotionPieceTypeEnum;
+  @override
+  @JsonKey()
+  final PieceTypeEnum? relegationPieceTypeEnum;
   final List<Direction> _directions;
   @override
   @JsonKey()
@@ -724,7 +901,7 @@ class _$ElephantPieceType implements ElephantPieceType {
 
   @override
   String toString() {
-    return 'PieceType.elephant(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
+    return 'PieceType.elephant(backgroundColor: $backgroundColor, promotionPieceTypeEnum: $promotionPieceTypeEnum, relegationPieceTypeEnum: $relegationPieceTypeEnum, directions: $directions)';
   }
 
   @override
@@ -734,15 +911,22 @@ class _$ElephantPieceType implements ElephantPieceType {
             other is _$ElephantPieceType &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
-            (identical(other.promotionPieceType, promotionPieceType) ||
-                other.promotionPieceType == promotionPieceType) &&
+            (identical(other.promotionPieceTypeEnum, promotionPieceTypeEnum) ||
+                other.promotionPieceTypeEnum == promotionPieceTypeEnum) &&
+            (identical(
+                    other.relegationPieceTypeEnum, relegationPieceTypeEnum) ||
+                other.relegationPieceTypeEnum == relegationPieceTypeEnum) &&
             const DeepCollectionEquality()
                 .equals(other._directions, _directions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_directions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      promotionPieceTypeEnum,
+      relegationPieceTypeEnum,
+      const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -753,69 +937,117 @@ class _$ElephantPieceType implements ElephantPieceType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) {
-    return elephant(backgroundColor, promotionPieceType, directions);
+    return elephant(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) {
-    return elephant?.call(backgroundColor, promotionPieceType, directions);
+    return elephant?.call(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (elephant != null) {
-      return elephant(backgroundColor, promotionPieceType, directions);
+      return elephant(backgroundColor, promotionPieceTypeEnum,
+          relegationPieceTypeEnum, directions);
     }
     return orElse();
   }
@@ -864,13 +1096,16 @@ class _$ElephantPieceType implements ElephantPieceType {
 abstract class ElephantPieceType implements PieceType {
   const factory ElephantPieceType(
       {final Color backgroundColor,
-      final PieceType? promotionPieceType,
+      final PieceTypeEnum? promotionPieceTypeEnum,
+      final PieceTypeEnum? relegationPieceTypeEnum,
       final List<Direction> directions}) = _$ElephantPieceType;
 
   @override
   Color get backgroundColor;
   @override
-  PieceType? get promotionPieceType;
+  PieceTypeEnum? get promotionPieceTypeEnum;
+  @override
+  PieceTypeEnum? get relegationPieceTypeEnum;
   @override
   List<Direction> get directions;
   @override
@@ -889,11 +1124,9 @@ abstract class _$$ChickPieceTypeCopyWith<$Res>
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  @override
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -908,7 +1141,8 @@ class __$$ChickPieceTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_$ChickPieceType(
@@ -916,10 +1150,14 @@ class __$$ChickPieceTypeCopyWithImpl<$Res>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value._directions
           : directions // ignore: cast_nullable_to_non_nullable
@@ -933,7 +1171,8 @@ class __$$ChickPieceTypeCopyWithImpl<$Res>
 class _$ChickPieceType implements ChickPieceType {
   const _$ChickPieceType(
       {this.backgroundColor = pieceChickChickenColor,
-      this.promotionPieceType = const ChickenPieceType(),
+      this.promotionPieceTypeEnum = PieceTypeEnum.chicken,
+      this.relegationPieceTypeEnum = null,
       final List<Direction> directions = const [UpDirection()]})
       : _directions = directions;
 
@@ -942,7 +1181,10 @@ class _$ChickPieceType implements ChickPieceType {
   final Color backgroundColor;
   @override
   @JsonKey()
-  final PieceType? promotionPieceType;
+  final PieceTypeEnum? promotionPieceTypeEnum;
+  @override
+  @JsonKey()
+  final PieceTypeEnum? relegationPieceTypeEnum;
   final List<Direction> _directions;
   @override
   @JsonKey()
@@ -954,7 +1196,7 @@ class _$ChickPieceType implements ChickPieceType {
 
   @override
   String toString() {
-    return 'PieceType.chick(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
+    return 'PieceType.chick(backgroundColor: $backgroundColor, promotionPieceTypeEnum: $promotionPieceTypeEnum, relegationPieceTypeEnum: $relegationPieceTypeEnum, directions: $directions)';
   }
 
   @override
@@ -964,15 +1206,22 @@ class _$ChickPieceType implements ChickPieceType {
             other is _$ChickPieceType &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
-            (identical(other.promotionPieceType, promotionPieceType) ||
-                other.promotionPieceType == promotionPieceType) &&
+            (identical(other.promotionPieceTypeEnum, promotionPieceTypeEnum) ||
+                other.promotionPieceTypeEnum == promotionPieceTypeEnum) &&
+            (identical(
+                    other.relegationPieceTypeEnum, relegationPieceTypeEnum) ||
+                other.relegationPieceTypeEnum == relegationPieceTypeEnum) &&
             const DeepCollectionEquality()
                 .equals(other._directions, _directions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_directions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      promotionPieceTypeEnum,
+      relegationPieceTypeEnum,
+      const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -983,69 +1232,117 @@ class _$ChickPieceType implements ChickPieceType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) {
-    return chick(backgroundColor, promotionPieceType, directions);
+    return chick(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) {
-    return chick?.call(backgroundColor, promotionPieceType, directions);
+    return chick?.call(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (chick != null) {
-      return chick(backgroundColor, promotionPieceType, directions);
+      return chick(backgroundColor, promotionPieceTypeEnum,
+          relegationPieceTypeEnum, directions);
     }
     return orElse();
   }
@@ -1094,13 +1391,16 @@ class _$ChickPieceType implements ChickPieceType {
 abstract class ChickPieceType implements PieceType {
   const factory ChickPieceType(
       {final Color backgroundColor,
-      final PieceType? promotionPieceType,
+      final PieceTypeEnum? promotionPieceTypeEnum,
+      final PieceTypeEnum? relegationPieceTypeEnum,
       final List<Direction> directions}) = _$ChickPieceType;
 
   @override
   Color get backgroundColor;
   @override
-  PieceType? get promotionPieceType;
+  PieceTypeEnum? get promotionPieceTypeEnum;
+  @override
+  PieceTypeEnum? get relegationPieceTypeEnum;
   @override
   List<Direction> get directions;
   @override
@@ -1119,11 +1419,9 @@ abstract class _$$ChickenPieceTypeCopyWith<$Res>
   @useResult
   $Res call(
       {Color backgroundColor,
-      PieceType? promotionPieceType,
+      PieceTypeEnum? promotionPieceTypeEnum,
+      PieceTypeEnum? relegationPieceTypeEnum,
       List<Direction> directions});
-
-  @override
-  $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
 
 /// @nodoc
@@ -1138,7 +1436,8 @@ class __$$ChickenPieceTypeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backgroundColor = null,
-    Object? promotionPieceType = freezed,
+    Object? promotionPieceTypeEnum = freezed,
+    Object? relegationPieceTypeEnum = freezed,
     Object? directions = null,
   }) {
     return _then(_$ChickenPieceType(
@@ -1146,10 +1445,14 @@ class __$$ChickenPieceTypeCopyWithImpl<$Res>
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      promotionPieceType: freezed == promotionPieceType
-          ? _value.promotionPieceType
-          : promotionPieceType // ignore: cast_nullable_to_non_nullable
-              as PieceType?,
+      promotionPieceTypeEnum: freezed == promotionPieceTypeEnum
+          ? _value.promotionPieceTypeEnum
+          : promotionPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
+      relegationPieceTypeEnum: freezed == relegationPieceTypeEnum
+          ? _value.relegationPieceTypeEnum
+          : relegationPieceTypeEnum // ignore: cast_nullable_to_non_nullable
+              as PieceTypeEnum?,
       directions: null == directions
           ? _value._directions
           : directions // ignore: cast_nullable_to_non_nullable
@@ -1163,7 +1466,8 @@ class __$$ChickenPieceTypeCopyWithImpl<$Res>
 class _$ChickenPieceType implements ChickenPieceType {
   const _$ChickenPieceType(
       {this.backgroundColor = pieceChickChickenColor,
-      this.promotionPieceType = null,
+      this.promotionPieceTypeEnum = null,
+      this.relegationPieceTypeEnum = PieceTypeEnum.chick,
       final List<Direction> directions = const [
         UpDirection(),
         DownDirection(),
@@ -1181,7 +1485,10 @@ class _$ChickenPieceType implements ChickenPieceType {
   final Color backgroundColor;
   @override
   @JsonKey()
-  final PieceType? promotionPieceType;
+  final PieceTypeEnum? promotionPieceTypeEnum;
+  @override
+  @JsonKey()
+  final PieceTypeEnum? relegationPieceTypeEnum;
   final List<Direction> _directions;
   @override
   @JsonKey()
@@ -1193,7 +1500,7 @@ class _$ChickenPieceType implements ChickenPieceType {
 
   @override
   String toString() {
-    return 'PieceType.chicken(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
+    return 'PieceType.chicken(backgroundColor: $backgroundColor, promotionPieceTypeEnum: $promotionPieceTypeEnum, relegationPieceTypeEnum: $relegationPieceTypeEnum, directions: $directions)';
   }
 
   @override
@@ -1203,15 +1510,22 @@ class _$ChickenPieceType implements ChickenPieceType {
             other is _$ChickenPieceType &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
-            (identical(other.promotionPieceType, promotionPieceType) ||
-                other.promotionPieceType == promotionPieceType) &&
+            (identical(other.promotionPieceTypeEnum, promotionPieceTypeEnum) ||
+                other.promotionPieceTypeEnum == promotionPieceTypeEnum) &&
+            (identical(
+                    other.relegationPieceTypeEnum, relegationPieceTypeEnum) ||
+                other.relegationPieceTypeEnum == relegationPieceTypeEnum) &&
             const DeepCollectionEquality()
                 .equals(other._directions, _directions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_directions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      promotionPieceTypeEnum,
+      relegationPieceTypeEnum,
+      const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -1222,69 +1536,117 @@ class _$ChickenPieceType implements ChickenPieceType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         lion,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         giraffe,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         elephant,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chick,
-    required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Direction> directions)
+    required TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
+            List<Direction> directions)
         chicken,
   }) {
-    return chicken(backgroundColor, promotionPieceType, directions);
+    return chicken(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult? Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
   }) {
-    return chicken?.call(backgroundColor, promotionPieceType, directions);
+    return chicken?.call(backgroundColor, promotionPieceTypeEnum,
+        relegationPieceTypeEnum, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         lion,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         giraffe,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         elephant,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chick,
-    TResult Function(Color backgroundColor, PieceType? promotionPieceType,
+    TResult Function(
+            Color backgroundColor,
+            PieceTypeEnum? promotionPieceTypeEnum,
+            PieceTypeEnum? relegationPieceTypeEnum,
             List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (chicken != null) {
-      return chicken(backgroundColor, promotionPieceType, directions);
+      return chicken(backgroundColor, promotionPieceTypeEnum,
+          relegationPieceTypeEnum, directions);
     }
     return orElse();
   }
@@ -1333,13 +1695,16 @@ class _$ChickenPieceType implements ChickenPieceType {
 abstract class ChickenPieceType implements PieceType {
   const factory ChickenPieceType(
       {final Color backgroundColor,
-      final PieceType? promotionPieceType,
+      final PieceTypeEnum? promotionPieceTypeEnum,
+      final PieceTypeEnum? relegationPieceTypeEnum,
       final List<Direction> directions}) = _$ChickenPieceType;
 
   @override
   Color get backgroundColor;
   @override
-  PieceType? get promotionPieceType;
+  PieceTypeEnum? get promotionPieceTypeEnum;
+  @override
+  PieceTypeEnum? get relegationPieceTypeEnum;
   @override
   List<Direction> get directions;
   @override

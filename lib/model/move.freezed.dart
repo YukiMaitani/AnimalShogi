@@ -17,24 +17,24 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Move {
   Piece get piece => throw _privateConstructorUsedError;
-  Position get to => throw _privateConstructorUsedError;
+  Square get to => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Piece piece, Position from, Position to)
+    required TResult Function(Piece piece, Square from, Square to)
         boardPieceMove,
-    required TResult Function(Piece piece, Position to) capturedPieceMove,
+    required TResult Function(Piece piece, Square to) capturedPieceMove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult? Function(Piece piece, Position to)? capturedPieceMove,
+    TResult? Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult? Function(Piece piece, Square to)? capturedPieceMove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult Function(Piece piece, Position to)? capturedPieceMove,
+    TResult Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult Function(Piece piece, Square to)? capturedPieceMove,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,10 +67,10 @@ abstract class $MoveCopyWith<$Res> {
   factory $MoveCopyWith(Move value, $Res Function(Move) then) =
       _$MoveCopyWithImpl<$Res, Move>;
   @useResult
-  $Res call({Piece piece, Position to});
+  $Res call({Piece piece, Square to});
 
   $PieceCopyWith<$Res> get piece;
-  $PositionCopyWith<$Res> get to;
+  $SquareCopyWith<$Res> get to;
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class _$MoveCopyWithImpl<$Res, $Val extends Move>
       to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
-              as Position,
+              as Square,
     ) as $Val);
   }
 
@@ -111,8 +111,8 @@ class _$MoveCopyWithImpl<$Res, $Val extends Move>
 
   @override
   @pragma('vm:prefer-inline')
-  $PositionCopyWith<$Res> get to {
-    return $PositionCopyWith<$Res>(_value.to, (value) {
+  $SquareCopyWith<$Res> get to {
+    return $SquareCopyWith<$Res>(_value.to, (value) {
       return _then(_value.copyWith(to: value) as $Val);
     });
   }
@@ -125,13 +125,13 @@ abstract class _$$BoardPieceMoveCopyWith<$Res> implements $MoveCopyWith<$Res> {
       __$$BoardPieceMoveCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Piece piece, Position from, Position to});
+  $Res call({Piece piece, Square from, Square to});
 
   @override
   $PieceCopyWith<$Res> get piece;
-  $PositionCopyWith<$Res> get from;
+  $SquareCopyWith<$Res> get from;
   @override
-  $PositionCopyWith<$Res> get to;
+  $SquareCopyWith<$Res> get to;
 }
 
 /// @nodoc
@@ -157,18 +157,18 @@ class __$$BoardPieceMoveCopyWithImpl<$Res>
       from: null == from
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
-              as Position,
+              as Square,
       to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
-              as Position,
+              as Square,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PositionCopyWith<$Res> get from {
-    return $PositionCopyWith<$Res>(_value.from, (value) {
+  $SquareCopyWith<$Res> get from {
+    return $SquareCopyWith<$Res>(_value.from, (value) {
       return _then(_value.copyWith(from: value));
     });
   }
@@ -183,9 +183,9 @@ class _$BoardPieceMove implements BoardPieceMove {
   @override
   final Piece piece;
   @override
-  final Position from;
+  final Square from;
   @override
-  final Position to;
+  final Square to;
 
   @override
   String toString() {
@@ -214,9 +214,9 @@ class _$BoardPieceMove implements BoardPieceMove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Piece piece, Position from, Position to)
+    required TResult Function(Piece piece, Square from, Square to)
         boardPieceMove,
-    required TResult Function(Piece piece, Position to) capturedPieceMove,
+    required TResult Function(Piece piece, Square to) capturedPieceMove,
   }) {
     return boardPieceMove(piece, from, to);
   }
@@ -224,8 +224,8 @@ class _$BoardPieceMove implements BoardPieceMove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult? Function(Piece piece, Position to)? capturedPieceMove,
+    TResult? Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult? Function(Piece piece, Square to)? capturedPieceMove,
   }) {
     return boardPieceMove?.call(piece, from, to);
   }
@@ -233,8 +233,8 @@ class _$BoardPieceMove implements BoardPieceMove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult Function(Piece piece, Position to)? capturedPieceMove,
+    TResult Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult Function(Piece piece, Square to)? capturedPieceMove,
     required TResult orElse(),
   }) {
     if (boardPieceMove != null) {
@@ -278,14 +278,14 @@ class _$BoardPieceMove implements BoardPieceMove {
 abstract class BoardPieceMove implements Move {
   const factory BoardPieceMove(
       {required final Piece piece,
-      required final Position from,
-      required final Position to}) = _$BoardPieceMove;
+      required final Square from,
+      required final Square to}) = _$BoardPieceMove;
 
   @override
   Piece get piece;
-  Position get from;
+  Square get from;
   @override
-  Position get to;
+  Square get to;
   @override
   @JsonKey(ignore: true)
   _$$BoardPieceMoveCopyWith<_$BoardPieceMove> get copyWith =>
@@ -300,12 +300,12 @@ abstract class _$$CapturedPieceMoveCopyWith<$Res>
       __$$CapturedPieceMoveCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Piece piece, Position to});
+  $Res call({Piece piece, Square to});
 
   @override
   $PieceCopyWith<$Res> get piece;
   @override
-  $PositionCopyWith<$Res> get to;
+  $SquareCopyWith<$Res> get to;
 }
 
 /// @nodoc
@@ -330,7 +330,7 @@ class __$$CapturedPieceMoveCopyWithImpl<$Res>
       to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
-              as Position,
+              as Square,
     ));
   }
 }
@@ -343,7 +343,7 @@ class _$CapturedPieceMove implements CapturedPieceMove {
   @override
   final Piece piece;
   @override
-  final Position to;
+  final Square to;
 
   @override
   String toString() {
@@ -371,9 +371,9 @@ class _$CapturedPieceMove implements CapturedPieceMove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Piece piece, Position from, Position to)
+    required TResult Function(Piece piece, Square from, Square to)
         boardPieceMove,
-    required TResult Function(Piece piece, Position to) capturedPieceMove,
+    required TResult Function(Piece piece, Square to) capturedPieceMove,
   }) {
     return capturedPieceMove(piece, to);
   }
@@ -381,8 +381,8 @@ class _$CapturedPieceMove implements CapturedPieceMove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult? Function(Piece piece, Position to)? capturedPieceMove,
+    TResult? Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult? Function(Piece piece, Square to)? capturedPieceMove,
   }) {
     return capturedPieceMove?.call(piece, to);
   }
@@ -390,8 +390,8 @@ class _$CapturedPieceMove implements CapturedPieceMove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Piece piece, Position from, Position to)? boardPieceMove,
-    TResult Function(Piece piece, Position to)? capturedPieceMove,
+    TResult Function(Piece piece, Square from, Square to)? boardPieceMove,
+    TResult Function(Piece piece, Square to)? capturedPieceMove,
     required TResult orElse(),
   }) {
     if (capturedPieceMove != null) {
@@ -435,12 +435,12 @@ class _$CapturedPieceMove implements CapturedPieceMove {
 abstract class CapturedPieceMove implements Move {
   const factory CapturedPieceMove(
       {required final Piece piece,
-      required final Position to}) = _$CapturedPieceMove;
+      required final Square to}) = _$CapturedPieceMove;
 
   @override
   Piece get piece;
   @override
-  Position get to;
+  Square get to;
   @override
   @JsonKey(ignore: true)
   _$$CapturedPieceMoveCopyWith<_$CapturedPieceMove> get copyWith =>
