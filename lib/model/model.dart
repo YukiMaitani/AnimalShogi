@@ -5,3 +5,4 @@ export 'piece_type.dart';
 export 'player.dart';
 export 'position.dart';
 export 'square.dart';
+export 'direction.dart';

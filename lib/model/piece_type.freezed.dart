@@ -18,61 +18,61 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PieceType {
   Color get backgroundColor => throw _privateConstructorUsedError;
   PieceType? get promotionPieceType => throw _privateConstructorUsedError;
-  List<Move> get moves => throw _privateConstructorUsedError;
+  List<Direction> get directions => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) =>
@@ -117,7 +117,9 @@ abstract class $PieceTypeCopyWith<$Res> {
       _$PieceTypeCopyWithImpl<$Res, PieceType>;
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
 }
@@ -137,7 +139,7 @@ class _$PieceTypeCopyWithImpl<$Res, $Val extends PieceType>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_value.copyWith(
       backgroundColor: null == backgroundColor
@@ -148,10 +150,10 @@ class _$PieceTypeCopyWithImpl<$Res, $Val extends PieceType>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value.moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value.directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ) as $Val);
   }
 
@@ -177,7 +179,9 @@ abstract class _$$LionPieceTypeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   @override
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
@@ -196,7 +200,7 @@ class __$$LionPieceTypeCopyWithImpl<$Res>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_$LionPieceType(
       backgroundColor: null == backgroundColor
@@ -207,10 +211,10 @@ class __$$LionPieceTypeCopyWithImpl<$Res>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value._moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ));
   }
 }
@@ -221,17 +225,17 @@ class _$LionPieceType implements LionPieceType {
   const _$LionPieceType(
       {this.backgroundColor = pieceLionColor,
       this.promotionPieceType = null,
-      final List<Move> moves = const [
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove(),
-        UpRightMove(),
-        UpLeftMove(),
-        DownRightMove(),
-        DownLeftMove()
+      final List<Direction> directions = const [
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection(),
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
       ]})
-      : _moves = moves;
+      : _directions = directions;
 
   @override
   @JsonKey()
@@ -239,18 +243,18 @@ class _$LionPieceType implements LionPieceType {
   @override
   @JsonKey()
   final PieceType? promotionPieceType;
-  final List<Move> _moves;
+  final List<Direction> _directions;
   @override
   @JsonKey()
-  List<Move> get moves {
-    if (_moves is EqualUnmodifiableListView) return _moves;
+  List<Direction> get directions {
+    if (_directions is EqualUnmodifiableListView) return _directions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_moves);
+    return EqualUnmodifiableListView(_directions);
   }
 
   @override
   String toString() {
-    return 'PieceType.lion(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, moves: $moves)';
+    return 'PieceType.lion(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
   }
 
   @override
@@ -262,12 +266,13 @@ class _$LionPieceType implements LionPieceType {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.promotionPieceType, promotionPieceType) ||
                 other.promotionPieceType == promotionPieceType) &&
-            const DeepCollectionEquality().equals(other._moves, _moves));
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_moves));
+      promotionPieceType, const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -279,68 +284,68 @@ class _$LionPieceType implements LionPieceType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) {
-    return lion(backgroundColor, promotionPieceType, moves);
+    return lion(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) {
-    return lion?.call(backgroundColor, promotionPieceType, moves);
+    return lion?.call(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (lion != null) {
-      return lion(backgroundColor, promotionPieceType, moves);
+      return lion(backgroundColor, promotionPieceType, directions);
     }
     return orElse();
   }
@@ -390,14 +395,14 @@ abstract class LionPieceType implements PieceType {
   const factory LionPieceType(
       {final Color backgroundColor,
       final PieceType? promotionPieceType,
-      final List<Move> moves}) = _$LionPieceType;
+      final List<Direction> directions}) = _$LionPieceType;
 
   @override
   Color get backgroundColor;
   @override
   PieceType? get promotionPieceType;
   @override
-  List<Move> get moves;
+  List<Direction> get directions;
   @override
   @JsonKey(ignore: true)
   _$$LionPieceTypeCopyWith<_$LionPieceType> get copyWith =>
@@ -413,7 +418,9 @@ abstract class _$$GiraffePieceTypeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   @override
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
@@ -432,7 +439,7 @@ class __$$GiraffePieceTypeCopyWithImpl<$Res>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_$GiraffePieceType(
       backgroundColor: null == backgroundColor
@@ -443,10 +450,10 @@ class __$$GiraffePieceTypeCopyWithImpl<$Res>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value._moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ));
   }
 }
@@ -457,13 +464,13 @@ class _$GiraffePieceType implements GiraffePieceType {
   const _$GiraffePieceType(
       {this.backgroundColor = pieceGiraffeElephantColor,
       this.promotionPieceType = null,
-      final List<Move> moves = const [
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove()
+      final List<Direction> directions = const [
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection()
       ]})
-      : _moves = moves;
+      : _directions = directions;
 
   @override
   @JsonKey()
@@ -471,18 +478,18 @@ class _$GiraffePieceType implements GiraffePieceType {
   @override
   @JsonKey()
   final PieceType? promotionPieceType;
-  final List<Move> _moves;
+  final List<Direction> _directions;
   @override
   @JsonKey()
-  List<Move> get moves {
-    if (_moves is EqualUnmodifiableListView) return _moves;
+  List<Direction> get directions {
+    if (_directions is EqualUnmodifiableListView) return _directions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_moves);
+    return EqualUnmodifiableListView(_directions);
   }
 
   @override
   String toString() {
-    return 'PieceType.giraffe(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, moves: $moves)';
+    return 'PieceType.giraffe(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
   }
 
   @override
@@ -494,12 +501,13 @@ class _$GiraffePieceType implements GiraffePieceType {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.promotionPieceType, promotionPieceType) ||
                 other.promotionPieceType == promotionPieceType) &&
-            const DeepCollectionEquality().equals(other._moves, _moves));
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_moves));
+      promotionPieceType, const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -511,68 +519,68 @@ class _$GiraffePieceType implements GiraffePieceType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) {
-    return giraffe(backgroundColor, promotionPieceType, moves);
+    return giraffe(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) {
-    return giraffe?.call(backgroundColor, promotionPieceType, moves);
+    return giraffe?.call(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (giraffe != null) {
-      return giraffe(backgroundColor, promotionPieceType, moves);
+      return giraffe(backgroundColor, promotionPieceType, directions);
     }
     return orElse();
   }
@@ -622,14 +630,14 @@ abstract class GiraffePieceType implements PieceType {
   const factory GiraffePieceType(
       {final Color backgroundColor,
       final PieceType? promotionPieceType,
-      final List<Move> moves}) = _$GiraffePieceType;
+      final List<Direction> directions}) = _$GiraffePieceType;
 
   @override
   Color get backgroundColor;
   @override
   PieceType? get promotionPieceType;
   @override
-  List<Move> get moves;
+  List<Direction> get directions;
   @override
   @JsonKey(ignore: true)
   _$$GiraffePieceTypeCopyWith<_$GiraffePieceType> get copyWith =>
@@ -645,7 +653,9 @@ abstract class _$$ElephantPieceTypeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   @override
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
@@ -664,7 +674,7 @@ class __$$ElephantPieceTypeCopyWithImpl<$Res>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_$ElephantPieceType(
       backgroundColor: null == backgroundColor
@@ -675,10 +685,10 @@ class __$$ElephantPieceTypeCopyWithImpl<$Res>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value._moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ));
   }
 }
@@ -689,13 +699,13 @@ class _$ElephantPieceType implements ElephantPieceType {
   const _$ElephantPieceType(
       {this.backgroundColor = pieceGiraffeElephantColor,
       this.promotionPieceType = null,
-      final List<Move> moves = const [
-        UpRightMove(),
-        UpLeftMove(),
-        DownRightMove(),
-        DownLeftMove()
+      final List<Direction> directions = const [
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
       ]})
-      : _moves = moves;
+      : _directions = directions;
 
   @override
   @JsonKey()
@@ -703,18 +713,18 @@ class _$ElephantPieceType implements ElephantPieceType {
   @override
   @JsonKey()
   final PieceType? promotionPieceType;
-  final List<Move> _moves;
+  final List<Direction> _directions;
   @override
   @JsonKey()
-  List<Move> get moves {
-    if (_moves is EqualUnmodifiableListView) return _moves;
+  List<Direction> get directions {
+    if (_directions is EqualUnmodifiableListView) return _directions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_moves);
+    return EqualUnmodifiableListView(_directions);
   }
 
   @override
   String toString() {
-    return 'PieceType.elephant(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, moves: $moves)';
+    return 'PieceType.elephant(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
   }
 
   @override
@@ -726,12 +736,13 @@ class _$ElephantPieceType implements ElephantPieceType {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.promotionPieceType, promotionPieceType) ||
                 other.promotionPieceType == promotionPieceType) &&
-            const DeepCollectionEquality().equals(other._moves, _moves));
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_moves));
+      promotionPieceType, const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -743,68 +754,68 @@ class _$ElephantPieceType implements ElephantPieceType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) {
-    return elephant(backgroundColor, promotionPieceType, moves);
+    return elephant(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) {
-    return elephant?.call(backgroundColor, promotionPieceType, moves);
+    return elephant?.call(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (elephant != null) {
-      return elephant(backgroundColor, promotionPieceType, moves);
+      return elephant(backgroundColor, promotionPieceType, directions);
     }
     return orElse();
   }
@@ -854,14 +865,14 @@ abstract class ElephantPieceType implements PieceType {
   const factory ElephantPieceType(
       {final Color backgroundColor,
       final PieceType? promotionPieceType,
-      final List<Move> moves}) = _$ElephantPieceType;
+      final List<Direction> directions}) = _$ElephantPieceType;
 
   @override
   Color get backgroundColor;
   @override
   PieceType? get promotionPieceType;
   @override
-  List<Move> get moves;
+  List<Direction> get directions;
   @override
   @JsonKey(ignore: true)
   _$$ElephantPieceTypeCopyWith<_$ElephantPieceType> get copyWith =>
@@ -877,7 +888,9 @@ abstract class _$$ChickPieceTypeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   @override
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
@@ -896,7 +909,7 @@ class __$$ChickPieceTypeCopyWithImpl<$Res>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_$ChickPieceType(
       backgroundColor: null == backgroundColor
@@ -907,10 +920,10 @@ class __$$ChickPieceTypeCopyWithImpl<$Res>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value._moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ));
   }
 }
@@ -921,8 +934,8 @@ class _$ChickPieceType implements ChickPieceType {
   const _$ChickPieceType(
       {this.backgroundColor = pieceChickChickenColor,
       this.promotionPieceType = const ChickenPieceType(),
-      final List<Move> moves = const [UpMove()]})
-      : _moves = moves;
+      final List<Direction> directions = const [UpDirection()]})
+      : _directions = directions;
 
   @override
   @JsonKey()
@@ -930,18 +943,18 @@ class _$ChickPieceType implements ChickPieceType {
   @override
   @JsonKey()
   final PieceType? promotionPieceType;
-  final List<Move> _moves;
+  final List<Direction> _directions;
   @override
   @JsonKey()
-  List<Move> get moves {
-    if (_moves is EqualUnmodifiableListView) return _moves;
+  List<Direction> get directions {
+    if (_directions is EqualUnmodifiableListView) return _directions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_moves);
+    return EqualUnmodifiableListView(_directions);
   }
 
   @override
   String toString() {
-    return 'PieceType.chick(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, moves: $moves)';
+    return 'PieceType.chick(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
   }
 
   @override
@@ -953,12 +966,13 @@ class _$ChickPieceType implements ChickPieceType {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.promotionPieceType, promotionPieceType) ||
                 other.promotionPieceType == promotionPieceType) &&
-            const DeepCollectionEquality().equals(other._moves, _moves));
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_moves));
+      promotionPieceType, const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -970,68 +984,68 @@ class _$ChickPieceType implements ChickPieceType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) {
-    return chick(backgroundColor, promotionPieceType, moves);
+    return chick(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) {
-    return chick?.call(backgroundColor, promotionPieceType, moves);
+    return chick?.call(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (chick != null) {
-      return chick(backgroundColor, promotionPieceType, moves);
+      return chick(backgroundColor, promotionPieceType, directions);
     }
     return orElse();
   }
@@ -1081,14 +1095,14 @@ abstract class ChickPieceType implements PieceType {
   const factory ChickPieceType(
       {final Color backgroundColor,
       final PieceType? promotionPieceType,
-      final List<Move> moves}) = _$ChickPieceType;
+      final List<Direction> directions}) = _$ChickPieceType;
 
   @override
   Color get backgroundColor;
   @override
   PieceType? get promotionPieceType;
   @override
-  List<Move> get moves;
+  List<Direction> get directions;
   @override
   @JsonKey(ignore: true)
   _$$ChickPieceTypeCopyWith<_$ChickPieceType> get copyWith =>
@@ -1104,7 +1118,9 @@ abstract class _$$ChickenPieceTypeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Color backgroundColor, PieceType? promotionPieceType, List<Move> moves});
+      {Color backgroundColor,
+      PieceType? promotionPieceType,
+      List<Direction> directions});
 
   @override
   $PieceTypeCopyWith<$Res>? get promotionPieceType;
@@ -1123,7 +1139,7 @@ class __$$ChickenPieceTypeCopyWithImpl<$Res>
   $Res call({
     Object? backgroundColor = null,
     Object? promotionPieceType = freezed,
-    Object? moves = null,
+    Object? directions = null,
   }) {
     return _then(_$ChickenPieceType(
       backgroundColor: null == backgroundColor
@@ -1134,10 +1150,10 @@ class __$$ChickenPieceTypeCopyWithImpl<$Res>
           ? _value.promotionPieceType
           : promotionPieceType // ignore: cast_nullable_to_non_nullable
               as PieceType?,
-      moves: null == moves
-          ? _value._moves
-          : moves // ignore: cast_nullable_to_non_nullable
-              as List<Move>,
+      directions: null == directions
+          ? _value._directions
+          : directions // ignore: cast_nullable_to_non_nullable
+              as List<Direction>,
     ));
   }
 }
@@ -1148,17 +1164,17 @@ class _$ChickenPieceType implements ChickenPieceType {
   const _$ChickenPieceType(
       {this.backgroundColor = pieceChickChickenColor,
       this.promotionPieceType = null,
-      final List<Move> moves = const [
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove(),
-        UpRightMove(),
-        UpLeftMove(),
-        DownRightMove(),
-        DownLeftMove()
+      final List<Direction> directions = const [
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection(),
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
       ]})
-      : _moves = moves;
+      : _directions = directions;
 
   @override
   @JsonKey()
@@ -1166,18 +1182,18 @@ class _$ChickenPieceType implements ChickenPieceType {
   @override
   @JsonKey()
   final PieceType? promotionPieceType;
-  final List<Move> _moves;
+  final List<Direction> _directions;
   @override
   @JsonKey()
-  List<Move> get moves {
-    if (_moves is EqualUnmodifiableListView) return _moves;
+  List<Direction> get directions {
+    if (_directions is EqualUnmodifiableListView) return _directions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_moves);
+    return EqualUnmodifiableListView(_directions);
   }
 
   @override
   String toString() {
-    return 'PieceType.chicken(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, moves: $moves)';
+    return 'PieceType.chicken(backgroundColor: $backgroundColor, promotionPieceType: $promotionPieceType, directions: $directions)';
   }
 
   @override
@@ -1189,12 +1205,13 @@ class _$ChickenPieceType implements ChickenPieceType {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.promotionPieceType, promotionPieceType) ||
                 other.promotionPieceType == promotionPieceType) &&
-            const DeepCollectionEquality().equals(other._moves, _moves));
+            const DeepCollectionEquality()
+                .equals(other._directions, _directions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, backgroundColor,
-      promotionPieceType, const DeepCollectionEquality().hash(_moves));
+      promotionPieceType, const DeepCollectionEquality().hash(_directions));
 
   @JsonKey(ignore: true)
   @override
@@ -1206,68 +1223,68 @@ class _$ChickenPieceType implements ChickenPieceType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         lion,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         giraffe,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         elephant,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chick,
     required TResult Function(Color backgroundColor,
-            PieceType? promotionPieceType, List<Move> moves)
+            PieceType? promotionPieceType, List<Direction> directions)
         chicken,
   }) {
-    return chicken(backgroundColor, promotionPieceType, moves);
+    return chicken(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult? Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
   }) {
-    return chicken?.call(backgroundColor, promotionPieceType, moves);
+    return chicken?.call(backgroundColor, promotionPieceType, directions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         lion,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         giraffe,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         elephant,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chick,
     TResult Function(Color backgroundColor, PieceType? promotionPieceType,
-            List<Move> moves)?
+            List<Direction> directions)?
         chicken,
     required TResult orElse(),
   }) {
     if (chicken != null) {
-      return chicken(backgroundColor, promotionPieceType, moves);
+      return chicken(backgroundColor, promotionPieceType, directions);
     }
     return orElse();
   }
@@ -1317,14 +1334,14 @@ abstract class ChickenPieceType implements PieceType {
   const factory ChickenPieceType(
       {final Color backgroundColor,
       final PieceType? promotionPieceType,
-      final List<Move> moves}) = _$ChickenPieceType;
+      final List<Direction> directions}) = _$ChickenPieceType;
 
   @override
   Color get backgroundColor;
   @override
   PieceType? get promotionPieceType;
   @override
-  List<Move> get moves;
+  List<Direction> get directions;
   @override
   @JsonKey(ignore: true)
   _$$ChickenPieceTypeCopyWith<_$ChickenPieceType> get copyWith =>

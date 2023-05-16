@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:animal_shogi_flutter/model/move.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../foundation/colors.dart';
+import 'direction.dart';
 
 part 'piece_type.freezed.dart';
 
@@ -15,16 +15,16 @@ sealed class PieceType with _$PieceType {
       @Default(null)
           PieceType? promotionPieceType,
       @Default([
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove(),
-        UpRightMove(),
-        UpLeftMove(),
-        DownRightMove(),
-        DownLeftMove()
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection(),
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
       ])
-          List<Move> moves}) = LionPieceType;
+          List<Direction> directions}) = LionPieceType;
 
   const factory PieceType.giraffe(
       {@Default(pieceGiraffeElephantColor)
@@ -32,25 +32,25 @@ sealed class PieceType with _$PieceType {
       @Default(null)
           PieceType? promotionPieceType,
       @Default([
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove(),
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection(),
       ])
-          List<Move> moves}) = GiraffePieceType;
+      List<Direction> directions}) = GiraffePieceType;
 
   const factory PieceType.elephant(
       {@Default(pieceGiraffeElephantColor)
           Color backgroundColor,
       @Default(null)
           PieceType? promotionPieceType,
-      @Default([UpRightMove(), UpLeftMove(), DownRightMove(), DownLeftMove()])
-          List<Move> moves}) = ElephantPieceType;
+      @Default([UpRightDirection(), UpLeftDirection(), DownRightDirection(), DownLeftDirection()])
+      List<Direction> directions}) = ElephantPieceType;
 
   const factory PieceType.chick(
       {@Default(pieceChickChickenColor) Color backgroundColor,
       @Default(ChickenPieceType()) PieceType? promotionPieceType,
-      @Default([UpMove()]) List<Move> moves}) = ChickPieceType;
+      @Default([UpDirection()]) List<Direction> directions}) = ChickPieceType;
 
   const factory PieceType.chicken(
       {@Default(pieceChickChickenColor)
@@ -58,16 +58,16 @@ sealed class PieceType with _$PieceType {
       @Default(null)
           PieceType? promotionPieceType,
       @Default([
-        UpMove(),
-        DownMove(),
-        RightMove(),
-        LeftMove(),
-        UpRightMove(),
-        UpLeftMove(),
-        DownRightMove(),
-        DownLeftMove()
+        UpDirection(),
+        DownDirection(),
+        RightDirection(),
+        LeftDirection(),
+        UpRightDirection(),
+        UpLeftDirection(),
+        DownRightDirection(),
+        DownLeftDirection()
       ])
-          List<Move> moves}) = ChickenPieceType;
+      List<Direction> directions}) = ChickenPieceType;
 }
 
 extension PieceTypeExtension on PieceType {

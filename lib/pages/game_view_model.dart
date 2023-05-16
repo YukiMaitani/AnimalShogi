@@ -180,9 +180,9 @@ class GameViewModel extends ChangeNotifier {
 
   void setSquaresPlaceableWithSquare(Square square) {
     // 選択した駒が盤上の駒の場合
-    final movedPositions = square.piece!.pieceType.moves
-        .map((move) =>
-            square.position + move.movePosition * turnPlayer.moveDirectionValue)
+    final movedPositions = square.piece!.pieceType.directions
+        .map((direction) =>
+            square.position + direction.movePosition * turnPlayer.moveDirectionValue)
         .toList();
 
     // 何度も再描画しないように一時変数を定義
