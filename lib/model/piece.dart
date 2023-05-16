@@ -1,6 +1,5 @@
 import 'package:animal_shogi_flutter/model/piece_type.dart';
 import 'package:animal_shogi_flutter/model/player.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'piece.freezed.dart';
@@ -36,4 +35,9 @@ sealed class Piece with _$Piece {
       @Default(ChickenPieceType()) PieceType pieceType,
       @Default(false) bool isCaptured,
       @Default(false) bool isRoyal}) = ChickenPiece;
+}
+
+extension PieceExtension on Piece {
+  String get toPieceString =>
+      '${ownerPlayer == const SecondPlayer() && !isCaptured ? 'v' : ''}${pieceType.toKanji}';
 }

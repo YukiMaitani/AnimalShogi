@@ -69,3 +69,20 @@ sealed class PieceType with _$PieceType {
       ])
           List<Move> moves}) = ChickenPieceType;
 }
+
+extension PieceTypeExtension on PieceType {
+  String get toKanji {
+    switch (this) {
+      case LionPieceType():
+        return '獅';
+      case GiraffePieceType():
+        return '麒';
+      case ElephantPieceType():
+        return '象';
+      case ChickPieceType():
+        return '雛';
+      case ChickenPieceType():
+        return '鶏';
+    }
+  }
+}

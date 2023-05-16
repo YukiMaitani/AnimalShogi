@@ -233,7 +233,7 @@ class __$$LionPieceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LionPiece with DiagnosticableTreeMixin implements LionPiece {
+class _$LionPiece implements LionPiece {
   const _$LionPiece(
       {required this.ownerPlayer,
       this.pieceType = const LionPieceType(),
@@ -253,19 +253,8 @@ class _$LionPiece with DiagnosticableTreeMixin implements LionPiece {
   final bool isRoyal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Piece.lion(ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Piece.lion'))
-      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override
@@ -479,7 +468,7 @@ class __$$GiraffePieceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GiraffePiece with DiagnosticableTreeMixin implements GiraffePiece {
+class _$GiraffePiece implements GiraffePiece {
   const _$GiraffePiece(
       {required this.ownerPlayer,
       this.pieceType = const GiraffePieceType(),
@@ -499,19 +488,8 @@ class _$GiraffePiece with DiagnosticableTreeMixin implements GiraffePiece {
   final bool isRoyal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Piece.giraffe(ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Piece.giraffe'))
-      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override
@@ -725,7 +703,7 @@ class __$$ElephantPieceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ElephantPiece with DiagnosticableTreeMixin implements ElephantPiece {
+class _$ElephantPiece implements ElephantPiece {
   const _$ElephantPiece(
       {required this.ownerPlayer,
       this.pieceType = const ElephantPieceType(),
@@ -745,19 +723,8 @@ class _$ElephantPiece with DiagnosticableTreeMixin implements ElephantPiece {
   final bool isRoyal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Piece.elephant(ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Piece.elephant'))
-      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override
@@ -971,7 +938,7 @@ class __$$ChickPieceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChickPiece with DiagnosticableTreeMixin implements ChickPiece {
+class _$ChickPiece implements ChickPiece {
   const _$ChickPiece(
       {required this.ownerPlayer,
       this.pieceType = const ChickPieceType(),
@@ -991,19 +958,8 @@ class _$ChickPiece with DiagnosticableTreeMixin implements ChickPiece {
   final bool isRoyal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Piece.chick(ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Piece.chick'))
-      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override
@@ -1217,7 +1173,7 @@ class __$$ChickenPieceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChickenPiece with DiagnosticableTreeMixin implements ChickenPiece {
+class _$ChickenPiece implements ChickenPiece {
   const _$ChickenPiece(
       {required this.ownerPlayer,
       this.pieceType = const ChickenPieceType(),
@@ -1237,19 +1193,8 @@ class _$ChickenPiece with DiagnosticableTreeMixin implements ChickenPiece {
   final bool isRoyal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Piece.chicken(ownerPlayer: $ownerPlayer, pieceType: $pieceType, isCaptured: $isCaptured, isRoyal: $isRoyal)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Piece.chicken'))
-      ..add(DiagnosticsProperty('ownerPlayer', ownerPlayer))
-      ..add(DiagnosticsProperty('pieceType', pieceType))
-      ..add(DiagnosticsProperty('isCaptured', isCaptured))
-      ..add(DiagnosticsProperty('isRoyal', isRoyal));
   }
 
   @override

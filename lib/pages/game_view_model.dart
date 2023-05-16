@@ -191,7 +191,6 @@ class GameViewModel extends ChangeNotifier {
       // 移動先が盤外もしくは自分の駒があるならcontinue
       if (movedPosition.isOutsideOfBoard ||
           squares[movedPosition.squareIndex].piece?.ownerPlayer == turnPlayer) {
-        Logger().i(movedPosition.squareIndex);
         continue;
       }
 
@@ -205,5 +204,6 @@ class GameViewModel extends ChangeNotifier {
   void switchTurn() {
     clearSelectedPiece();
     turnPlayer = turnPlayer.otherPlayer;
+    Logger().i(board.toKyokumenString);
   }
 }
