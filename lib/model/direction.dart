@@ -7,36 +7,36 @@ part 'direction.freezed.dart';
 sealed class Direction with _$Direction {
   // squareIndex基準
   const factory Direction.up({
-  @Default((row: 0, column: -1)) ({int row, int column}) direction,
-}) = UpDirection;
+    @Default((row: 0, column: -1)) ({int row, int column}) direction,
+  }) = UpDirection;
 
-const factory Direction.down({
-@Default((row: 0, column: 1)) ({int row, int column}) direction,
-}) = DownDirection;
+  const factory Direction.down({
+    @Default((row: 0, column: 1)) ({int row, int column}) direction,
+  }) = DownDirection;
 
-const factory Direction.right({
-@Default((row: 1, column: 0)) ({int row, int column}) direction,
-}) = RightDirection;
+  const factory Direction.right({
+    @Default((row: 1, column: 0)) ({int row, int column}) direction,
+  }) = RightDirection;
 
-const factory Direction.left({
-@Default((row: -1, column: 0)) ({int row, int column}) direction,
-}) = LeftDirection;
+  const factory Direction.left({
+    @Default((row: -1, column: 0)) ({int row, int column}) direction,
+  }) = LeftDirection;
 
-const factory Direction.upRight({
-@Default((row: 1, column: -1)) ({int row, int column}) direction,
-}) = UpRightDirection;
+  const factory Direction.upRight({
+    @Default((row: 1, column: -1)) ({int row, int column}) direction,
+  }) = UpRightDirection;
 
-const factory Direction.upLeft({
-@Default((row: -1, column: -1)) ({int row, int column}) direction,
-}) = UpLeftDirection;
+  const factory Direction.upLeft({
+    @Default((row: -1, column: -1)) ({int row, int column}) direction,
+  }) = UpLeftDirection;
 
-const factory Direction.downRight({
-@Default((row: 1, column: 1)) ({int row, int column}) direction,
-}) = DownRightDirection;
+  const factory Direction.downRight({
+    @Default((row: 1, column: 1)) ({int row, int column}) direction,
+  }) = DownRightDirection;
 
-const factory Direction.downLeft({
-@Default((row: -1, column: 1)) ({int row, int column}) direction,
-}) = DownLeftDirection;
+  const factory Direction.downLeft({
+    @Default((row: -1, column: 1)) ({int row, int column}) direction,
+  }) = DownLeftDirection;
 }
 
 extension DirectionExtension on Direction {

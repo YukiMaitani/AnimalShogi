@@ -17,9 +17,11 @@ sealed class Move with _$Move {
     required Piece piece,
     required Square to,
   }) = CapturedPieceMove;
+
+
 }
 
-extension ExtensionMove on BoardPieceMove {
+extension BoardPieceMoveExtension on BoardPieceMove {
   PieceType get movedPieceType {
     if (piece.pieceType.promotionPieceType == null) {
       return piece.pieceType;
@@ -33,4 +35,20 @@ extension ExtensionMove on BoardPieceMove {
       return piece.pieceType;
     }
   }
+
+  bool get isPromotion {
+    final promotionLine = piece.ownerPlayer.when(
+        first: (_) => AnimalShogi.secondPlayerEnemyEndLine,
+        second: (_) => AnimalShogi.firstPlayerEnemyEndLine);
+    return from.position.column != promotionLine &&
+        to.position.column == promotionLine;
+  }
+}
+
+extension MoveExtension on Move {
+  String get toKif => switch (this) {
+        BoardPieceMove() =>
+          '${to.position.toKif}${piece.pieceType.toName}${(this as BoardPieceMove).isPromotion ? '成' : ''}(${(this as BoardPieceMove).from.position.toKif})',
+        CapturedPieceMove() => '${to.position.toKif}${piece.pieceType.toName}打'
+      };
 }

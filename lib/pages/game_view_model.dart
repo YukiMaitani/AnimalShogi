@@ -27,6 +27,8 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  List<String> get kif => moves.map((move) => move.toKif).toList();
+
   List<Square> get squares => board.squares;
 
   set squares(List<Square> value) {
@@ -153,6 +155,7 @@ class GameViewModel extends ChangeNotifier {
     capturedPieces = [...capturedPieces]..remove(piece);
     squares = [...squares]..[square.position.squareIndex] =
         square.copyWith(piece: selectedPiece!.copyWith(isCaptured: false));
+    createMove(square);
     switchTurn();
   }
 
@@ -224,16 +227,19 @@ class GameViewModel extends ChangeNotifier {
   void switchTurn() {
     clearSelectedPiece();
     turnPlayer = turnPlayer.otherPlayer;
+    Logger().i(kif.last);
     Logger().i(board.toKyokumenString);
   }
 
   Move createMove(Square toSquare) {
-    return selectedPiece!.isCaptured
+    final move = selectedPiece!.isCaptured
         ? CapturedPieceMove(piece: selectedPiece!, to: toSquare)
         : BoardPieceMove(
             piece: selectedPiece!,
             from: selectedSquare!,
             to: toSquare,
           );
+    _moves.add(move);
+    return move;
   }
 }

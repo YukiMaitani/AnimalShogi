@@ -100,6 +100,16 @@ extension PieceTypeExtension on PieceType {
     }
   }
 
+  String get toName {
+    return switch (this) {
+      LionPieceType() => 'ライオン',
+      GiraffePieceType() => 'きりん',
+      ElephantPieceType() => 'ぞう',
+      ChickPieceType() => 'ひよこ',
+      ChickenPieceType() => 'にわとり'
+    };
+  }
+
   PieceType? get promotionPieceType {
     switch (promotionPieceTypeEnum) {
       case PieceTypeEnum.chicken:
@@ -132,5 +142,5 @@ enum PieceTypeEnum {
   giraffe,
   elephant,
   chick,
-  chicken,
+  chicken;
 }

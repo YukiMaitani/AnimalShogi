@@ -20,6 +20,9 @@ class Position with _$Position {
       row > AnimalShogi.maxRow - 1 ||
       column > AnimalShogi.maxColumn - 1;
 
+  String get toKif =>
+      '${AnimalShogi.rowStrings[row]}${AnimalShogi.columnStrings[column]}';
+
   Position operator +(Position other) {
     return Position(
       row: row + other.row,
