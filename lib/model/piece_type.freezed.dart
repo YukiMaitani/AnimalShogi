@@ -1474,9 +1474,7 @@ class _$ChickenPieceType implements ChickenPieceType {
         RightDirection(),
         LeftDirection(),
         UpRightDirection(),
-        UpLeftDirection(),
-        DownRightDirection(),
-        DownLeftDirection()
+        UpLeftDirection()
       ]})
       : _directions = directions;
 

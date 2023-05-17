@@ -78,8 +78,6 @@ sealed class PieceType with _$PieceType {
         LeftDirection(),
         UpRightDirection(),
         UpLeftDirection(),
-        DownRightDirection(),
-        DownLeftDirection()
       ])
           List<Direction> directions}) = ChickenPieceType;
 }
