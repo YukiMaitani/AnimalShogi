@@ -162,7 +162,8 @@ class GameViewModel extends ChangeNotifier {
     squares = [...squares]
       ..[square.position.squareIndex] = square.copyWith(
           piece: selectedPiece!.copyWith(pieceType: move.movedPieceType))
-      ..[selectedSquare!.position.squareIndex] = square.copyWith(piece: null);
+      ..[selectedSquare!.position.squareIndex] =
+          selectedSquare!.copyWith(piece: null);
     switchTurn();
   }
 
