@@ -37,11 +37,25 @@ extension BoardPieceMoveExtension on BoardPieceMove {
   }
 
   bool get isPromotion {
-    final promotionLine = piece.ownerPlayer.when(
-        first: (_) => AnimalShogi.secondPlayerEnemyEndLine,
-        second: (_) => AnimalShogi.firstPlayerEnemyEndLine);
+    final promotionLine = piece.ownerPlayer.promotionLine;
     return from.position.column != promotionLine &&
         to.position.column == promotionLine;
+  }
+
+  Player? get catchTheLionPlayer {
+    if(to.piece != null && to.piece!.pieceType is LionPieceType) {
+      return piece.ownerPlayer;
+    }
+    return null;
+  }
+
+  Player? get enterEnemyEndLinePlayer {
+    final enemyEndLine = piece.ownerPlayer.promotionLine;
+    if (piece.pieceType is LionPieceType &&
+        to.position.column == enemyEndLine) {
+      return piece.ownerPlayer;
+    }
+    return null;
   }
 }
 
