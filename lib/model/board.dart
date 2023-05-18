@@ -34,7 +34,7 @@ extension BoardExtension on Board {
         'ABC\n'
         '+------+\n'
         '$banmen'
-        '+-------+\n'
+        '+------+\n'
         '持ち駒：$firstPlayerCapturedPieces\n';
   }
 }

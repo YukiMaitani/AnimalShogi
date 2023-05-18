@@ -33,6 +33,11 @@ sealed class GameResult with _$GameResult {
       return GameResult.enterEnemyEndLine(
           winPlayer: move.enterEnemyEndLinePlayer!);
     }
+
+    if(sameBoardCounter.values.any((element) => element >= 3)) {
+      return const GameResult.threeFoldRepetition();
+    }
+
     return const GameResult.gameContinue();
   }
 }

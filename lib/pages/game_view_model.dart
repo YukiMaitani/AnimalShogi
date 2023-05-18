@@ -74,6 +74,8 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  final Map<Board, int> _sameBoardCounter = {};
+
   Piece? get selectedPiece => selectedSquare?.piece ?? selectedCapturedPiece;
 
   List<Piece> get firstPlayerCapturedPieces => capturedPieces
@@ -224,8 +226,18 @@ class GameViewModel extends ChangeNotifier {
     squares = movedSquares;
   }
 
+  void sameBoardCount() {
+    if (_sameBoardCounter.containsKey(board)) {
+      _sameBoardCounter[board] = _sameBoardCounter[board]! + 1;
+    } else {
+      _sameBoardCounter[board] = 1;
+    }
+  }
+
   void switchTurn() {
     clearSelectedPiece();
+    //　turnPlayerを切り替える前の盤面を記録していく
+    sameBoardCount();
     turnPlayer = turnPlayer.otherPlayer;
     Logger().i(kif.last);
     Logger().i(board.toKyokumenString);
