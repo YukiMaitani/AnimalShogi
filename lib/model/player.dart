@@ -20,4 +20,9 @@ extension PlayerExtension on Player {
   int get promotionLine => when(
       first: (_) => AnimalShogi.secondPlayerEnemyEndLine,
       second: (_) => AnimalShogi.firstPlayerEnemyEndLine);
+
+  String get name => when(
+    first: (_) => '先手',
+    second: (_) => '後手',
+  );
 }

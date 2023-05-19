@@ -20,14 +20,45 @@ class GamePage extends HookConsumerWidget {
   }
 
   Widget _buildBody() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Stack(
       children: [
-        _buildCapturedPieces(const SecondPlayer()),
-        _buildBoard(),
-        _buildCapturedPieces(const FirstPlayer())
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildCapturedPieces(const SecondPlayer()),
+            _buildBoard(),
+            _buildCapturedPieces(const FirstPlayer())
+          ],
+        ),
+        _buildGameResultContainer()
       ],
     );
+  }
+
+  Widget _buildGameResultContainer() {
+    return HookConsumer(builder: (context, ref, child) {
+      final gameResult =
+          ref.watch(gameProvider.select((value) => value.gameResult));
+      if (gameResult?.isGameContinue ?? true) {
+        return const SizedBox();
+      }
+      final message = switch (gameResult!) {
+        GameContinue() => '続行', // デバッグ用。continueは設定する必要はない。
+        CatchTheLion() =>
+          'キャッチ！${(gameResult as CatchTheLion).winPlayer.name}の勝ち！',
+        EnterEnemyEndLine() =>
+          'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}の勝ち！',
+        ThreeFoldRepetition() => '千日手',
+      };
+      return Center(
+        child: Container(
+          color: Colors.white,
+          width: 200,
+          height: 60,
+          child: Center(child: Text(message)),
+        ),
+      );
+    });
   }
 
   Widget _buildBoard() {

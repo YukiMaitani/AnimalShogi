@@ -1,3 +1,4 @@
+import 'package:animal_shogi_flutter/model/game_result.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
@@ -86,6 +87,10 @@ class GameViewModel extends ChangeNotifier {
 
   final Map<Board, int> _sameBoardCounter = {};
 
+  GameResult? _gameResult;
+
+  GameResult? get gameResult => _gameResult;
+
   void tapCapturedPiece(Piece piece) {
     // 駒が選択されていないかつタップした持ち駒のownerがturnPlayerならセットする
     if (selectedPiece == null && piece.ownerPlayer == turnPlayer) {
@@ -157,8 +162,7 @@ class GameViewModel extends ChangeNotifier {
     capturedPieces = [...capturedPieces]..remove(piece);
     squares = [...squares]..[square.position.squareIndex] =
         square.copyWith(piece: selectedPiece!.copyWith(isCaptured: false));
-    createMove(square);
-    switchTurn();
+    switchTurn(createMove(square));
   }
 
   void movePiece(Square square) {
@@ -169,7 +173,7 @@ class GameViewModel extends ChangeNotifier {
           piece: selectedPiece!.copyWith(pieceType: move.movedPieceType))
       ..[selectedSquare!.position.squareIndex] =
           selectedSquare!.copyWith(piece: null);
-    switchTurn();
+    switchTurn(move);
   }
 
   void catchEnemyPiece(Square square) {
@@ -192,7 +196,7 @@ class GameViewModel extends ChangeNotifier {
               ownerPlayer: turnPlayer, pieceType: move.movedPieceType))
       ..[selectedSquare!.position.squareIndex] =
           squares[selectedSquare!.position.squareIndex].copyWith(piece: null);
-    switchTurn();
+    switchTurn(move);
   }
 
   void setSquaresPlaceableWithCapturedPiece(Piece piece) {
@@ -235,10 +239,16 @@ class GameViewModel extends ChangeNotifier {
     }
   }
 
-  void switchTurn() {
+  void switchTurn(Move move) {
     clearSelectedPiece();
     //　turnPlayerを切り替える前の盤面を記録していく
     countSameBoard();
+    _gameResult =
+        GameResult.create(move: move, sameBoardCounter: _sameBoardCounter);
+    if (_gameResult?.isGameOver ?? false) {
+      notifyListeners();
+      return;
+    }
     turnPlayer = turnPlayer.otherPlayer;
     Logger().i(kif.last);
     Logger().i(board.toKyokumenString);
