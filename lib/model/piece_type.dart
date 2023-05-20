@@ -1,144 +1,71 @@
 import 'dart:ui';
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../foundation/colors.dart';
 import 'direction.dart';
 
-part 'piece_type.freezed.dart';
+enum PieceType {
+  lion('ライオン', '獅', pieceLionColor, [
+    Direction.up,
+    Direction.down,
+    Direction.right,
+    Direction.left,
+    Direction.upRight,
+    Direction.upLeft,
+    Direction.downRight,
+    Direction.downLeft,
+  ]),
+  giraffe('きりん', '麒', pieceGiraffeElephantColor, [
+    Direction.up,
+    Direction.down,
+    Direction.right,
+    Direction.left,
+  ]),
+  elephant('ぞう', '象', pieceGiraffeElephantColor, [
+    Direction.upRight,
+    Direction.upLeft,
+    Direction.downRight,
+    Direction.downLeft,
+  ]),
+  chick('ひよこ', '雛', pieceChickChickenColor, [Direction.up]),
+  chicken('にわとり', '鶏', pieceChickChickenColor, [
+    Direction.up,
+    Direction.down,
+    Direction.right,
+    Direction.left,
+    Direction.upRight,
+    Direction.upLeft
+  ]);
 
-@freezed
-sealed class PieceType with _$PieceType {
-  const factory PieceType.lion(
-      {@Default(pieceLionColor)
-          Color backgroundColor,
-      @Default(null)
-          PieceTypeEnum? promotionPieceTypeEnum,
-      @Default(null)
-          PieceTypeEnum? relegationPieceTypeEnum,
-      @Default([
-        UpDirection(),
-        DownDirection(),
-        RightDirection(),
-        LeftDirection(),
-        UpRightDirection(),
-        UpLeftDirection(),
-        DownRightDirection(),
-        DownLeftDirection()
-      ])
-          List<Direction> directions}) = LionPieceType;
+  const PieceType(this.name, this.kanji, this.backgroundColor, this.directions);
 
-  const factory PieceType.giraffe(
-      {@Default(pieceGiraffeElephantColor)
-          Color backgroundColor,
-      @Default(null)
-          PieceTypeEnum? promotionPieceTypeEnum,
-      @Default(null)
-          PieceTypeEnum? relegationPieceTypeEnum,
-      @Default([
-        UpDirection(),
-        DownDirection(),
-        RightDirection(),
-        LeftDirection(),
-      ])
-          List<Direction> directions}) = GiraffePieceType;
-
-  const factory PieceType.elephant(
-      {@Default(pieceGiraffeElephantColor)
-          Color backgroundColor,
-      @Default(null)
-          PieceTypeEnum? promotionPieceTypeEnum,
-      @Default(null)
-          PieceTypeEnum? relegationPieceTypeEnum,
-      @Default([
-        UpRightDirection(),
-        UpLeftDirection(),
-        DownRightDirection(),
-        DownLeftDirection()
-      ])
-          List<Direction> directions}) = ElephantPieceType;
-
-  const factory PieceType.chick(
-      {@Default(pieceChickChickenColor) Color backgroundColor,
-      @Default(PieceTypeEnum.chicken) PieceTypeEnum? promotionPieceTypeEnum,
-      @Default(null) PieceTypeEnum? relegationPieceTypeEnum,
-      @Default([UpDirection()]) List<Direction> directions}) = ChickPieceType;
-
-  const factory PieceType.chicken(
-      {@Default(pieceChickChickenColor)
-          Color backgroundColor,
-      @Default(null)
-          PieceTypeEnum? promotionPieceTypeEnum,
-      @Default(PieceTypeEnum.chick)
-          PieceTypeEnum? relegationPieceTypeEnum,
-      @Default([
-        UpDirection(),
-        DownDirection(),
-        RightDirection(),
-        LeftDirection(),
-        UpRightDirection(),
-        UpLeftDirection(),
-      ])
-          List<Direction> directions}) = ChickenPieceType;
+  final String name;
+  final String kanji;
+  final Color backgroundColor;
+  final List<Direction> directions;
 }
 
 extension PieceTypeExtension on PieceType {
-  String get toKanji {
-    switch (this) {
-      case LionPieceType():
-        return '獅';
-      case GiraffePieceType():
-        return '麒';
-      case ElephantPieceType():
-        return '象';
-      case ChickPieceType():
-        return '雛';
-      case ChickenPieceType():
-        return '鶏';
-    }
-  }
-
-  String get toName {
-    return switch (this) {
-      LionPieceType() => 'ライオン',
-      GiraffePieceType() => 'きりん',
-      ElephantPieceType() => 'ぞう',
-      ChickPieceType() => 'ひよこ',
-      ChickenPieceType() => 'にわとり'
-    };
-  }
-
   PieceType? get promotionPieceType {
-    switch (promotionPieceTypeEnum) {
-      case PieceTypeEnum.chicken:
-        return const ChickenPieceType();
-      case PieceTypeEnum.lion:
-      case PieceTypeEnum.giraffe:
-      case PieceTypeEnum.elephant:
-      case PieceTypeEnum.chick:
-      case null:
+    switch (this) {
+      case PieceType.chick:
+        return PieceType.chicken;
+      case PieceType.lion:
+      case PieceType.giraffe:
+      case PieceType.elephant:
+      case PieceType.chicken:
         return null;
     }
   }
 
   PieceType? get relegationPieceType {
-    switch (relegationPieceTypeEnum) {
-      case PieceTypeEnum.chick:
-        return const ChickPieceType();
-      case PieceTypeEnum.lion:
-      case PieceTypeEnum.giraffe:
-      case PieceTypeEnum.elephant:
-      case PieceTypeEnum.chicken:
-      case null:
+    switch (this) {
+      case PieceType.chicken:
+        return PieceType.chick;
+      case PieceType.lion:
+      case PieceType.giraffe:
+      case PieceType.elephant:
+      case PieceType.chick:
         return null;
     }
   }
-}
-
-enum PieceTypeEnum {
-  lion,
-  giraffe,
-  elephant,
-  chick,
-  chicken;
 }

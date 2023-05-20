@@ -16,12 +16,12 @@ class Board with _$Board {
 extension BoardExtension on Board {
   String get toKyokumenString {
     final firstPlayerCapturedPieces = capturedPieces
-        .where((piece) => piece.ownerPlayer == const FirstPlayer())
+        .where((piece) => piece.ownerPlayer == Player.first)
         .toList()
         .map((e) => e.toPieceString)
         .join();
     final secondPlayerCapturedPieces = capturedPieces
-        .where((piece) => piece.ownerPlayer == const SecondPlayer())
+        .where((piece) => piece.ownerPlayer == Player.second)
         .toList()
         .map((e) => e.toPieceString)
         .join();

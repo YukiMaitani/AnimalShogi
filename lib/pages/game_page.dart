@@ -25,9 +25,9 @@ class GamePage extends HookConsumerWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildCapturedPieces(const SecondPlayer()),
+            _buildCapturedPieces(Player.second),
             _buildBoard(),
-            _buildCapturedPieces(const FirstPlayer())
+            _buildCapturedPieces(Player.first),
           ],
         ),
         _buildGameResultContainer()
@@ -133,8 +133,7 @@ class GamePage extends HookConsumerWidget {
           color: piece.pieceType.backgroundColor,
         ),
         child: Transform.rotate(
-          angle:
-              piece.ownerPlayer.when(first: (_) => 0, second: (_) => math.pi),
+          angle: piece.ownerPlayer == Player.first ? 0 : math.pi,
           child: Stack(
             children: [
               Center(child: _buildPieceDefaultImage(piece.pieceType)),
@@ -146,30 +145,30 @@ class GamePage extends HookConsumerWidget {
 
   Widget _buildPieceDefaultImage(PieceType pieceType) {
     switch (pieceType) {
-      case LionPieceType():
+      case PieceType.lion:
         return Assets.images.piece.animal.lionKing.image();
-      case GiraffePieceType():
+      case PieceType.giraffe:
         return Assets.images.piece.animal.giraffe.image();
-      case ElephantPieceType():
+      case PieceType.elephant:
         return Assets.images.piece.animal.elephant.image();
-      case ChickPieceType():
+      case PieceType.chick:
         return Assets.images.piece.animal.chick.image();
-      case ChickenPieceType():
+      case PieceType.chicken:
         return Assets.images.piece.animal.chicken.image();
     }
   }
 
   Widget _buildPieceDirectionsImage(PieceType pieceType) {
     switch (pieceType) {
-      case LionPieceType():
+      case PieceType.lion:
         return Assets.images.piece.directions.lionDirections.image();
-      case GiraffePieceType():
+      case PieceType.giraffe:
         return Assets.images.piece.directions.giraffeDirections.image();
-      case ElephantPieceType():
+      case PieceType.elephant:
         return Assets.images.piece.directions.elephantDirections.image();
-      case ChickPieceType():
+      case PieceType.chick:
         return Assets.images.piece.directions.chickDirections.image();
-      case ChickenPieceType():
+      case PieceType.chicken:
         return Assets.images.piece.directions.chickenDirections.image();
     }
   }
@@ -177,10 +176,17 @@ class GamePage extends HookConsumerWidget {
   Widget _buildCapturedPieces(Player player) {
     return HookConsumer(builder: (context, ref, child) {
       final pieceLength = MediaQuery.of(context).size.width * 0.8 / 6;
-      final capturedPieces = ref.watch(gameProvider.select((value) =>
-          player.when(
-              first: (_) => value.firstPlayerCapturedPieces,
-              second: (_) => value.secondPlayerCapturedPieces)));
+      final List<Piece> capturedPieces;
+      switch (player) {
+        case Player.first:
+          capturedPieces = ref.watch(
+              gameProvider.select((value) => value.firstPlayerCapturedPieces));
+          break;
+        case Player.second:
+          capturedPieces = ref.watch(
+              gameProvider.select((value) => value.secondPlayerCapturedPieces));
+          break;
+      }
       return Row(
         children: capturedPieces
             .map((piece) => GestureDetector(

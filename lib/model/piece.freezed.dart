@@ -118,9 +118,6 @@ abstract class $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -160,22 +157,6 @@ class _$PieceCopyWithImpl<$Res, $Val extends Piece>
               as bool,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get ownerPlayer {
-    return $PlayerCopyWith<$Res>(_value.ownerPlayer, (value) {
-      return _then(_value.copyWith(ownerPlayer: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PieceTypeCopyWith<$Res> get pieceType {
-    return $PieceTypeCopyWith<$Res>(_value.pieceType, (value) {
-      return _then(_value.copyWith(pieceType: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -187,11 +168,6 @@ abstract class _$$LionPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  @override
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  @override
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -236,7 +212,7 @@ class __$$LionPieceCopyWithImpl<$Res>
 class _$LionPiece implements LionPiece {
   const _$LionPiece(
       {required this.ownerPlayer,
-      this.pieceType = const LionPieceType(),
+      this.pieceType = PieceType.lion,
       this.isCaptured = false,
       this.isRoyal = true});
 
@@ -422,11 +398,6 @@ abstract class _$$GiraffePieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  @override
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  @override
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -471,7 +442,7 @@ class __$$GiraffePieceCopyWithImpl<$Res>
 class _$GiraffePiece implements GiraffePiece {
   const _$GiraffePiece(
       {required this.ownerPlayer,
-      this.pieceType = const GiraffePieceType(),
+      this.pieceType = PieceType.giraffe,
       this.isCaptured = false,
       this.isRoyal = false});
 
@@ -657,11 +628,6 @@ abstract class _$$ElephantPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  @override
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  @override
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -706,7 +672,7 @@ class __$$ElephantPieceCopyWithImpl<$Res>
 class _$ElephantPiece implements ElephantPiece {
   const _$ElephantPiece(
       {required this.ownerPlayer,
-      this.pieceType = const ElephantPieceType(),
+      this.pieceType = PieceType.elephant,
       this.isCaptured = false,
       this.isRoyal = false});
 
@@ -892,11 +858,6 @@ abstract class _$$ChickPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  @override
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  @override
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -941,7 +902,7 @@ class __$$ChickPieceCopyWithImpl<$Res>
 class _$ChickPiece implements ChickPiece {
   const _$ChickPiece(
       {required this.ownerPlayer,
-      this.pieceType = const ChickPieceType(),
+      this.pieceType = PieceType.chick,
       this.isCaptured = false,
       this.isRoyal = false});
 
@@ -1127,11 +1088,6 @@ abstract class _$$ChickenPieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
   @useResult
   $Res call(
       {Player ownerPlayer, PieceType pieceType, bool isCaptured, bool isRoyal});
-
-  @override
-  $PlayerCopyWith<$Res> get ownerPlayer;
-  @override
-  $PieceTypeCopyWith<$Res> get pieceType;
 }
 
 /// @nodoc
@@ -1176,7 +1132,7 @@ class __$$ChickenPieceCopyWithImpl<$Res>
 class _$ChickenPiece implements ChickenPiece {
   const _$ChickenPiece(
       {required this.ownerPlayer,
-      this.pieceType = const ChickenPieceType(),
+      this.pieceType = PieceType.chicken,
       this.isCaptured = false,
       this.isRoyal = false});
 

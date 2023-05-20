@@ -208,8 +208,6 @@ abstract class _$$CatchTheLionCopyWith<$Res> {
       __$$CatchTheLionCopyWithImpl<$Res>;
   @useResult
   $Res call({Player winPlayer});
-
-  $PlayerCopyWith<$Res> get winPlayer;
 }
 
 /// @nodoc
@@ -231,14 +229,6 @@ class __$$CatchTheLionCopyWithImpl<$Res>
           : winPlayer // ignore: cast_nullable_to_non_nullable
               as Player,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get winPlayer {
-    return $PlayerCopyWith<$Res>(_value.winPlayer, (value) {
-      return _then(_value.copyWith(winPlayer: value));
-    });
   }
 }
 
@@ -366,8 +356,6 @@ abstract class _$$EnterEnemyEndLineCopyWith<$Res> {
       __$$EnterEnemyEndLineCopyWithImpl<$Res>;
   @useResult
   $Res call({Player winPlayer});
-
-  $PlayerCopyWith<$Res> get winPlayer;
 }
 
 /// @nodoc
@@ -389,14 +377,6 @@ class __$$EnterEnemyEndLineCopyWithImpl<$Res>
           : winPlayer // ignore: cast_nullable_to_non_nullable
               as Player,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get winPlayer {
-    return $PlayerCopyWith<$Res>(_value.winPlayer, (value) {
-      return _then(_value.copyWith(winPlayer: value));
-    });
   }
 }
 

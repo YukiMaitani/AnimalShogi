@@ -14,14 +14,14 @@ class AnimalShogi {
   static const List<String> columnStrings = ['1', '2', '3', '4'];
 
   static Map<Position, Piece> initialPieces = {
-    Position(row: 1, column: 2): const ChickPiece(ownerPlayer: FirstPlayer()),
-    Position(row: 0, column: 3): const ElephantPiece(ownerPlayer: FirstPlayer()),
-    Position(row: 2, column: 3): const GiraffePiece(ownerPlayer: FirstPlayer()),
-    Position(row: 1, column: 3): const LionPiece(ownerPlayer: FirstPlayer()),
-    Position(row: 1, column: 1): const ChickPiece(ownerPlayer: SecondPlayer()),
-    Position(row: 2, column: 0): const ElephantPiece(ownerPlayer: SecondPlayer()),
-    Position(row: 0, column: 0): const GiraffePiece(ownerPlayer: SecondPlayer()),
-    Position(row: 1, column: 0): const LionPiece(ownerPlayer: SecondPlayer()),
+    Position(row: 1, column: 2): const ChickPiece(ownerPlayer: Player.first),
+    Position(row: 0, column: 3): const ElephantPiece(ownerPlayer: Player.first),
+    Position(row: 2, column: 3): const GiraffePiece(ownerPlayer: Player.first),
+    Position(row: 1, column: 3): const LionPiece(ownerPlayer: Player.first),
+    Position(row: 1, column: 1): const ChickPiece(ownerPlayer: Player.second),
+    Position(row: 2, column: 0): const ElephantPiece(ownerPlayer: Player.second),
+    Position(row: 0, column: 0): const GiraffePiece(ownerPlayer: Player.second),
+    Position(row: 1, column: 0): const LionPiece(ownerPlayer: Player.second),
   };
 
   static List<Square> get initialSquares {
@@ -42,6 +42,6 @@ class AnimalShogi {
   static Board get initialBoard => Board(
         squares: initialSquares,
         capturedPieces: [],
-        turnPlayer: const FirstPlayer(),
+        turnPlayer: Player.first,
       );
 }

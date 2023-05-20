@@ -78,11 +78,11 @@ class GameViewModel extends ChangeNotifier {
   Piece? get selectedPiece => selectedSquare?.piece ?? selectedCapturedPiece;
 
   List<Piece> get firstPlayerCapturedPieces => capturedPieces
-      .where((piece) => piece.ownerPlayer == const FirstPlayer())
+      .where((piece) => piece.ownerPlayer == Player.first)
       .toList();
 
   List<Piece> get secondPlayerCapturedPieces => capturedPieces
-      .where((piece) => piece.ownerPlayer == const SecondPlayer())
+      .where((piece) => piece.ownerPlayer == Player.second)
       .toList();
 
   final Map<Board, int> _sameBoardCounter = {};

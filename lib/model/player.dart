@@ -1,28 +1,31 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../foundation/animal_shogi.dart';
 
-part 'player.freezed.dart';
+enum Player {
+  first('先手', 1),
+  second('後手', -1);
 
-@freezed
-sealed class Player with _$Player {
-  const factory Player.first({@Default(1) int moveDirectionValue}) =
-      FirstPlayer;
+  const Player(this.name, this.moveDirectionValue);
 
-  const factory Player.second({@Default(-1) int moveDirectionValue}) =
-      SecondPlayer;
+  final String name;
+  final int moveDirectionValue;
 }
 
 extension PlayerExtension on Player {
-  Player get otherPlayer => when(
-      first: (_) => const SecondPlayer(), second: (_) => const FirstPlayer());
+  Player get otherPlayer {
+    switch (this) {
+      case Player.first:
+        return Player.second;
+      case Player.second:
+        return Player.first;
+    }
+  }
 
-  int get promotionLine => when(
-      first: (_) => AnimalShogi.secondPlayerEnemyEndLine,
-      second: (_) => AnimalShogi.firstPlayerEnemyEndLine);
-
-  String get name => when(
-    first: (_) => '先手',
-    second: (_) => '後手',
-  );
+  int get promotionLine {
+    switch (this) {
+      case Player.first:
+        return AnimalShogi.secondPlayerEnemyEndLine;
+      case Player.second:
+        return AnimalShogi.firstPlayerEnemyEndLine;
+    }
+  }
 }

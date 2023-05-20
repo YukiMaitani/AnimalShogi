@@ -31,8 +31,6 @@ abstract class $BoardCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Square> squares, List<Piece> capturedPieces, Player turnPlayer});
-
-  $PlayerCopyWith<$Res> get turnPlayer;
 }
 
 /// @nodoc
@@ -67,14 +65,6 @@ class _$BoardCopyWithImpl<$Res, $Val extends Board>
               as Player,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get turnPlayer {
-    return $PlayerCopyWith<$Res>(_value.turnPlayer, (value) {
-      return _then(_value.copyWith(turnPlayer: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -85,9 +75,6 @@ abstract class _$$_BoardCopyWith<$Res> implements $BoardCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Square> squares, List<Piece> capturedPieces, Player turnPlayer});
-
-  @override
-  $PlayerCopyWith<$Res> get turnPlayer;
 }
 
 /// @nodoc
