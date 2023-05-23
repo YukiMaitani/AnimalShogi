@@ -28,6 +28,7 @@ class GamePage extends HookConsumerWidget {
             _buildCapturedPieces(Player.second),
             _buildBoard(),
             _buildCapturedPieces(Player.first),
+            _buildStartFromBeginning(),
           ],
         ),
         _buildGameResultContainer()
@@ -198,6 +199,39 @@ class GamePage extends HookConsumerWidget {
                     height: pieceLength,
                     child: _buildPiece(piece))))
             .toList(),
+      );
+    });
+  }
+
+  Widget _buildStartFromBeginning() {
+    return HookConsumer(builder: (context, ref, child) {
+      return ElevatedButton(
+        onPressed: () {
+         showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: const Text('さいしょからはじめますか？'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      ref.read(gameProvider).startFromBeginning();
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('いいよ'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('ダメ'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: const Text('さいしょから'),
       );
     });
   }

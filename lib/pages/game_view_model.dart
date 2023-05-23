@@ -85,7 +85,7 @@ class GameViewModel extends ChangeNotifier {
       .where((piece) => piece.ownerPlayer == Player.second)
       .toList();
 
-  final Map<Board, int> _sameBoardCounter = {};
+  Map<Board, int> _sameBoardCounter = {};
 
   GameResult? _gameResult;
 
@@ -264,5 +264,13 @@ class GameViewModel extends ChangeNotifier {
           );
     _moves.add(move);
     return move;
+  }
+
+  void startFromBeginning() {
+    _board = AnimalShogi.initialBoard;
+    _moves = [];
+    _sameBoardCounter = {};
+    _gameResult = null;
+    notifyListeners();
   }
 }
