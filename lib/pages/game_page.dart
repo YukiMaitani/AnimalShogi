@@ -26,7 +26,7 @@ class GamePage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+              padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
               child: _buildCapturedPieces(Player.second),
             ),
             _buildBoard(),
@@ -184,19 +184,26 @@ class GamePage extends HookConsumerWidget {
     return HookConsumer(builder: (context, ref, child) {
       final pieceLength = MediaQuery.of(context).size.width * 0.8 / 6;
       final List<Piece> capturedPieces;
+      final MainAxisAlignment mainAxisAlignment;
       switch (player) {
         case Player.first:
           capturedPieces = ref.watch(
               gameProvider.select((value) => value.firstPlayerCapturedPieces));
+          mainAxisAlignment = MainAxisAlignment.start;
           break;
         case Player.second:
-          capturedPieces = ref.watch(
-              gameProvider.select((value) => value.secondPlayerCapturedPieces));
+          capturedPieces = ref
+              .watch(gameProvider
+                  .select((value) => value.secondPlayerCapturedPieces))
+              .reversed
+              .toList();
+          mainAxisAlignment = MainAxisAlignment.end;
           break;
       }
       return SizedBox(
         height: pieceLength,
         child: Row(
+          mainAxisAlignment: mainAxisAlignment,
           children: capturedPieces
               .map((piece) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
