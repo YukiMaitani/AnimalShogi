@@ -13,64 +13,62 @@ class GamePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(gameProvider.select((value) => value.gameResult),
+        (previous, next) {
+      gameResultDialog(next, context);
+    });
     return Scaffold(
       backgroundColor: gamePageBodyColor,
       body: _buildBody(),
     );
   }
 
-  Widget _buildBody() {
-    return Stack(
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
-              child: _buildCapturedPieces(Player.second),
-            ),
-            _buildBoard(),
-            Padding(
-              padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
-              child: _buildCapturedPieces(Player.first),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-              _buildStartFromBeginning(),
-              _buildWaitButton(),
-            ]),
-          ],
-        ),
-        _buildGameResultContainer()
-      ],
-    );
+  void gameResultDialog(GameResult? gameResult, BuildContext context) {
+    if (gameResult?.isGameContinue ?? true) {
+      return;
+    }
+    final message = switch (gameResult!) {
+      GameContinue() => '続行',
+      CatchTheLion() =>
+        'キャッチ！${(gameResult as CatchTheLion).winPlayer.name}の勝ち！',
+      EnterEnemyEndLine() =>
+        'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}の勝ち！',
+      ThreeFoldRepetition() => '千日手',
+    };
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text(message),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            ));
   }
 
-  Widget _buildGameResultContainer() {
-    return HookConsumer(builder: (context, ref, child) {
-      final gameResult =
-          ref.watch(gameProvider.select((value) => value.gameResult));
-      if (gameResult?.isGameContinue ?? true) {
-        return const SizedBox();
-      }
-      final message = switch (gameResult!) {
-        GameContinue() => '続行', // デバッグ用。continueは設定する必要はない。
-        CatchTheLion() =>
-          'キャッチ！${(gameResult as CatchTheLion).winPlayer.name}の勝ち！',
-        EnterEnemyEndLine() =>
-          'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}の勝ち！',
-        ThreeFoldRepetition() => '千日手',
-      };
-      return Center(
-        child: Container(
-          color: Colors.white,
-          width: 200,
-          height: 60,
-          child: Center(child: Text(message)),
+  Widget _buildBody() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
+          child: _buildCapturedPieces(Player.second),
         ),
-      );
-    });
+        _buildBoard(),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+          child: _buildCapturedPieces(Player.first),
+        ),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          _buildStartFromBeginning(),
+          _buildWaitButton(),
+        ]),
+      ],
+    );
   }
 
   Widget _buildBoard() {
