@@ -1,4 +1,3 @@
-import 'package:animal_shogi_flutter/model/game_result.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';

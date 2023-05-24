@@ -25,9 +25,15 @@ class GamePage extends HookConsumerWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildCapturedPieces(Player.second),
+            Padding(
+              padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+              child: _buildCapturedPieces(Player.second),
+            ),
             _buildBoard(),
-            _buildCapturedPieces(Player.first),
+            Padding(
+              padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+              child: _buildCapturedPieces(Player.first),
+            ),
             _buildStartFromBeginning(),
           ],
         ),
@@ -124,7 +130,7 @@ class GamePage extends HookConsumerWidget {
 
   Widget _buildPiece(Piece piece) {
     return Container(
-        margin: const EdgeInsets.all(8),
+        margin: piece.isCaptured ? null : const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
@@ -188,17 +194,21 @@ class GamePage extends HookConsumerWidget {
               gameProvider.select((value) => value.secondPlayerCapturedPieces));
           break;
       }
-      return Row(
-        children: capturedPieces
-            .map((piece) => GestureDetector(
-                onTap: () {
-                  ref.read(gameProvider).tapCapturedPiece(piece);
-                },
-                child: SizedBox(
-                    width: pieceLength,
-                    height: pieceLength,
-                    child: _buildPiece(piece))))
-            .toList(),
+      return SizedBox(
+        height: pieceLength,
+        child: Row(
+          children: capturedPieces
+              .map((piece) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: GestureDetector(
+                        onTap: () {
+                          ref.read(gameProvider).tapCapturedPiece(piece);
+                        },
+                        child: SizedBox(
+                            width: pieceLength, child: _buildPiece(piece))),
+                  ))
+              .toList(),
+        ),
       );
     });
   }
@@ -207,7 +217,7 @@ class GamePage extends HookConsumerWidget {
     return HookConsumer(builder: (context, ref, child) {
       return ElevatedButton(
         onPressed: () {
-         showDialog(
+          showDialog(
             context: context,
             builder: (context) {
               return AlertDialog(
