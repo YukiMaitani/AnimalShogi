@@ -34,7 +34,12 @@ class GamePage extends HookConsumerWidget {
               padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
               child: _buildCapturedPieces(Player.first),
             ),
-            _buildStartFromBeginning(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              _buildStartFromBeginning(),
+              _buildWaitButton(),
+            ]),
           ],
         ),
         _buildGameResultContainer()
@@ -249,6 +254,39 @@ class GamePage extends HookConsumerWidget {
           );
         },
         child: const Text('さいしょから'),
+      );
+    });
+  }
+
+  Widget _buildWaitButton() {
+    return HookConsumer(builder: (context, ref, child) {
+      return ElevatedButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: const Text('一つまえのきょくめんにもどってもいい？'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      ref.read(gameProvider).wait();
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('いいよ'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('ダメ'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: const Text('待った'),
       );
     });
   }

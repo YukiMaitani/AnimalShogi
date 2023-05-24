@@ -27,6 +27,17 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  List<Board> _history = [];
+
+  List<Board> get history => _history;
+
+  set history(List<Board> value) {
+    _history = value;
+    notifyListeners();
+  }
+
+  bool get canWait => history.isNotEmpty;
+
   List<String> get kif => moves.map((move) => move.toKif).toList();
 
   List<Square> get squares => board.squares;
@@ -84,7 +95,14 @@ class GameViewModel extends ChangeNotifier {
       .where((piece) => piece.ownerPlayer == Player.second)
       .toList();
 
-  Map<Board, int> _sameBoardCounter = {};
+  Map<Board, int> get _sameBoardCounter => _history.fold({}, (boardCounter, board) {
+        if (boardCounter.containsKey(board)) {
+          boardCounter[board] = boardCounter[board]! + 1;
+        } else {
+          boardCounter[board] = 1;
+        }
+        return boardCounter;
+      });
 
   GameResult? _gameResult;
 
@@ -229,19 +247,10 @@ class GameViewModel extends ChangeNotifier {
     squares = movedSquares;
   }
 
-  // 千日手チェック
-  void countSameBoard() {
-    if (_sameBoardCounter.containsKey(board)) {
-      _sameBoardCounter[board] = _sameBoardCounter[board]! + 1;
-    } else {
-      _sameBoardCounter[board] = 1;
-    }
-  }
-
   void switchTurn(Move move) {
     clearSelectedPiece();
     //　turnPlayerを切り替える前の盤面を記録していく
-    countSameBoard();
+    _history.add(board);
     _gameResult =
         GameResult.create(move: move, sameBoardCounter: _sameBoardCounter);
     if (_gameResult?.isGameOver ?? false) {
@@ -265,10 +274,26 @@ class GameViewModel extends ChangeNotifier {
     return move;
   }
 
+
   void startFromBeginning() {
     _board = AnimalShogi.initialBoard;
     _moves = [];
-    _sameBoardCounter = {};
+    _history = [];
+    _gameResult = null;
+    notifyListeners();
+  }
+
+  void wait() {
+    if(_history.isEmpty) {
+      return;
+    }
+    if(_history.length < 2) {
+      _board = AnimalShogi.initialBoard;
+    } else {
+      _board = _history[_history.length - 2];
+    }
+    _history.removeLast();
+    _moves.removeLast();
     _gameResult = null;
     notifyListeners();
   }
