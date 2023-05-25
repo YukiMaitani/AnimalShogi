@@ -22,6 +22,7 @@ mixin _$GameResult {
     required TResult Function(Player winPlayer) catchTheLion,
     required TResult Function(Player winPlayer) enterEnemyEndLine,
     required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$GameResult {
     TResult? Function(Player winPlayer)? catchTheLion,
     TResult? Function(Player winPlayer)? enterEnemyEndLine,
     TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$GameResult {
     TResult Function(Player winPlayer)? catchTheLion,
     TResult Function(Player winPlayer)? enterEnemyEndLine,
     TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$GameResult {
     required TResult Function(CatchTheLion value) catchTheLion,
     required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
     required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$GameResult {
     TResult? Function(CatchTheLion value)? catchTheLion,
     TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$GameResult {
     TResult Function(CatchTheLion value)? catchTheLion,
     TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$GameContinue extends GameContinue {
     required TResult Function(Player winPlayer) catchTheLion,
     required TResult Function(Player winPlayer) enterEnemyEndLine,
     required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
   }) {
     return gameContinue();
   }
@@ -139,6 +146,7 @@ class _$GameContinue extends GameContinue {
     TResult? Function(Player winPlayer)? catchTheLion,
     TResult? Function(Player winPlayer)? enterEnemyEndLine,
     TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
   }) {
     return gameContinue?.call();
   }
@@ -150,6 +158,7 @@ class _$GameContinue extends GameContinue {
     TResult Function(Player winPlayer)? catchTheLion,
     TResult Function(Player winPlayer)? enterEnemyEndLine,
     TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
     required TResult orElse(),
   }) {
     if (gameContinue != null) {
@@ -165,6 +174,7 @@ class _$GameContinue extends GameContinue {
     required TResult Function(CatchTheLion value) catchTheLion,
     required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
     required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
   }) {
     return gameContinue(this);
   }
@@ -176,6 +186,7 @@ class _$GameContinue extends GameContinue {
     TResult? Function(CatchTheLion value)? catchTheLion,
     TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
   }) {
     return gameContinue?.call(this);
   }
@@ -187,6 +198,7 @@ class _$GameContinue extends GameContinue {
     TResult Function(CatchTheLion value)? catchTheLion,
     TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
     required TResult orElse(),
   }) {
     if (gameContinue != null) {
@@ -270,6 +282,7 @@ class _$CatchTheLion extends CatchTheLion {
     required TResult Function(Player winPlayer) catchTheLion,
     required TResult Function(Player winPlayer) enterEnemyEndLine,
     required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
   }) {
     return catchTheLion(winPlayer);
   }
@@ -281,6 +294,7 @@ class _$CatchTheLion extends CatchTheLion {
     TResult? Function(Player winPlayer)? catchTheLion,
     TResult? Function(Player winPlayer)? enterEnemyEndLine,
     TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
   }) {
     return catchTheLion?.call(winPlayer);
   }
@@ -292,6 +306,7 @@ class _$CatchTheLion extends CatchTheLion {
     TResult Function(Player winPlayer)? catchTheLion,
     TResult Function(Player winPlayer)? enterEnemyEndLine,
     TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
     required TResult orElse(),
   }) {
     if (catchTheLion != null) {
@@ -307,6 +322,7 @@ class _$CatchTheLion extends CatchTheLion {
     required TResult Function(CatchTheLion value) catchTheLion,
     required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
     required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
   }) {
     return catchTheLion(this);
   }
@@ -318,6 +334,7 @@ class _$CatchTheLion extends CatchTheLion {
     TResult? Function(CatchTheLion value)? catchTheLion,
     TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
   }) {
     return catchTheLion?.call(this);
   }
@@ -329,6 +346,7 @@ class _$CatchTheLion extends CatchTheLion {
     TResult Function(CatchTheLion value)? catchTheLion,
     TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
     required TResult orElse(),
   }) {
     if (catchTheLion != null) {
@@ -418,6 +436,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     required TResult Function(Player winPlayer) catchTheLion,
     required TResult Function(Player winPlayer) enterEnemyEndLine,
     required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
   }) {
     return enterEnemyEndLine(winPlayer);
   }
@@ -429,6 +448,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     TResult? Function(Player winPlayer)? catchTheLion,
     TResult? Function(Player winPlayer)? enterEnemyEndLine,
     TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
   }) {
     return enterEnemyEndLine?.call(winPlayer);
   }
@@ -440,6 +460,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     TResult Function(Player winPlayer)? catchTheLion,
     TResult Function(Player winPlayer)? enterEnemyEndLine,
     TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
     required TResult orElse(),
   }) {
     if (enterEnemyEndLine != null) {
@@ -455,6 +476,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     required TResult Function(CatchTheLion value) catchTheLion,
     required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
     required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
   }) {
     return enterEnemyEndLine(this);
   }
@@ -466,6 +488,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     TResult? Function(CatchTheLion value)? catchTheLion,
     TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
   }) {
     return enterEnemyEndLine?.call(this);
   }
@@ -477,6 +500,7 @@ class _$EnterEnemyEndLine extends EnterEnemyEndLine {
     TResult Function(CatchTheLion value)? catchTheLion,
     TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
     required TResult orElse(),
   }) {
     if (enterEnemyEndLine != null) {
@@ -539,6 +563,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     required TResult Function(Player winPlayer) catchTheLion,
     required TResult Function(Player winPlayer) enterEnemyEndLine,
     required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
   }) {
     return threeFoldRepetition();
   }
@@ -550,6 +575,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     TResult? Function(Player winPlayer)? catchTheLion,
     TResult? Function(Player winPlayer)? enterEnemyEndLine,
     TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
   }) {
     return threeFoldRepetition?.call();
   }
@@ -561,6 +587,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     TResult Function(Player winPlayer)? catchTheLion,
     TResult Function(Player winPlayer)? enterEnemyEndLine,
     TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
     required TResult orElse(),
   }) {
     if (threeFoldRepetition != null) {
@@ -576,6 +603,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     required TResult Function(CatchTheLion value) catchTheLion,
     required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
     required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
   }) {
     return threeFoldRepetition(this);
   }
@@ -587,6 +615,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     TResult? Function(CatchTheLion value)? catchTheLion,
     TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
   }) {
     return threeFoldRepetition?.call(this);
   }
@@ -598,6 +627,7 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
     TResult Function(CatchTheLion value)? catchTheLion,
     TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
     TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
     required TResult orElse(),
   }) {
     if (threeFoldRepetition != null) {
@@ -610,4 +640,157 @@ class _$ThreeFoldRepetition extends ThreeFoldRepetition {
 abstract class ThreeFoldRepetition extends GameResult {
   const factory ThreeFoldRepetition() = _$ThreeFoldRepetition;
   const ThreeFoldRepetition._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ResignationCopyWith<$Res> {
+  factory _$$ResignationCopyWith(
+          _$Resignation value, $Res Function(_$Resignation) then) =
+      __$$ResignationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Player winPlayer});
+}
+
+/// @nodoc
+class __$$ResignationCopyWithImpl<$Res>
+    extends _$GameResultCopyWithImpl<$Res, _$Resignation>
+    implements _$$ResignationCopyWith<$Res> {
+  __$$ResignationCopyWithImpl(
+      _$Resignation _value, $Res Function(_$Resignation) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? winPlayer = null,
+  }) {
+    return _then(_$Resignation(
+      winPlayer: null == winPlayer
+          ? _value.winPlayer
+          : winPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Resignation extends Resignation {
+  const _$Resignation({required this.winPlayer}) : super._();
+
+  @override
+  final Player winPlayer;
+
+  @override
+  String toString() {
+    return 'GameResult.resignation(winPlayer: $winPlayer)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Resignation &&
+            (identical(other.winPlayer, winPlayer) ||
+                other.winPlayer == winPlayer));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, winPlayer);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResignationCopyWith<_$Resignation> get copyWith =>
+      __$$ResignationCopyWithImpl<_$Resignation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() gameContinue,
+    required TResult Function(Player winPlayer) catchTheLion,
+    required TResult Function(Player winPlayer) enterEnemyEndLine,
+    required TResult Function() threeFoldRepetition,
+    required TResult Function(Player winPlayer) resignation,
+  }) {
+    return resignation(winPlayer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? gameContinue,
+    TResult? Function(Player winPlayer)? catchTheLion,
+    TResult? Function(Player winPlayer)? enterEnemyEndLine,
+    TResult? Function()? threeFoldRepetition,
+    TResult? Function(Player winPlayer)? resignation,
+  }) {
+    return resignation?.call(winPlayer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? gameContinue,
+    TResult Function(Player winPlayer)? catchTheLion,
+    TResult Function(Player winPlayer)? enterEnemyEndLine,
+    TResult Function()? threeFoldRepetition,
+    TResult Function(Player winPlayer)? resignation,
+    required TResult orElse(),
+  }) {
+    if (resignation != null) {
+      return resignation(winPlayer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GameContinue value) gameContinue,
+    required TResult Function(CatchTheLion value) catchTheLion,
+    required TResult Function(EnterEnemyEndLine value) enterEnemyEndLine,
+    required TResult Function(ThreeFoldRepetition value) threeFoldRepetition,
+    required TResult Function(Resignation value) resignation,
+  }) {
+    return resignation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GameContinue value)? gameContinue,
+    TResult? Function(CatchTheLion value)? catchTheLion,
+    TResult? Function(EnterEnemyEndLine value)? enterEnemyEndLine,
+    TResult? Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult? Function(Resignation value)? resignation,
+  }) {
+    return resignation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GameContinue value)? gameContinue,
+    TResult Function(CatchTheLion value)? catchTheLion,
+    TResult Function(EnterEnemyEndLine value)? enterEnemyEndLine,
+    TResult Function(ThreeFoldRepetition value)? threeFoldRepetition,
+    TResult Function(Resignation value)? resignation,
+    required TResult orElse(),
+  }) {
+    if (resignation != null) {
+      return resignation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Resignation extends GameResult {
+  const factory Resignation({required final Player winPlayer}) = _$Resignation;
+  const Resignation._() : super._();
+
+  Player get winPlayer;
+  @JsonKey(ignore: true)
+  _$$ResignationCopyWith<_$Resignation> get copyWith =>
+      throw _privateConstructorUsedError;
 }

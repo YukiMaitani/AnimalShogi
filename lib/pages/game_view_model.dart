@@ -336,4 +336,10 @@ class GameViewModel extends ChangeNotifier {
     _board = _history[_reviewIndex!];
     notifyListeners();
   }
+
+  void resign() {
+    clearSelectedPiece();
+    _gameResult = GameResult.resign(winPlayer: turnPlayer.otherPlayer);
+    notifyListeners();
+  }
 }

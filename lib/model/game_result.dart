@@ -15,6 +15,8 @@ sealed class GameResult with _$GameResult {
 
   const factory GameResult.threeFoldRepetition() = ThreeFoldRepetition;
 
+  const factory GameResult.resignation({required Player winPlayer}) = Resignation;
+
   const GameResult._();
 
   bool get isGameContinue => this is GameContinue;
@@ -39,5 +41,9 @@ sealed class GameResult with _$GameResult {
     }
 
     return const GameResult.gameContinue();
+  }
+
+  static GameResult resign({required Player winPlayer}) {
+    return GameResult.resignation(winPlayer: winPlayer);
   }
 }

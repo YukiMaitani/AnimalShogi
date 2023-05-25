@@ -16,7 +16,8 @@ class GamePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(gameProvider.select((value) => value.gameResult),
         (previous, next) {
-      gameResultDialog(next, context);
+      WidgetsBinding.instance
+          .addPostFrameCallback((_) => gameResultDialog(next, context));
     });
     return Scaffold(
       backgroundColor: gamePageBodyColor,
@@ -35,6 +36,8 @@ class GamePage extends HookConsumerWidget {
       EnterEnemyEndLine() =>
         'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}のかち！',
       ThreeFoldRepetition() => 'せんにちて',
+      Resignation() =>
+        '${(gameResult as Resignation).winPlayer.otherPlayer.name}がとうりょうしました！\n${gameResult.winPlayer.name}のかち！',
     };
     showDialog(
         context: context,
@@ -70,6 +73,7 @@ class GamePage extends HookConsumerWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             _buildStartFromBeginning(),
             _buildWaitButton(),
+            _buildResignButton(),
           ]),
           const SizedBox(height: 20),
           if (isGameOver) _buildUndoRedoButtonsRow(),
@@ -298,6 +302,42 @@ class GamePage extends HookConsumerWidget {
           );
         },
         child: const Text('まった'),
+      );
+    });
+  }
+
+  Widget _buildResignButton() {
+    return HookConsumer(builder: (context, ref, child) {
+      return ElevatedButton(
+        onPressed: () {
+          if (ref.read(gameProvider).isGameOver) {
+            return;
+          }
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: const Text('あきらめる？'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      ref.read(gameProvider).resign();
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('いいよ'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('ダメ'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: const Text('あきらめる'),
       );
     });
   }
