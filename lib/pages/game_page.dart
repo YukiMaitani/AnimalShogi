@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'dart:math' as math;
@@ -51,24 +52,30 @@ class GamePage extends HookConsumerWidget {
   }
 
   Widget _buildBody() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
-          child: _buildCapturedPieces(Player.second),
-        ),
-        _buildBoard(),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
-          child: _buildCapturedPieces(Player.first),
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          _buildStartFromBeginning(),
-          _buildWaitButton(),
-        ]),
-      ],
-    );
+    return HookConsumer(builder: (context, ref, child) {
+      final isGameOver =
+          ref.watch(gameProvider.select((value) => value.isGameOver));
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
+            child: _buildCapturedPieces(Player.second),
+          ),
+          _buildBoard(),
+          Padding(
+            padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+            child: _buildCapturedPieces(Player.first),
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            _buildStartFromBeginning(),
+            _buildWaitButton(),
+          ]),
+          const SizedBox(height: 20),
+          if (isGameOver) _buildUndoRedoButtonsRow(),
+        ],
+      );
+    });
   }
 
   Widget _buildBoard() {
@@ -263,6 +270,9 @@ class GamePage extends HookConsumerWidget {
     return HookConsumer(builder: (context, ref, child) {
       return ElevatedButton(
         onPressed: () {
+          if (ref.read(gameProvider).isGameOver) {
+            return;
+          }
           showDialog(
             context: context,
             builder: (context) {
@@ -288,6 +298,62 @@ class GamePage extends HookConsumerWidget {
           );
         },
         child: const Text('まった'),
+      );
+    });
+  }
+
+  Widget _buildBaseUndoRedoButton(
+      {required IconData iconData, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+            color: CupertinoColors.activeOrange,
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.white, width: 2)),
+        child: Center(
+          child: Icon(
+            iconData,
+            color: Colors.white,
+            size: 32,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildUndoRedoButtonsRow() {
+    return HookConsumer(builder: (context, ref, child) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildBaseUndoRedoButton(
+            iconData: Icons.keyboard_double_arrow_left_rounded,
+            onTap: () {
+              ref.read(gameProvider).undoAll();
+            },
+          ),
+          _buildBaseUndoRedoButton(
+            iconData: Icons.keyboard_arrow_left_rounded,
+            onTap: () {
+              ref.read(gameProvider).undo();
+            },
+          ),
+          _buildBaseUndoRedoButton(
+            iconData: Icons.keyboard_arrow_right_rounded,
+            onTap: () {
+              ref.read(gameProvider).redo();
+            },
+          ),
+          _buildBaseUndoRedoButton(
+            iconData: Icons.keyboard_double_arrow_right_rounded,
+            onTap: () {
+              ref.read(gameProvider).redoAll();
+            },
+          ),
+        ],
       );
     });
   }

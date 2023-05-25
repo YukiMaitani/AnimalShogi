@@ -27,7 +27,7 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Board> _history = [];
+  List<Board> _history = [AnimalShogi.initialBoard];
 
   List<Board> get history => _history;
 
@@ -95,7 +95,8 @@ class GameViewModel extends ChangeNotifier {
       .where((piece) => piece.ownerPlayer == Player.second)
       .toList();
 
-  Map<Board, int> get _sameBoardCounter => _history.fold({}, (boardCounter, board) {
+  Map<Board, int> get _sameBoardCounter =>
+      _history.fold({}, (boardCounter, board) {
         if (boardCounter.containsKey(board)) {
           boardCounter[board] = boardCounter[board]! + 1;
         } else {
@@ -108,7 +109,14 @@ class GameViewModel extends ChangeNotifier {
 
   GameResult? get gameResult => _gameResult;
 
+  bool get isGameOver => _gameResult?.isGameOver ?? false;
+
+  int? _reviewIndex;
+
   void tapCapturedPiece(Piece piece) {
+    if (isGameOver) {
+      return;
+    }
     // 駒が選択されていないかつタップした持ち駒のownerがturnPlayerならセットする
     if (selectedPiece == null && piece.ownerPlayer == turnPlayer) {
       selectedCapturedPiece = piece;
@@ -118,6 +126,9 @@ class GameViewModel extends ChangeNotifier {
   }
 
   void tapSquare(Square square) {
+    if (isGameOver) {
+      return;
+    }
     // 駒が選択されていないかつマスに自分の駒がない時はreturnする
     if (selectedPiece == null && square.piece?.ownerPlayer != turnPlayer) {
       clearSelectedPiece();
@@ -249,15 +260,14 @@ class GameViewModel extends ChangeNotifier {
 
   void switchTurn(Move move) {
     clearSelectedPiece();
-    //　turnPlayerを切り替える前の盤面を記録していく
+    turnPlayer = turnPlayer.otherPlayer;
     _history.add(board);
     _gameResult =
         GameResult.create(move: move, sameBoardCounter: _sameBoardCounter);
-    if (_gameResult?.isGameOver ?? false) {
+    if (isGameOver) {
       notifyListeners();
       return;
     }
-    turnPlayer = turnPlayer.otherPlayer;
     Logger().i(kif.last);
     Logger().i(board.toKyokumenString);
   }
@@ -274,27 +284,56 @@ class GameViewModel extends ChangeNotifier {
     return move;
   }
 
-
   void startFromBeginning() {
     _board = AnimalShogi.initialBoard;
     _moves = [];
-    _history = [];
+    _history = [AnimalShogi.initialBoard];
     _gameResult = null;
     notifyListeners();
   }
 
   void wait() {
-    if(_history.isEmpty) {
+    if (_history.length < 2) {
       return;
     }
-    if(_history.length < 2) {
-      _board = AnimalShogi.initialBoard;
-    } else {
-      _board = _history[_history.length - 2];
-    }
+    _board = _history[_history.length - 2];
     _history.removeLast();
     _moves.removeLast();
     _gameResult = null;
+    notifyListeners();
+  }
+
+  void undo() {
+    if (_reviewIndex == 0) {
+      return;
+    }
+    if (_reviewIndex == null) {
+      _reviewIndex = _history.length - 2;
+    } else {
+      _reviewIndex = _reviewIndex! - 1;
+    }
+    _board = _history[_reviewIndex!];
+    notifyListeners();
+  }
+
+  void redo() {
+    if (_reviewIndex == _history.length - 1 || _reviewIndex == null) {
+      return;
+    }
+    _reviewIndex = _reviewIndex! + 1;
+    _board = _history[_reviewIndex!];
+    notifyListeners();
+  }
+
+  void undoAll() {
+    _reviewIndex = 0;
+    _board = _history[_reviewIndex!];
+    notifyListeners();
+  }
+
+  void redoAll() {
+    _reviewIndex = _history.length - 1;
+    _board = _history[_reviewIndex!];
     notifyListeners();
   }
 }
