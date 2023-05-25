@@ -304,7 +304,7 @@ class GameViewModel extends ChangeNotifier {
   }
 
   void undo() {
-    if (_reviewIndex == 0) {
+    if (_reviewIndex == 0 || _history.length < 2) {
       return;
     }
     if (_reviewIndex == null) {
@@ -326,12 +326,18 @@ class GameViewModel extends ChangeNotifier {
   }
 
   void undoAll() {
+    if (_history.length < 2 || _reviewIndex == 0) {
+      return;
+    }
     _reviewIndex = 0;
     _board = _history[_reviewIndex!];
     notifyListeners();
   }
 
   void redoAll() {
+    if (_history.length < 2 || _reviewIndex == _history.length - 1) {
+      return;
+    }
     _reviewIndex = _history.length - 1;
     _board = _history[_reviewIndex!];
     notifyListeners();

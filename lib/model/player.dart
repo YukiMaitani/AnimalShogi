@@ -1,8 +1,8 @@
 import '../foundation/animal_shogi.dart';
 
 enum Player {
-  first('先手', 1),
-  second('後手', -1);
+  first('せんて', 1),
+  second('ごて', -1);
 
   const Player(this.name, this.moveDirectionValue);
 
