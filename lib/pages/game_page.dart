@@ -30,10 +30,10 @@ class GamePage extends HookConsumerWidget {
     final message = switch (gameResult!) {
       GameContinue() => '続行',
       CatchTheLion() =>
-        'キャッチ！${(gameResult as CatchTheLion).winPlayer.name}の勝ち！',
+        'キャッチ！${(gameResult as CatchTheLion).winPlayer.name}のかち！',
       EnterEnemyEndLine() =>
-        'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}の勝ち！',
-      ThreeFoldRepetition() => '千日手',
+        'トライ！${(gameResult as EnterEnemyEndLine).winPlayer.name}のかち！',
+      ThreeFoldRepetition() => 'せんにちて',
     };
     showDialog(
         context: context,
@@ -147,7 +147,10 @@ class GamePage extends HookConsumerWidget {
           child: Stack(
             children: [
               Center(child: _buildPieceDefaultImage(piece.pieceType)),
-              _buildPieceDirectionsImage(piece.pieceType),
+              Padding(
+                padding: const EdgeInsets.all(4),
+                child: _buildPieceDirectionsImage(piece.pieceType),
+              ),
             ],
           ),
         ));
@@ -264,7 +267,7 @@ class GamePage extends HookConsumerWidget {
             context: context,
             builder: (context) {
               return AlertDialog(
-                content: const Text('一つまえのきょくめんにもどってもいい？'),
+                content: const Text('ひとつまえのきょくめんにもどってもいい？'),
                 actions: [
                   TextButton(
                     onPressed: () {
@@ -284,7 +287,7 @@ class GamePage extends HookConsumerWidget {
             },
           );
         },
-        child: const Text('待った'),
+        child: const Text('まった'),
       );
     });
   }
