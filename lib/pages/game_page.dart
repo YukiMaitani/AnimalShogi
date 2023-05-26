@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -58,25 +59,37 @@ class GamePage extends HookConsumerWidget {
     return HookConsumer(builder: (context, ref, child) {
       final isGameOver =
           ref.watch(gameProvider.select((value) => value.isGameOver));
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      return Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
-            child: _buildCapturedPieces(Player.second),
+          ColorFiltered(
+            colorFilter: ColorFilter.mode(
+                boardBodyColor.withOpacity(0.4), BlendMode.srcOver),
+            child: Assets.images.yamaFukei.image(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover),
           ),
-          _buildBoard(),
-          Padding(
-            padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
-            child: _buildCapturedPieces(Player.first),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 12, top: 20, bottom: 20),
+                child: _buildCapturedPieces(Player.second),
+              ),
+              _buildBoard(),
+              Padding(
+                padding: const EdgeInsets.only(left: 12, top: 20, bottom: 20),
+                child: _buildCapturedPieces(Player.first),
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                _buildStartFromBeginning(),
+                _buildWaitButton(),
+                _buildResignButton(),
+              ]),
+              const SizedBox(height: 20),
+              if (isGameOver) _buildUndoRedoButtonsRow(),
+            ],
           ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            _buildStartFromBeginning(),
-            _buildWaitButton(),
-            _buildResignButton(),
-          ]),
-          const SizedBox(height: 20),
-          if (isGameOver) _buildUndoRedoButtonsRow(),
         ],
       );
     });
@@ -122,12 +135,14 @@ class GamePage extends HookConsumerWidget {
               height: squareLength,
               child: Stack(
                 children: [
-                  Center(
-                    child: Assets.images.squareGridLine.image(
-                      width: squareLength,
-                      height: squareLength,
-                    ),
-                  ),
+                  DottedBorder(
+                      color: boardFrameBorderColor,
+                      strokeWidth: 2,
+                      dashPattern: const [5, 5],
+                      child: SizedBox(
+                        width: squareLength,
+                        height: squareLength,
+                      )),
                   if (square.piece != null) _buildPiece(square.piece!),
                   if (square.isPlaceable)
                     Center(

@@ -18,8 +18,12 @@ class $AssetImagesGen {
   AssetGenImage get squareGridLine =>
       const AssetGenImage('asset/images/square_grid_line.png');
 
+  /// File path: asset/images/yama_fukei.png
+  AssetGenImage get yamaFukei =>
+      const AssetGenImage('asset/images/yama_fukei.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [squareGridLine];
+  List<AssetGenImage> get values => [squareGridLine, yamaFukei];
 }
 
 class $AssetImagesPieceGen {
