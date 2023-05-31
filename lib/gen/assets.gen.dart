@@ -9,81 +9,104 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetImagesGen {
-  const $AssetImagesGen();
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
 
-  $AssetImagesPieceGen get piece => const $AssetImagesPieceGen();
+  $AssetsImagesPieceGen get piece => const $AssetsImagesPieceGen();
 
-  /// File path: asset/images/square_grid_line.png
+  /// File path: assets/images/square_grid_line.png
   AssetGenImage get squareGridLine =>
-      const AssetGenImage('asset/images/square_grid_line.png');
+      const AssetGenImage('assets/images/square_grid_line.png');
 
-  /// File path: asset/images/yama_fukei.png
+  /// File path: assets/images/yama_fukei.png
   AssetGenImage get yamaFukei =>
-      const AssetGenImage('asset/images/yama_fukei.png');
+      const AssetGenImage('assets/images/yama_fukei.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [squareGridLine, yamaFukei];
 }
 
-class $AssetImagesPieceGen {
-  const $AssetImagesPieceGen();
+class $AssetsSoundsGen {
+  const $AssetsSoundsGen();
 
-  $AssetImagesPieceAnimalGen get animal => const $AssetImagesPieceAnimalGen();
-  $AssetImagesPieceDirectionsGen get directions =>
-      const $AssetImagesPieceDirectionsGen();
+  /// File path: assets/sounds/chick_sounds.mp3
+  String get chickSounds => 'assets/sounds/chick_sounds.mp3';
+
+  /// File path: assets/sounds/chicken_sounds.mp3
+  String get chickenSounds => 'assets/sounds/chicken_sounds.mp3';
+
+  /// File path: assets/sounds/elephant_sounds.mp3
+  String get elephantSounds => 'assets/sounds/elephant_sounds.mp3';
+
+  /// File path: assets/sounds/giraffe_sounds.mp3
+  String get giraffeSounds => 'assets/sounds/giraffe_sounds.mp3';
+
+  /// File path: assets/sounds/lion_sounds.mp3
+  String get lionSounds => 'assets/sounds/lion_sounds.mp3';
+
+  /// List of all assets
+  List<String> get values =>
+      [chickSounds, chickenSounds, elephantSounds, giraffeSounds, lionSounds];
 }
 
-class $AssetImagesPieceAnimalGen {
-  const $AssetImagesPieceAnimalGen();
+class $AssetsImagesPieceGen {
+  const $AssetsImagesPieceGen();
 
-  /// File path: asset/images/piece/animal/chick.png
+  $AssetsImagesPieceAnimalGen get animal => const $AssetsImagesPieceAnimalGen();
+  $AssetsImagesPieceDirectionsGen get directions =>
+      const $AssetsImagesPieceDirectionsGen();
+}
+
+class $AssetsImagesPieceAnimalGen {
+  const $AssetsImagesPieceAnimalGen();
+
+  /// File path: assets/images/piece/animal/chick.png
   AssetGenImage get chick =>
-      const AssetGenImage('asset/images/piece/animal/chick.png');
+      const AssetGenImage('assets/images/piece/animal/chick.png');
 
-  /// File path: asset/images/piece/animal/chicken.png
+  /// File path: assets/images/piece/animal/chicken.png
   AssetGenImage get chicken =>
-      const AssetGenImage('asset/images/piece/animal/chicken.png');
+      const AssetGenImage('assets/images/piece/animal/chicken.png');
 
-  /// File path: asset/images/piece/animal/elephant.png
+  /// File path: assets/images/piece/animal/elephant.png
   AssetGenImage get elephant =>
-      const AssetGenImage('asset/images/piece/animal/elephant.png');
+      const AssetGenImage('assets/images/piece/animal/elephant.png');
 
-  /// File path: asset/images/piece/animal/giraffe.png
+  /// File path: assets/images/piece/animal/giraffe.png
   AssetGenImage get giraffe =>
-      const AssetGenImage('asset/images/piece/animal/giraffe.png');
+      const AssetGenImage('assets/images/piece/animal/giraffe.png');
 
-  /// File path: asset/images/piece/animal/lion_king.png
+  /// File path: assets/images/piece/animal/lion_king.png
   AssetGenImage get lionKing =>
-      const AssetGenImage('asset/images/piece/animal/lion_king.png');
+      const AssetGenImage('assets/images/piece/animal/lion_king.png');
 
   /// List of all assets
   List<AssetGenImage> get values =>
       [chick, chicken, elephant, giraffe, lionKing];
 }
 
-class $AssetImagesPieceDirectionsGen {
-  const $AssetImagesPieceDirectionsGen();
+class $AssetsImagesPieceDirectionsGen {
+  const $AssetsImagesPieceDirectionsGen();
 
-  /// File path: asset/images/piece/directions/chick_directions.png
-  AssetGenImage get chickDirections =>
-      const AssetGenImage('asset/images/piece/directions/chick_directions.png');
+  /// File path: assets/images/piece/directions/chick_directions.png
+  AssetGenImage get chickDirections => const AssetGenImage(
+      'assets/images/piece/directions/chick_directions.png');
 
-  /// File path: asset/images/piece/directions/chicken_directions.png
+  /// File path: assets/images/piece/directions/chicken_directions.png
   AssetGenImage get chickenDirections => const AssetGenImage(
-      'asset/images/piece/directions/chicken_directions.png');
+      'assets/images/piece/directions/chicken_directions.png');
 
-  /// File path: asset/images/piece/directions/elephant_directions.png
+  /// File path: assets/images/piece/directions/elephant_directions.png
   AssetGenImage get elephantDirections => const AssetGenImage(
-      'asset/images/piece/directions/elephant_directions.png');
+      'assets/images/piece/directions/elephant_directions.png');
 
-  /// File path: asset/images/piece/directions/giraffe_directions.png
+  /// File path: assets/images/piece/directions/giraffe_directions.png
   AssetGenImage get giraffeDirections => const AssetGenImage(
-      'asset/images/piece/directions/giraffe_directions.png');
+      'assets/images/piece/directions/giraffe_directions.png');
 
-  /// File path: asset/images/piece/directions/lion_directions.png
+  /// File path: assets/images/piece/directions/lion_directions.png
   AssetGenImage get lionDirections =>
-      const AssetGenImage('asset/images/piece/directions/lion_directions.png');
+      const AssetGenImage('assets/images/piece/directions/lion_directions.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -98,7 +121,8 @@ class $AssetImagesPieceDirectionsGen {
 class Assets {
   Assets._();
 
-  static const $AssetImagesGen images = $AssetImagesGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSoundsGen sounds = $AssetsSoundsGen();
 }
 
 class AssetGenImage {

@@ -125,7 +125,7 @@ class GameViewModel extends ChangeNotifier {
     }
   }
 
-  void tapSquare(Square square) {
+  void tapSquare(Square square, Function(Piece selectedPiece)? callback) {
     if (isGameOver) {
       return;
     }
@@ -156,6 +156,7 @@ class GameViewModel extends ChangeNotifier {
 
     // 選択された駒が持ち駒の場合、持ち駒を置く
     if (selectedPiece!.isCaptured) {
+      callback?.call(selectedPiece!);
       placeCapturedPiece(selectedPiece!, square);
       return;
     }
@@ -164,12 +165,14 @@ class GameViewModel extends ChangeNotifier {
 
     // 駒がない場合、駒を移動させる
     if (square.piece == null) {
+      callback?.call(selectedPiece!);
       movePiece(square);
       return;
     }
 
     // 駒がある場合、それは相手の駒なので駒を取り持ち駒にする
     if (square.piece != null) {
+      callback?.call(selectedPiece!);
       catchEnemyPiece(square);
       return;
     }

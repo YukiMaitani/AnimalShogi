@@ -11,7 +11,7 @@ class MyApp extends HookConsumerWidget{
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const MaterialApp(
+    return MaterialApp(
         home: GamePage()
     );
   }

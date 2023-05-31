@@ -4,7 +4,7 @@ import '../foundation/colors.dart';
 import 'direction.dart';
 
 enum PieceType {
-  lion('ライオン', '獅', pieceLionColor, [
+  lion('ライオン', '獅', 'lion', pieceLionColor, [
     Direction.up,
     Direction.down,
     Direction.right,
@@ -14,20 +14,20 @@ enum PieceType {
     Direction.downRight,
     Direction.downLeft,
   ]),
-  giraffe('きりん', '麒', pieceGiraffeElephantColor, [
+  giraffe('きりん', '麒', 'giraffe', pieceGiraffeElephantColor, [
     Direction.up,
     Direction.down,
     Direction.right,
     Direction.left,
   ]),
-  elephant('ぞう', '象', pieceGiraffeElephantColor, [
+  elephant('ぞう', '象', 'elephant', pieceGiraffeElephantColor, [
     Direction.upRight,
     Direction.upLeft,
     Direction.downRight,
     Direction.downLeft,
   ]),
-  chick('ひよこ', '雛', pieceChickChickenColor, [Direction.up]),
-  chicken('にわとり', '鶏', pieceChickChickenColor, [
+  chick('ひよこ', '雛', 'chick', pieceChickChickenColor, [Direction.up]),
+  chicken('にわとり', '鶏', 'chicken', pieceChickChickenColor, [
     Direction.up,
     Direction.down,
     Direction.right,
@@ -36,10 +36,12 @@ enum PieceType {
     Direction.upLeft
   ]);
 
-  const PieceType(this.name, this.kanji, this.backgroundColor, this.directions);
+  const PieceType(this.pieceName, this.kanji, this.name, this.backgroundColor,
+      this.directions);
 
-  final String name;
+  final String pieceName;
   final String kanji;
+  final String name;
   final Color backgroundColor;
   final List<Direction> directions;
 }

@@ -9,9 +9,14 @@ import '../foundation/colors.dart';
 import '../gen/assets.gen.dart';
 import '../model/model.dart';
 import 'game_view_model.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class GamePage extends HookConsumerWidget {
-  const GamePage({super.key});
+  GamePage({super.key});
+
+  final _audioPlayer = AudioPlayer();
+  final _soundsPrefix = 'sounds/';
+  final _soundsSuffix = '_sounds.mp3';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -128,7 +133,10 @@ class GamePage extends HookConsumerWidget {
     return HookConsumer(builder: (context, ref, child) {
       return GestureDetector(
           onTap: () {
-            ref.read(gameProvider).tapSquare(square);
+            ref.read(gameProvider).tapSquare(square, (selectedPiece) {
+              _audioPlayer.play(AssetSource(
+                  '$_soundsPrefix${selectedPiece.pieceType.name}$_soundsSuffix'));
+            });
           },
           child: SizedBox(
               width: squareLength,
