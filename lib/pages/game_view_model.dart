@@ -87,13 +87,10 @@ class GameViewModel extends ChangeNotifier {
 
   Piece? get selectedPiece => selectedSquare?.piece ?? selectedCapturedPiece;
 
-  List<Piece> get firstPlayerCapturedPieces => capturedPieces
-      .where((piece) => piece.ownerPlayer == Player.first)
-      .toList();
+  List<Piece> get firstPlayerCapturedPieces => board.firstPlayerCapturedPieces;
 
-  List<Piece> get secondPlayerCapturedPieces => capturedPieces
-      .where((piece) => piece.ownerPlayer == Player.second)
-      .toList();
+  List<Piece> get secondPlayerCapturedPieces =>
+      board.secondPlayerCapturedPieces;
 
   Map<Board, int> get _sameBoardCounter =>
       _history.fold({}, (boardCounter, board) {
@@ -273,6 +270,7 @@ class GameViewModel extends ChangeNotifier {
     }
     Logger().i(kif.last);
     Logger().i(board.toKyokumenString);
+    Logger().i(board.toSfen);
   }
 
   Move createMove(Square toSquare) {

@@ -28,4 +28,13 @@ extension PlayerExtension on Player {
         return AnimalShogi.firstPlayerEnemyEndLine;
     }
   }
+
+  String get sfen {
+    switch (this) {
+      case Player.first:
+        return 'b';
+      case Player.second:
+        return 'w';
+    }
+  }
 }

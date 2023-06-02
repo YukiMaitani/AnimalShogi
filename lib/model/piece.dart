@@ -40,4 +40,13 @@ sealed class Piece with _$Piece {
 extension PieceExtension on Piece {
   String get toPieceString =>
       '${ownerPlayer == Player.second && !isCaptured ? 'v' : ''}${pieceType.kanji}';
+
+  String get sfen {
+    switch (ownerPlayer) {
+      case Player.first:
+        return pieceType.firstPlayerSfen;
+      case Player.second:
+        return pieceType.firstPlayerSfen.toLowerCase();
+    }
+  }
 }
