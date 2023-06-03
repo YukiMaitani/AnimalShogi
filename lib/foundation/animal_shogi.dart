@@ -8,11 +8,13 @@ class AnimalShogi {
 
   // position基準
   static int get firstPlayerEnemyEndLine => maxColumn - 1;
+
   static int get secondPlayerEnemyEndLine => 0;
 
   static const List<String> rowStrings = ['A', 'B', 'C'];
   static const List<String> columnStrings = ['1', '2', '3', '4'];
 
+  static const String intialSfen = 'gle/1y1/1Y1/ELG b -';
   static Map<Position, Piece> initialPieces = {
     Position(row: 1, column: 2): const ChickPiece(ownerPlayer: Player.first),
     Position(row: 0, column: 3): const ElephantPiece(ownerPlayer: Player.first),

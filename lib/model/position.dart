@@ -12,6 +12,11 @@ class Position with _$Position {
 
   Position._();
 
+  static Position fromSquareIndex(int squareIndex) => Position(
+        row: squareIndex % AnimalShogi.maxRow,
+        column: squareIndex ~/ AnimalShogi.maxRow,
+      );
+
   int get squareIndex => row + column * AnimalShogi.maxRow;
 
   bool get isOutsideOfBoard =>

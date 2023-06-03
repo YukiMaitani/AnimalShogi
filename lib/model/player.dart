@@ -29,12 +29,23 @@ extension PlayerExtension on Player {
     }
   }
 
-  String get sfen {
+  String get toSfen {
     switch (this) {
       case Player.first:
         return 'b';
       case Player.second:
         return 'w';
+    }
+  }
+
+  static Player fromSfen(String sfen) {
+    switch (sfen) {
+      case 'b':
+        return Player.first;
+      case 'w':
+        return Player.second;
+      default:
+        throw ArgumentError('sfen must be b or w');
     }
   }
 }

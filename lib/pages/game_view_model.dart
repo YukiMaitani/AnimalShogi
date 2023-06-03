@@ -8,7 +8,7 @@ import '../model/model.dart';
 final gameProvider = ChangeNotifierProvider((ref) => GameViewModel());
 
 class GameViewModel extends ChangeNotifier {
-  Board _board = AnimalShogi.initialBoard;
+  Board _board = Board.fromSfen(AnimalShogi.intialSfen);
 
   Board get board => _board;
 
