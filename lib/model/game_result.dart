@@ -26,7 +26,7 @@ sealed class GameResult with _$GameResult {
   // moveではなくboardでも可能だが、moveの方が計算量が少なくなると考えmoveを採用
   // 通常の将棋なら詰判定があるためboardにすると思うが、動物将棋は詰判定がないためmoveでも十分
   static GameResult create(
-      {required Move move, required Map<Board, int> sameBoardCounter}) {
+      {required Move move, required Map<String, int> sameBoardCounter}) {
     if (move is BoardPieceMove && move.catchTheLionPlayer != null) {
       return GameResult.catchTheLion(winPlayer: move.catchTheLionPlayer!);
     }

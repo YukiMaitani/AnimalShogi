@@ -92,13 +92,12 @@ class GameViewModel extends ChangeNotifier {
   List<Piece> get secondPlayerCapturedPieces =>
       board.secondPlayerCapturedPieces;
 
-  Map<Board, int> get _sameBoardCounter =>
+  Map<String, int> get _sameBoardCounter =>
       _history.fold({}, (boardCounter, boardSfen) {
-        final board = Board.fromSfen(boardSfen);
-        if (boardCounter.containsKey(board)) {
-          boardCounter[board] = boardCounter[board]! + 1;
+        if (boardCounter.containsKey(boardSfen)) {
+          boardCounter[boardSfen] = boardCounter[boardSfen]! + 1;
         } else {
-          boardCounter[board] = 1;
+          boardCounter[boardSfen] = 1;
         }
         return boardCounter;
       });
