@@ -27,11 +27,11 @@ class GameViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Board> _history = [AnimalShogi.initialBoard];
+  List<String> _history = [AnimalShogi.intialSfen];
 
-  List<Board> get history => _history;
+  List<String> get history => _history;
 
-  set history(List<Board> value) {
+  set history(List<String> value) {
     _history = value;
     notifyListeners();
   }
@@ -93,7 +93,8 @@ class GameViewModel extends ChangeNotifier {
       board.secondPlayerCapturedPieces;
 
   Map<Board, int> get _sameBoardCounter =>
-      _history.fold({}, (boardCounter, board) {
+      _history.fold({}, (boardCounter, boardSfen) {
+        final board = Board.fromSfen(boardSfen);
         if (boardCounter.containsKey(board)) {
           boardCounter[board] = boardCounter[board]! + 1;
         } else {
@@ -261,7 +262,7 @@ class GameViewModel extends ChangeNotifier {
   void switchTurn(Move move) {
     clearSelectedPiece();
     turnPlayer = turnPlayer.otherPlayer;
-    _history.add(board);
+    _history.add(board.toSfen);
     _gameResult =
         GameResult.create(move: move, sameBoardCounter: _sameBoardCounter);
     if (isGameOver) {
@@ -286,9 +287,9 @@ class GameViewModel extends ChangeNotifier {
   }
 
   void startFromBeginning() {
-    _board = AnimalShogi.initialBoard;
+    _board = Board.fromSfen(AnimalShogi.intialSfen);
     _moves = [];
-    _history = [AnimalShogi.initialBoard];
+    _history = [AnimalShogi.intialSfen];
     _gameResult = null;
     notifyListeners();
   }
@@ -297,7 +298,7 @@ class GameViewModel extends ChangeNotifier {
     if (_history.length < 2) {
       return;
     }
-    _board = _history[_history.length - 2];
+    _board = Board.fromSfen(_history[_history.length - 2]);
     _history.removeLast();
     _moves.removeLast();
     _gameResult = null;
@@ -313,7 +314,7 @@ class GameViewModel extends ChangeNotifier {
     } else {
       _reviewIndex = _reviewIndex! - 1;
     }
-    _board = _history[_reviewIndex!];
+    _board = Board.fromSfen(_history[_reviewIndex!]);
     notifyListeners();
   }
 
@@ -322,7 +323,7 @@ class GameViewModel extends ChangeNotifier {
       return;
     }
     _reviewIndex = _reviewIndex! + 1;
-    _board = _history[_reviewIndex!];
+    _board = Board.fromSfen(_history[_reviewIndex!]);
     notifyListeners();
   }
 
@@ -331,7 +332,7 @@ class GameViewModel extends ChangeNotifier {
       return;
     }
     _reviewIndex = 0;
-    _board = _history[_reviewIndex!];
+    _board = Board.fromSfen(_history[_reviewIndex!]);
     notifyListeners();
   }
 
@@ -340,7 +341,7 @@ class GameViewModel extends ChangeNotifier {
       return;
     }
     _reviewIndex = _history.length - 1;
-    _board = _history[_reviewIndex!];
+    _board = Board.fromSfen(_history[_reviewIndex!]);
     notifyListeners();
   }
 

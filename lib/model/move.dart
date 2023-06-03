@@ -56,7 +56,7 @@ extension BoardPieceMoveExtension on BoardPieceMove {
 extension MoveExtension on Move {
   String get toKif => switch (this) {
         BoardPieceMove() =>
-          '${to.position.toKif}${piece.pieceType.name}${(this as BoardPieceMove).isPromotion ? '成' : ''}(${(this as BoardPieceMove).from.position.toKif})',
-        CapturedPieceMove() => '${to.position.toKif}${piece.pieceType.name}打'
+          '${to.position.toKif}${piece.pieceType.pieceName}${(this as BoardPieceMove).isPromotion ? '成' : ''}(${(this as BoardPieceMove).from.position.toKif})',
+        CapturedPieceMove() => '${to.position.toKif}${piece.pieceType.pieceName}打'
       };
 }
